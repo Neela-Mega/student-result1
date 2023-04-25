@@ -208,7 +208,7 @@ function showValues(str) {
                     <td><?php  echo $row['REGNO'];?></td>
                     <td><?php  echo $row['NAME'];?></td>
                     <td><?php  echo $row[$code];?></td>
-                    <td><a href="editResult.php?editResultId=<?php echo $row['REGNO'];?>&subcode=<?php echo $code;?>" title="Edit Details"><i class="fa fa-edit fa-1x"></i></a></td>
+                    <td><a href="editResult.php?editResultId=<?php echo $row['REGNO'];?>&subcode=<?php echo $code;?>&grade=<?php echo $row[$code];?>" title="Edit Details"><i class="fa fa-edit fa-1x"></i></a></td>
                     
                     
                    
