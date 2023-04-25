@@ -5,17 +5,16 @@
     include('../includes/session.php');
     error_reporting(0);
 
-
 if(isset($_GET['editResultId'])){
 
 $REG_NO=$_SESSION['editResultId'] = $_GET['editResultId'];
-
+$sem=$_GET['sem'];
 $code=$_GET['subcode'];
 $grade=$_GET['grade'];
 
 
 
-$query = mysqli_query($con1,"select third.REGNO,third.NAME,$code from third where REGNO='$_SESSION[editResultId]'");
+$query = mysqli_query($con1,"select REGNO,NAME,$code from $sem where REGNO='$_SESSION[editResultId]'");
 $rowi = mysqli_fetch_array($query);
 
 }
@@ -26,7 +25,6 @@ echo "<script type = \"text/javascript\">
     window.location = (\"studentList.php\")
     </script>"; 
 }
-
 if(isset($_POST['submit'])){
 
      $alertStyle ="";
@@ -41,7 +39,7 @@ if(isset($_POST['submit'])){
 
     // }
     // else{
-    $ret=mysqli_query($con1,"update third set $code='$up_grade' where REGNO='$REG_NO'");
+    $ret=mysqli_query($con1,"update $sem set $code='$up_grade' where REGNO='$REG_NO'");
     if ($ret) {
         $alertStyle ="alert alert-success";
        $statusMsg="Subject Edited Successfully!";

@@ -191,9 +191,10 @@ function showValues(str) {
                                     
                                     case 2:
                                         $ret=mysqli_query($con1,"SELECT second.REGNO,second.NAME,$code from second");     
-                            
+                                        $sem="second";
                                     case 3:   
                                 $ret=mysqli_query($con1,"SELECT third.REGNO,third.NAME,$code from third");
+                                $sem="third";
                                     }
                                 while($row=mysqli_fetch_array($ret))
                                 {
@@ -208,7 +209,7 @@ function showValues(str) {
                     <td><?php  echo $row['REGNO'];?></td>
                     <td><?php  echo $row['NAME'];?></td>
                     <td><?php  echo $row[$code];?></td>
-                    <td><a href="editResult.php?editResultId=<?php echo $row['REGNO'];?>&subcode=<?php echo $code;?>&grade=<?php echo $row[$code];?>" title="Edit Details"><i class="fa fa-edit fa-1x"></i></a></td>
+                    <td><a href="editResult.php?editResultId=<?php echo $row['REGNO'];?>&subcode=<?php echo $code;?>&grade=<?php echo $row[$code];?>&sem=<?php echo $sem;?>" title="Edit Details"><i class="fa fa-edit fa-1x"></i></a></td>
                     
                     
                    
