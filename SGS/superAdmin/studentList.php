@@ -190,25 +190,11 @@ function showValues(str) {
                                 {
                                     
                                     case 2:
-                                        echo"$code";
-                                        echo"$semester";
-                                        echo" 2 connect";
-                                        $ret=mysqli_query($con1,"SELECT second.REGNO,second.NAME,$code from second");
-                                        while($row=mysqli_fetch_array($ret)){
-                                            
-                                               
-                                       
-        
-                                     
-                                                
+                                        $ret=mysqli_query($con1,"SELECT second.REGNO,second.NAME,$code from second");     
                             
-                           
-                            }
-                            
-                                case 3:
-                                    
-                                    
+                                    case 3:   
                                 $ret=mysqli_query($con1,"SELECT third.REGNO,third.NAME,$code from third");
+                                    }
                                 while($row=mysqli_fetch_array($ret))
                                 {
                                     
@@ -233,8 +219,6 @@ function showValues(str) {
                     $cnt=$cnt+1;
                     
                         }
-                        
-                    }
                     
                              }
                 ?>
