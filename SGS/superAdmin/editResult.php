@@ -41,9 +41,7 @@ if(isset($_POST['submit'])){
 
     // }
     // else{
-        echo $up_grade;
     $ret=mysqli_query($con1,"update third set $code='$up_grade' where REGNO='$REG_NO'");
-echo "hi";
     if ($ret) {
         $alertStyle ="alert alert-success";
        $statusMsg="Subject Edited Successfully!";
