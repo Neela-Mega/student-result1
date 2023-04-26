@@ -5,16 +5,16 @@
     include('../includes/session.php');
     error_reporting(0);
 
-
 if(isset($_GET['editResultId'])){
 
-$_SESSION['editResultId'] = $_GET['editResultId'];
-
+$REG_NO=$_SESSION['editResultId'] = $_GET['editResultId'];
+$sem=$_GET['sem'];
 $code=$_GET['subcode'];
+$grade=$_GET['grade'];
 
 
 
-$query = mysqli_query($con1,"select third.REGNO,third.NAME,$code from third where REGNO='$_SESSION[editResultId]'");
+$query = mysqli_query($con1,"select REGNO,NAME,$code from $sem where REGNO='$_SESSION[editResultId]'");
 $rowi = mysqli_fetch_array($query);
 
 }
@@ -25,17 +25,11 @@ echo "<script type = \"text/javascript\">
     window.location = (\"studentList.php\")
     </script>"; 
 }
-
 if(isset($_POST['submit'])){
 
      $alertStyle ="";
       $statusMsg="";
-
-  $REGNO=$_POST['REGNO'];
-  $NAME=$_POST['NAME'];
-  $code=$_POST['$code'];
-  
-  
+    $up_grade=$_POST['up_grade'];
     // $query=mysqli_query($con,"select * from tblstudent where matricno !='$matricNo'");
     // $ret=mysqli_fetch_array($query);
     // if($ret > 0){
@@ -45,10 +39,7 @@ if(isset($_POST['submit'])){
 
     // }
     // else{
-
-    $ret=mysqli_query($con1,"update students set REGNO='$REGNO', NAME='$NAME', $code ='$code'
-    where REGNO='$_SESSION[editStudentId]'");
-
+    $ret=mysqli_query($con1,"update $sem set $code='$up_grade' where REGNO='$REG_NO'");
     if ($ret) {
         $alertStyle ="alert alert-success";
        $statusMsg="Subject Edited Successfully!";
@@ -174,12 +165,12 @@ function showValues(str) {
                                                 <div class="col-6">
                                                     <div class="form-group">
                                                         <label for="cc-exp" class="control-label mb-1">Register No</label>
-                                                        <input id="" name="regno" type="text" class="form-control cc-exp" value="<?php echo $rowi['REGNO'];?>" Required data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="Enter your register Number">
+                                                        <input readonly id="" name="regno" type="text" class="form-control cc-exp" value="<?php echo $rowi['REGNO'];?>" Required data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="Enter your register Number">
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
                                                     <label for="x_card_code" class="control-label mb-1">Student Name</label>
-                                                        <input id="" name="studentname" type="text" class="form-control cc-cvc" value="<?php echo $rowi['NAME'];?>" Required data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder="Enter Student name">
+                                                        <input readonly id="" name="studentname" type="text" class="form-control cc-cvc" value="<?php echo $rowi['NAME'];?>" Required data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder="Enter Student name">
                                                         </div>
                                                     </div>
                                                     <div>
@@ -188,7 +179,7 @@ function showValues(str) {
                                                 <div class="col-6">
                                                     <div class="form-group">
                                                         <label for="cc-exp" class="control-label mb-1">Result</label>
-                                                        <input id="" name="batch" type="text"  class="form-control cc-exp" value="<?php echo $rowi['$code'];?>" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="Enter Grade">
+                                                        <input id="" name="up_grade" type="text"  class="form-control cc-exp" value="<?php echo $grade;?>" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="Enter Grade">
                                                     </div>
                                                 </div>
                                             
