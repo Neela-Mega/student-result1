@@ -161,6 +161,7 @@ function showValues(str) {
                             <div class="card-header">
                                 <strong class="card-title"><h2 align="center">All Student</h2></strong>
                             </div>
+                           
                             <div class="card-body">
                                <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
                                     <thead>
@@ -188,6 +189,33 @@ function showValues(str) {
                                 
                                 switch($semester)
                                 {
+                                    case 1:
+                                        
+                                        $ret=mysqli_query($con1,"SELECT first.REGNO,first.NAME,$code from first");
+                                        while($row=mysqli_fetch_array($ret)){
+                                            
+                                               
+                                       
+                                ?>   
+                                                      
+                                        
+                                <tr>
+                                <td><?php echo $cnt;?></td>
+                                
+                                <td><?php  echo $row['REGNO'];?></td>
+                                <td><?php  echo $row['NAME'];?></td>
+                                <td><?php  echo $row[$code];?></td>
+                                <td><a href="editResult.php?editResultId=<?php echo $row['REGNO'];?>&subcode=<?php echo $code;?>" title="Edit Details"><i class="fa fa-edit fa-1x"></i></a></td>
+                                
+                                
+                               
+                                
+                                </tr>
+                                            
+                                <?php 
+                                $cnt=$cnt+1;
+                                
+                                    }
                                     
                                     case 2:
                                         
@@ -226,6 +254,7 @@ function showValues(str) {
                                 case 3:
                                     
                                     
+
                                 $ret=mysqli_query($con1,"SELECT third.REGNO,third.NAME,$code from third");
                                 while($row=mysqli_fetch_array($ret))
                                 {
@@ -234,6 +263,141 @@ function showValues(str) {
                                 ?>   
                                                       
                                         
+                    <tr>
+                    <td><?php echo $cnt;?></td>
+                    
+                    <td><?php  echo $row['REGNO'];?></td>
+                    <td><?php  echo $row['NAME'];?></td>
+                    <td><?php  echo $row[$code];?></td>
+                    <td><a href="editResult.php?editResultId=<?php echo $row['REGNO'];?>&subcode=<?php echo $code;?>" title="Edit Details"><i class="fa fa-edit fa-1x"></i></a></td>
+                    
+                    
+                   
+                    
+                    </tr>
+                                
+                    <?php 
+                    $cnt=$cnt+1;
+                    
+                        }
+                        case 4:
+                                    
+                            $ret=mysqli_query($con1,"SELECT four.REGNO,four.NAME,$code from four");
+                            while($row=mysqli_fetch_array($ret)){
+                                
+                                   
+                           
+                    ?>   
+                                          
+                            
+                    <tr>
+                    <td><?php echo $cnt;?></td>
+                    
+                    <td><?php  echo $row['REGNO'];?></td>
+                    <td><?php  echo $row['NAME'];?></td>
+                    <td><?php  echo $row[$code];?></td>
+                    <td><a href="editResult.php?editResultId=<?php echo $row['REGNO'];?>&subcode=<?php echo $code;?>" title="Edit Details"><i class="fa fa-edit fa-1x"></i></a></td>
+                    
+                    
+                   
+                    
+                    </tr>
+                                
+                    <?php 
+                    $cnt=$cnt+1;
+                    
+                        }
+                        case 5:
+                                    
+                            $ret=mysqli_query($con1,"SELECT five.REGNO,five.NAME,$code from five");
+                            while($row=mysqli_fetch_array($ret)){
+                                
+                                   
+                           
+                    ?>   
+                                          
+                            
+                    <tr>
+                    <td><?php echo $cnt;?></td>
+                    
+                    <td><?php  echo $row['REGNO'];?></td>
+                    <td><?php  echo $row['NAME'];?></td>
+                    <td><?php  echo $row[$code];?></td>
+                    <td><a href="editResult.php?editResultId=<?php echo $row['REGNO'];?>&subcode=<?php echo $code;?>" title="Edit Details"><i class="fa fa-edit fa-1x"></i></a></td>
+                    
+                    
+                   
+                    
+                    </tr>
+                                
+                    <?php 
+                    $cnt=$cnt+1;
+                    
+                        }
+                        case 6:
+                                    
+                            $ret=mysqli_query($con1,"SELECT six.REGNO,six.NAME,$code from six");
+                            while($row=mysqli_fetch_array($ret)){
+                                
+                                   
+                           
+                    ?>   
+                                          
+                            
+                    <tr>
+                    <td><?php echo $cnt;?></td>
+                    
+                    <td><?php  echo $row['REGNO'];?></td>
+                    <td><?php  echo $row['NAME'];?></td>
+                    <td><?php  echo $row[$code];?></td>
+                    <td><a href="editResult.php?editResultId=<?php echo $row['REGNO'];?>&subcode=<?php echo $code;?>" title="Edit Details"><i class="fa fa-edit fa-1x"></i></a></td>
+                    
+                    
+                   
+                    
+                    </tr>
+                                
+                    <?php 
+                    $cnt=$cnt+1;
+                    
+                        }
+                        case 7:
+                                   
+                            $ret=mysqli_query($con1,"SELECT seven.REGNO,seven.NAME,$code from seven");
+                            while($row=mysqli_fetch_array($ret)){
+                                
+                                   
+                           
+                    ?>   
+                                          
+                            
+                    <tr>
+                    <td><?php echo $cnt;?></td>
+                    
+                    <td><?php  echo $row['REGNO'];?></td>
+                    <td><?php  echo $row['NAME'];?></td>
+                    <td><?php  echo $row[$code];?></td>
+                    <td><a href="editResult.php?editResultId=<?php echo $row['REGNO'];?>&subcode=<?php echo $code;?>" title="Edit Details"><i class="fa fa-edit fa-1x"></i></a></td>
+                    
+                    
+                   
+                    
+                    </tr>
+                                
+                    <?php 
+                    $cnt=$cnt+1;
+                    
+                        }
+                        case 8:
+                                      
+                            $ret=mysqli_query($con1,"SELECT eight.REGNO,eight.NAME,$code from eight");
+                            while($row=mysqli_fetch_array($ret)){
+                                
+                                   
+                           
+                    ?>   
+                                          
+                            
                     <tr>
                     <td><?php echo $cnt;?></td>
                     

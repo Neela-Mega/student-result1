@@ -31,11 +31,12 @@ if(isset($_POST['submit'])){
     $subjectcode=$_POST['subjectcode'];
     $subjectname=$_POST['subjectname'];
     $semester=$_POST['semester'];
+    $credits=$_POST['credits'];
     $year=$_POST['year'];
-    $faculty=$_POST['faculty'];
+    
     
 
-    $query=mysqli_query($con1,"update subjects set subjectcode='$subjectcode',subjectname='$subjectname',semester='$semester',year='$year', faculty='$faculty'
+    $query=mysqli_query($con1,"update subjects set subjectcode='$subjectcode',subjectname='$subjectname',semester='$semester',credits='$credits',year='$year'
     where subjectcode='$_SESSION[editCourseId]'");
 
     if ($query) {
@@ -216,20 +217,25 @@ function showLecturer(str) {
                                                         <input id="" name="semester" type="number" min=1 max=8 class="form-control cc-exp" value="<?php echo $rowi['semester'];?>"  placeholder="semester">
                                                     </div>
                                                 </div>
-                                            <div class="col-6">
+                                                <div class="col-6">
 												
-                                                    <label for="x_card_code" class="control-label mb-1">Year</label>
-                                                        <input id="" name="year" type="text" class="form-control cc-exp" value="<?php echo $rowi['year'];?>" Required placeholder="acadamic year(eg:2021-2022)">
+                                                    <label for="x_card_code" class="control-label mb-1">Credit Value</label>
+                                                        <input id="" name="credits" type="text" class="form-control cc-exp" value="<?php echo $rowi['credits'];?>" Required placeholder="Credits Value">
                                                         <!-- <input id="" maxlength="4" onkeypress="return isNumber(event)" name="courseId" type="text" class="form-control cc-cvc" Required data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder="Course ID should start from 0001"> -->
                                                         </div>
                                                     
-                                                    <div class="col-6">
-												<!-- Log on to codeastro.com for more projects! -->
-                                                    <label for="x_card_code" class="control-label mb-1">Faculty</label>
-                                                        <input id="" name="faculty" type="text" class="form-control cc-exp" value="<?php echo $rowi['faculty'];?>" Required placeholder="subject taken faculty name">
+                                            <div class="col-6">
+                                            <div class="form-group">
+												
+                                                    <label for="cc-exp" class="control-label mb-1">Year</label>
+                                                        <input id="" name="year" type="text" class="form-control cc-exp" value="<?php echo $rowi['year'];?>" Required placeholder="acadamic year(eg:2021-2022)">
                                                         <!-- <input id="" maxlength="4" onkeypress="return isNumber(event)" name="courseId" type="text" class="form-control cc-cvc" Required data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder="Course ID should start from 0001"> -->
                                                         </div>
-                                                    </div>
+
+                                                        </div>
+                                                    
+                                                    
+                                                        
                                              <div class="row">
                                                 <div class="col-6">
                                                     <div class="form-group">
@@ -251,8 +257,10 @@ function showLecturer(str) {
                                                 </div>
                                                
                                             </div>
-                                                <button type="submit" name="submit" class="btn btn-primary">Update Course</button>
                                             </div>
+                                            
+                                                <button type="submit" name="submit" class="btn btn-primary">Update Course</button>
+                                            
                                         </form>
                                     </div>
                                 </div>

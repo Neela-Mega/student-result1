@@ -93,12 +93,14 @@
                                 <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            
                                             <th>Subjectcode</th>
                                             <th>Subjectname</th>
                                             <th>Semester</th>
+                                            <th>Credits</th>
+
                                             <th>Year</th>
-                                            <th>Faculty</th>
+                                            
                                             <th>Actions</th>
                                             
                                         </tr>
@@ -106,18 +108,19 @@
                                     <tbody>
                                       
                             <?php
-                $ret1=mysqli_query($con1,"SELECT subjects.subjectcode,subjects.subjectname,subjects.semester,
-                subjects.year,subjects.faculty from subjects");
+                $ret1=mysqli_query($con1,"SELECT subjects.subjectcode,subjects.subjectname,subjects.semester,subjects.credits,
+                subjects.year from subjects");
                 $cnt=1;
                 while ($row=mysqli_fetch_array($ret1)) {
                             ?>
                 <tr>
-                <td><?php echo $cnt;?></td>
+                
                 <td><?php  echo $row['subjectcode'];?></td>
                 <td><?php  echo $row['subjectname'];?></td>
                 <td><?php  echo $row['semester'];?></td>
+                <td><?php  echo $row['credits'];?></td>
                 <td><?php  echo $row['year'];?></td>
-                <td><?php  echo $row['faculty'];?></td>
+                
                 
                 <td><a href="editCourses.php?editCourseId=<?php echo $row['subjectcode'];?>" title="Edit Details"><i class="fa fa-edit fa-1x"></i></a>
                 <a onclick="return confirm('Are you sure you want to delete?')" href="deleteCourse.php?delid=<?php echo $row['subjectcode'];?>" title="Delete Course"><i class="fa fa-trash fa-1x"></i></a></td>

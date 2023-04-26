@@ -13,8 +13,9 @@ if(isset($_POST['submit'])){
     $subjectcode=$_POST['subjectcode'];
     $subjectname=$_POST['subjectname'];
     $semester=$_POST['semester'];
+    $credits=$_POST['credits'];
     $year=$_POST['year'];
-    $faculty=$_POST['faculty'];
+    
     
     //Checks the Course Code
     $query=mysqli_query($con1,"select * from subjects where subjectcode ='$subjectcode'");
@@ -27,12 +28,15 @@ if(isset($_POST['submit'])){
     }
     else{
 
-        $query=mysqli_query($con1,"insert into subjects(subjectcode,subjectname,semester,year,faculty) value('$subjectcode','$subjectname','$semester','$year','$faculty')");
+        $query=mysqli_query($con1,"insert into subjects(subjectcode,subjectname,semester,credits,year) value('$subjectcode','$subjectname','$semester','$credits','$year')");
 
     if ($query) {
         
        $alertStyle ="alert alert-success";
        $statusMsg="Course Created and Assigned Successfully!";
+       echo "<script type = \"text/javascript\">
+        window.location = (\"viewCourses.php\")
+        </script>"; 
     }
     else
     {
@@ -105,7 +109,7 @@ function showValues(str) {
 
 function showLecturer(str) {
     if (str == "") {
-        document.getElementById("txtHintt").innerHTML = "";
+        document.getElementById("txtHintt").innerHTML += "";
         return;
     } else { 
         if (window.XMLHttpRequest) {
@@ -117,7 +121,7 @@ function showLecturer(str) {
         }
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHintt").innerHTML = this.responseText;
+                document.getElementById("txtHintt").innerHTML += this.responseText;
             }
         };
         xmlhttp.open("GET","ajaxCallLecturer.php?deptId="+str,true);
@@ -201,39 +205,45 @@ function showLecturer(str) {
                                                 
                                                 
                                                     <div class="col-6">
-                                                    <div class="form-group">
+                                                    
 													<!-- Log on to codeastro.com for more projects! -->
                                                         <label for="cc-exp" class="control-label mb-1">Semester</label>
                                                         <input id="" name="semester" type="number" min=1 max=8 class="form-control cc-exp" value=""  placeholder="semester">
                                                     </div>
+                                                
+                                                <div class="col-6">
+                                                <div class="form-group">
+                                                   
+													<!-- Log on to codeastro.com for more projects! -->
+                                                        <label for="x_card_code" class="control-label mb-1">Credits</label>
+                                                        <input id="" name="credits" type="text"  class="form-control cc-exp" value=""  placeholder="Enter Subject Credit Value">
+                                                    </div>
                                                 </div>
-                                            <div class="col-6">
+                                            
+                                                <div class="col-6">
+                                                <div class="form-group">
 												
-                                                    <label for="x_card_code" class="control-label mb-1">Year</label>
+                                                    <label for="cc-exp" class="control-label mb-1">Year</label>
                                                         <input id="" name="year" type="text" class="form-control cc-exp" value="" Required placeholder="acadamic year(eg:2021-2022)">
                                                         <!-- <input id="" maxlength="4" onkeypress="return isNumber(event)" name="courseId" type="text" class="form-control cc-cvc" Required data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder="Course ID should start from 0001"> -->
                                                         </div>
                                                     
-                                                    <div class="col-6">
-												<!-- Log on to codeastro.com for more projects! -->
-                                                    <label for="x_card_code" class="control-label mb-1">Faculty</label>
-                                                        <input id="" name="faculty" type="text" class="form-control cc-exp" value="" Required placeholder="subject taken faculty name">
-                                                        <!-- <input id="" maxlength="4" onkeypress="return isNumber(event)" name="courseId" type="text" class="form-control cc-cvc" Required data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder="Course ID should start from 0001"> -->
                                                         </div>
-                                                    </div>
                                              <div class="row">
                                                 <div class="col-6">
                                                     <div class="form-group">
                                                     <?php
                                                         echo"<div id='txtHint'></div>";
                                                      ?>   
-                                                                                                            
-                                                </div>
+                                                                                                         
+                                                                                                         </div>
+                                            </div>
                                                 </div>
                                                
-                                            </div>
+
+</div>
                                                 <button type="submit" name="submit" class="btn btn-success">Add Course</button>
-                                            </div>
+                                            
                                         </form>
                                     </div>
                                 </div><!-- Log on to codeastro.com for more projects! -->
@@ -245,7 +255,7 @@ function showLecturer(str) {
                     <br><br>
                     <div class="col-md-12">
                         <div class="card">
-                            <
+                            
             </div>
         </div><!-- .animated -->
     </div><!-- .content -->

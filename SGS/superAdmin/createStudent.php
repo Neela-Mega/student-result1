@@ -31,6 +31,9 @@ if(isset($_POST['submit'])){
 
       $alertStyle ="alert alert-success";
       $statusMsg="Student Added Successfully!";
+      echo "<script type = \"text/javascript\">
+        window.location = (\"viewStudents.php\")
+        </script>"; 
   }
   else
     {
