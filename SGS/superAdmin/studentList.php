@@ -190,20 +190,38 @@ function showValues(str) {
                                 {
                                     
                                     case 2:
-                                        echo"$code";
-                                        echo"$semester";
-                                        echo" 2 connect";
+                                        
                                         $ret=mysqli_query($con1,"SELECT second.REGNO,second.NAME,$code from second");
                                         while($row=mysqli_fetch_array($ret)){
                                             
                                                
                                        
+                                ?>   
+                                                      
+                                        
+                                <tr>
+                                <td><?php echo $cnt;?></td>
+                                
+                                <td><?php  echo $row['REGNO'];?></td>
+                                <td><?php  echo $row['NAME'];?></td>
+                                <td><?php  echo $row[$code];?></td>
+                                <td><a href="editResult.php?editResultId=<?php echo $row['REGNO'];?>&subcode=<?php echo $code;?>" title="Edit Details"><i class="fa fa-edit fa-1x"></i></a></td>
+                                
+                                
+                               
+                                
+                                </tr>
+                                            
+                                <?php 
+                                $cnt=$cnt+1;
+                                
+                                    }
         
                                      
                                                 
                             
                            
-                            }
+                            
                             
                                 case 3:
                                     
@@ -240,7 +258,36 @@ function showValues(str) {
                 ?>
                 
                 </tbody>
-                            </table>                                                         
+                            </table>   
+
+<br>
+                            <div>
+												<!-- Log on to codeastro.com for more projects! -->
+                                                <button type="submit" name="percent" class="btn btn-success">CALCULATE PERCENTAGE</button>
+                                            </div>
+                            <BR>
+                            <div class="row">
+                                            <div class="col-6">
+                                                    <label for="x_card_code" class="control-label mb-1"> NUMBER OF STUDENTS PRESENT</label>
+                                                        <input id="" name="present" type="tel" class="form-control cc-cvc" value="" Required data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
+                                                        </div>
+                                                        </div> 
+                                                <BR>
+                                                <div class="row">
+                                                <div class="col-6">
+                                                    <label for="x_card_code" class="control-label mb-1">NUMBER OF STUDENTS PRESENT</label>
+                                                        <input id="" name="absent" type="tel" class="form-control cc-cvc" value="" Required data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
+                                                        </div>
+                                                        
+                                                    </div>   
+                                                    <br>  
+                                                    <div class="row">
+                                                <div class="col-6">
+                                                    <label for="x_card_code" class="control-label mb-1">PERCENTAGE</label>
+                                                        <input id="" name="percentage" type="tel" class="form-control cc-cvc" value="" Required data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
+                                                        </div>
+                                                        
+                                                    </div>                                                    
                                 
                             </div>
                         </div>
