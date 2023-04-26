@@ -30,22 +30,14 @@ if(isset($_POST['submit'])){
      $alertStyle ="";
       $statusMsg="";
     $up_grade=$_POST['up_grade'];
-    // $query=mysqli_query($con,"select * from tblstudent where matricno !='$matricNo'");
-    // $ret=mysqli_fetch_array($query);
-    // if($ret > 0){
-
-    //   $alertStyle ="alert alert-danger";
-    //   $statusMsg="Student with the Matric Number already exist!";
-
-    // }
-    // else{
+    
     $ret=mysqli_query($con1,"update $sem set $code='$up_grade' where REGNO='$REG_NO'");
     if ($ret) {
         $alertStyle ="alert alert-success";
        $statusMsg="Subject Edited Successfully!";
 
         echo "<script type = \"text/javascript\">
-        window.location = (\"viewStudent.php\")
+        window.location = (\"studentList.php\")
         </script>"; 
   }
   else
