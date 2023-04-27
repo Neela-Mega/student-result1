@@ -255,7 +255,7 @@ function showValues(str) {
                             </table>   
 
 <br>
-                             <form action="" method="POST">
+                             
                             <div>
 												<!-- Log on to codeastro.com for more projects! -->
                                                 <button type="submit" name="percent" class="btn btn-success" >CALCULATE PERCENTAGE</button>
@@ -283,7 +283,7 @@ function showValues(str) {
                                                         </div>
                                                         
                                                     </div>    
-                            </form>                                                
+                                                  
                                 
                             </div>
                         </div>
