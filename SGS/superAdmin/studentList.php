@@ -185,7 +185,7 @@ function showValues(str) {
                              {
                                 $code=$_POST['subjectcode'];
                                 $semester=$_POST['semester'];
-                                $cnt=1;
+                                $cnt=0;
                                 
                                 switch($semester)
                                 {
@@ -231,7 +231,7 @@ function showValues(str) {
                                                       
                                         
                     <tr>
-                    <td><?php echo $cnt;?></td>
+                    <td><?php echo ++$cnt;?></td>
                     
                     <td><?php  echo $row['REGNO'];?></td>
                     <td><?php  echo $row['NAME'];?></td>
@@ -243,8 +243,7 @@ function showValues(str) {
                     
                     </tr>
                                 
-                    <?php 
-                    $cnt=$cnt+1;
+                    <?php
                     
                         }
                         
@@ -256,6 +255,7 @@ function showValues(str) {
                             </table>   
 
 <br>
+                             <form action="" method="POST">
                             <div>
 												<!-- Log on to codeastro.com for more projects! -->
                                                 <button type="submit" name="percent" class="btn btn-success" >CALCULATE PERCENTAGE</button>
@@ -264,14 +264,14 @@ function showValues(str) {
                             <div class="row">
                                             <div class="col-6">
                                                     <label for="x_card_code" class="control-label mb-1"> NUMBER OF STUDENTS PRESENT</label>
-                                                        <input id="" name="present" type="tel" class="form-control cc-cvc" value="" Required data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
+                                                        <input id="" name="present" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
                                                         </div>
                                                         </div> 
                                                 <BR>
                                                 <div class="row">
                                                 <div class="col-6">
                                                     <label for="x_card_code" class="control-label mb-1">NUMBER OF STUDENTS ABSENT</label>
-                                                        <input id="" name="absent" type="tel" class="form-control cc-cvc" value="" Required data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
+                                                        <input id="" name="absent" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
                                                         </div>
                                                         
                                                     </div>   
@@ -279,10 +279,11 @@ function showValues(str) {
                                                     <div class="row">
                                                 <div class="col-6">
                                                     <label for="x_card_code" class="control-label mb-1">PERCENTAGE</label>
-                                                        <input id="" name="percentage" type="tel" class="form-control cc-cvc" value="" Required data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
+                                                        <input id="" name="percentage" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
                                                         </div>
                                                         
-                                                    </div>                                                    
+                                                    </div>    
+                            </form>                                                
                                 
                             </div>
                         </div>
@@ -294,23 +295,11 @@ function showValues(str) {
     </div><!-- .content -->
     <?php 
     if(isset($_POST['percent']))
-    {
-       
-        
-$sem=$_GET['sem'];
-$code=$_GET['subcode'];
-$grade=$_GET['grade'];
-$count=0;
+    {    
+        $sem=$_GET['sem'];
+        $code=$_GET['subcode'];
+        echo $sem;
 
-
-$query = mysqli_query($con1,"select $grade from $sem");
-$rowi = mysqli_fetch_array($query);
-while(!empty($rowi))
-{
-if($rowi['grade']=="UA")
-  $count=$count+1;
-}
-echo "no of absent".$count;
     }
     ?>
 
