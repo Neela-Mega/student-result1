@@ -299,7 +299,6 @@ function showValues(str) {
         $sem=$_GET['sem'];
         $code=$_GET['subcode'];
         echo $sem;
-
     }
     ?>
 
