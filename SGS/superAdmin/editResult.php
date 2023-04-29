@@ -1,4 +1,3 @@
-
 <?php
 
     include('../includes/dbconnection1.php');
@@ -10,12 +9,13 @@ if(isset($_GET['editResultId'])){
 $REG_NO=$_SESSION['editResultId'] = $_GET['editResultId'];
 $sem=$_GET['sem'];
 $code=$_GET['subcode'];
-$grade=$_GET['grade'];
 
-
-
-$query = mysqli_query($con1,"select REGNO,NAME,$code from $sem where REGNO='$_SESSION[editResultId]'");
+echo $sem;
+echo $code;
+echo $REG_NO;
+$query = mysqli_query($con1,"select REGNO,NAME,$code from $sem where REGNO='$REG_NO'");
 $rowi = mysqli_fetch_array($query);
+echo "hii";
 
 }
 
@@ -171,7 +171,7 @@ function showValues(str) {
                                                 <div class="col-6">
                                                     <div class="form-group">
                                                         <label for="cc-exp" class="control-label mb-1">Result</label>
-                                                        <input id="" name="up_grade" type="text"  class="form-control cc-exp" value="<?php echo $grade;?>" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="Enter Grade">
+                                                        <input id="" name="up_grade" type="text"  class="form-control cc-exp" value="<?php echo $rowi[$code];?>" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="Enter Grade">
                                                     </div>
                                                 </div>
                                             
