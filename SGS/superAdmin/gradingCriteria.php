@@ -75,91 +75,63 @@ if (isset($_POST['compute'])){
                             </div>
                             <div class="card-body">
                                 <table class="table table-hover table-striped table-bordered">
-                                       <thead>
-                                        <tr>
-                                            <th>Class Of Diploma</th>
-                                            <th>GPA</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                       
+                                 
                            
-                <tr >
-                <td>Distinction</td>
-                <td>3.50 and Above</td>
-                </tr>
-                 <tr >
-                <td>Upper Credit</td>
-                <td>3.00 - 3.49</td>
-                </tr>
-                 <tr >
-                <td>Lower Credit</td>
-                <td>2.50 - 2.99</td>
-                </tr>
-                 <tr >
-                <td>Pass</td>
-                <td>2.00 - 2.49</td>
-                </tr>
-                 <tr >
-                <td>Fail</td>
-                <td>Below 2.00</td>
-                </tr>
-                </tbody>
-            </table>
+               
 <!-------------------------- FROM THE FINAL RESULT TABLE --------------------------->
             <table class="table table-striped table-bordered">
                 <thead>
                 <tr>
-                    <th>Score</th>
+                    
                     <th>Grade Point Equivalent</th>
                     <th>Letter Grade</th>
                 </tr>
             </thead>
             <tbody>
                 <tr >
-                <td>75 - 100</td>
-                <td>4.00</td>
-                <td>AA</td>
+                
+                <td>10</td>
+                <td>O</td>
                 </tr>
                 <tr >
-                <td>70 - 74</td>
-                <td>3.50</td>
+                
+                <td>9</td>
+                <td>A+</td>
+                </tr>
+                <tr >
+                
+                <td>8</td>
                 <td>A</td>
                 </tr>
                 <tr >
-                <td>65 - 69</td>
-                <td>3.25</td>
-                <td>AB</td>
+                
+                <td>7</td>
+                <td>B+</td>
                 </tr>
                 <tr >
-                <td>60 - 64</td>
-                <td>3.00</td>
+                
+                <td>6</td>
                 <td>B</td>
                 </tr>
                 <tr >
-                <td>55 - 59</td>
-                <td>2.75</td>
-                <td>BC</td>
-                </tr>
-                <tr >
-                <td>50 - 54</td>
-                <td>2.50</td>
+                
+                <td>5</td>
                 <td>C</td>
                 </tr>
                 <tr >
-                <td>45 - 49</td>
-                <td>2.25</td>
-                <td>CD</td>
+                
+                <td>0</td>
+                <td>U</td>
                 </tr>
                 <tr >
-                <td>40 - 44</td>
-                <td>2.00</td>
-                <td>D</td>
+                
+                <td>ABSENT</td>
+                <td>UA</td>
                 </tr>
                 <tr >
-                <td>0 - 39</td>
-                <td>0.00</td>
-                <td>F</td>
-                </tr>
+                
+                
                                                                                     
                     </tbody>
                 </table>

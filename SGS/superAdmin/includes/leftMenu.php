@@ -85,10 +85,11 @@ $staffFullName = $row['firstName'].' '.$row['lastName'];
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-file"></i>Result 2021-2025</a>
                         <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-plus"></i> <a href="gradingCriteria.php">View Grading Criteria</a></li>
                             <li><i class="fa fa-plus"></i> <a href="studentList.php">View/Update Result</a></li>
-                            <li><i class="fa fa-plus"></i> <a href="studentList2.php">Compute CGPA</a></li>
-                            <li><i class="fa fa-plus"></i> <a href="studentList3.php">View/Print Result</a></li>                     
-                            <li><i class="fa fa-plus"></i> <a href="gradingCriteria.php">View Grading Criteria</a></li>
+                            <li><i class="fa fa-plus"></i> <a href="studentList2.php">Student Result</a></li>
+                            <li><i class="fa fa-plus"></i> <a href="studentList3.php">Compute CGPA</a></li>                     
+                            
 
                         </ul>
                     </li>
