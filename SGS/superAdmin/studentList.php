@@ -246,8 +246,6 @@ function showValues(str) {
                     <?php
                     
                         }
-                        
-                             }
                             
                 ?>
                 
@@ -255,33 +253,6 @@ function showValues(str) {
                             </table>   
 
 <br>
-                             
-                            <div>
-												<!-- Log on to codeastro.com for more projects! -->
-                                                <button type="submit" name="percent" class="btn btn-success" >CALCULATE PERCENTAGE</button>
-                                            </div>
-                            <BR>
-                            <div class="row">
-                                            <div class="col-6">
-                                                    <label for="x_card_code" class="control-label mb-1"> NUMBER OF STUDENTS PRESENT</label>
-                                                        <input id="" name="present" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
-                                                        </div>
-                                                        </div> 
-                                                <BR>
-                                                <div class="row">
-                                                <div class="col-6">
-                                                    <label for="x_card_code" class="control-label mb-1">NUMBER OF STUDENTS ABSENT</label>
-                                                        <input id="" name="absent" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
-                                                        </div>
-                                                        
-                                                    </div>   
-                                                    <br>  
-                                                    <div class="row">
-                                                <div class="col-6">
-                                                    <label for="x_card_code" class="control-label mb-1">PERCENTAGE</label>
-                                                        <input id="" name="percentage" type="tel" class="form-control cc-cvc" value="" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
-                                                        </div>
-                                                        
                                                     </div>    
                                                   
                                 
@@ -290,16 +261,42 @@ function showValues(str) {
                     </div>
 <!-- end of datatable -->
 
+<BR>
+<?php
+$count=mysqli_query($con1,"select * from $sem");
+$student_count = mysqli_num_rows( $count );
+$present=mysqli_query($con1,"select * from $sem where NOT $code='UA'");
+$student_present = mysqli_num_rows( $present );
+$pass=mysqli_query($con1,"select * from $sem where NOT $code='UA' AND NOT $code='U'");
+$student_pass = mysqli_num_rows( $pass );
+?>
+                            <div class="row">
+                                            <div class="col-6">
+                                                    <label for="x_card_code" class="control-label mb-1"> NUMBER OF STUDENTS PRESENT</label>
+                                                        <input id="" name="present" type="tel" class="form-control cc-cvc" value="<?php echo $student_present;?>" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
+                                                        </div>
+                                                        </div> 
+                                                <BR>
+                                                <div class="row">
+                                                <div class="col-6">
+                                                    <label for="x_card_code" class="control-label mb-1">NUMBER OF STUDENTS ABSENT</label>
+                                                        <input id="" name="absent" type="tel" class="form-control cc-cvc" value="<?php echo $student_count-$student_present;?>" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
+                                                        </div>
+                                                        
+                                                    </div>   
+                                                    <br>  
+                                                    <div class="row">
+                                                <div class="col-6">
+                                                    <label for="x_card_code" class="control-label mb-1">PERCENTAGE</label>
+                                                        <input id="" name="percentage" type="tel" class="form-control cc-cvc" value="<?php echo ($student_pass/$student_present)*100;?>" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
+                                                        </div>
+                                                        
             </div>
         </div><!-- .animated -->
     </div><!-- .content -->
+    
     <?php 
-    if(isset($_POST['percent']))
-    {    
-        $sem=$_GET['sem'];
-        $code=$_GET['subcode'];
-        echo $sem;
-    }
+                             }
     ?>
 
     <div class="clearfix"></div>
