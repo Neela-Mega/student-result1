@@ -6,6 +6,7 @@
     error_reporting(0);
 
   ?>
+  
 
 <!doctype html>
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
@@ -136,7 +137,7 @@ function showValues(str) {
                                              </div>
                                                 <div>
 												<!-- Log on to codeastro.com for more projects! -->
-                                                <button type="submit" name="submit" class="btn btn-success">View Result</button>
+                                                <button type="submit" name="submit" class="btn btn-success">Calculate CGPA</button>
                                             </div>
                                         </form>
                                     </div>
@@ -155,9 +156,20 @@ function showValues(str) {
                                <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            
                                             <th>Reg.no</th>
                                             <th>Student Name</th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
                                             <th> </th>
                                             <th> </th>
                                             <th> </th>
@@ -180,7 +192,7 @@ function showValues(str) {
                                     <tbody>
                                       
                             <?php
-                            $cnt=1;
+                           
                             if(isset($_POST['submit']))
                             {
                                
@@ -191,26 +203,14 @@ function showValues(str) {
                                 {
                                     case 1:
                                         echo"1 connected";
-                                        //$query=mysqli_query($con1,"select * from second ");  
-                                         //while($row=mysqli_fetch_array($query))
-                                         break;
-                                  
-                                    case 2:
-                                        echo"2 connected";
-                                        //$query=mysqli_query($con1,"select * from second ");  
-                                         //while($row=mysqli_fetch_array($query))
-                                         break;
-
-                                         case 3:
-                                            echo"3 connected";
-                                           $query=mysqli_query($con1,"select * from third ");  
-                                           $cnt=1;
+                                           $query=mysqli_query($con1,"select * from first ");  
+                                           
                                              while($row=mysqli_fetch_array($query))
                                              {
                                                 
                                                     ?>
                                 <tr>
-                                <td><?php echo $cnt;?></td>
+                               
                                 
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
@@ -225,35 +225,196 @@ function showValues(str) {
                                  <td><?php  echo $row[10];?></td>
                                  </tr>
                     <?php 
-                    $cnt=$cnt+1;
-                    }?>
-                                             <?php
+                    
+                    } break;
+                                  
+                                    case 2:
+                                        echo"2 connected";
+                                           $query=mysqli_query($con1,"select * from second ");  
+                                           
+                                             while($row=mysqli_fetch_array($query))
+                                             {
+                                                
+                                                    ?>
+                                <tr>
+                               
+                                
+                                <td><?php  echo $row['REGNO'];?></td>
+                                <td><?php  echo $row['NAME'];?></td>
+                                 <td><?php  echo $row[2];?></td>
+                                 <td><?php  echo $row[3];?></td>
+                                 <td><?php  echo $row[4];?></td>
+                                 <td><?php  echo $row[5];?></td>
+                                 <td><?php  echo $row[6];?></td>
+                                 <td><?php  echo $row[7];?></td>
+                                 <td><?php  echo $row[8];?></td>
+                                 <td><?php  echo $row[9];?></td>
+                                 <td><?php  echo $row[10];?></td>
+                                 </tr>
+                    <?php 
+                    
+                    }
+                                         break;
+
+                                         case 3:
+                                            echo"3 connected";
+                                           $query=mysqli_query($con1,"select * from third ");  
+                                           
+                                             while($row=mysqli_fetch_array($query))
+                                             {
+                                                
+                                                    ?>
+                                <tr>
+                               
+                                
+                                <td><?php  echo $row['REGNO'];?></td>
+                                <td><?php  echo $row['NAME'];?></td>
+                                 <td><?php  echo $row[2];?></td>
+                                 <td><?php  echo $row[3];?></td>
+                                 <td><?php  echo $row[4];?></td>
+                                 <td><?php  echo $row[5];?></td>
+                                 <td><?php  echo $row[6];?></td>
+                                 <td><?php  echo $row[7];?></td>
+                                 <td><?php  echo $row[8];?></td>
+                                 <td><?php  echo $row[9];?></td>
+                                 <td><?php  echo $row[10];?></td>
+                                 </tr>
+                    <?php 
+                    
+                    }
                                                                                           break;
                                              case 4:
                                                 echo"4 connected";
-                                                //$query=mysqli_query($con1,"select * from second ");  
-                                                 //while($row=mysqli_fetch_array($query))
+                                           $query=mysqli_query($con1,"select * from four ");  
+                                           
+                                             while($row=mysqli_fetch_array($query))
+                                             {
+                                                
+                                                    ?>
+                                <tr>
+                               
+                                
+                                <td><?php  echo $row['REGNO'];?></td>
+                                <td><?php  echo $row['NAME'];?></td>
+                                 <td><?php  echo $row[2];?></td>
+                                 <td><?php  echo $row[3];?></td>
+                                 <td><?php  echo $row[4];?></td>
+                                 <td><?php  echo $row[5];?></td>
+                                 <td><?php  echo $row[6];?></td>
+                                 <td><?php  echo $row[7];?></td>
+                                 <td><?php  echo $row[8];?></td>
+                                 <td><?php  echo $row[9];?></td>
+                                 <td><?php  echo $row[10];?></td>
+                                 </tr>
+                    <?php 
+                    
+                    }
                                                  break;
                                                  case 5:
-                                                    echo"5 connected";
-                                                    //$query=mysqli_query($con1,"select * from second ");  
-                                                     //while($row=mysqli_fetch_array($query))
-                                                     break;
+                                                   echo"5 connected";
+                                           $query=mysqli_query($con1,"select * from five ");  
+                                           
+                                             while($row=mysqli_fetch_array($query))
+                                             {
+                                                
+                                                    ?>
+                                <tr>
+                               
+                                
+                                <td><?php  echo $row['REGNO'];?></td>
+                                <td><?php  echo $row['NAME'];?></td>
+                                 <td><?php  echo $row[2];?></td>
+                                 <td><?php  echo $row[3];?></td>
+                                 <td><?php  echo $row[4];?></td>
+                                 <td><?php  echo $row[5];?></td>
+                                 <td><?php  echo $row[6];?></td>
+                                 <td><?php  echo $row[7];?></td>
+                                 <td><?php  echo $row[8];?></td>
+                                 <td><?php  echo $row[9];?></td>
+                                 <td><?php  echo $row[10];?></td>
+                                 </tr>
+                    <?php 
+                    
+                    } break;
                                                      case 6:
                                                         echo"6 connected";
-                                                        //$query=mysqli_query($con1,"select * from second ");  
-                                                         //while($row=mysqli_fetch_array($query))
-                                                         break;
+                                           $query=mysqli_query($con1,"select * from six ");  
+                                           
+                                             while($row=mysqli_fetch_array($query))
+                                             {
+                                                
+                                                    ?>
+                                <tr>
+                               
+                                
+                                <td><?php  echo $row['REGNO'];?></td>
+                                <td><?php  echo $row['NAME'];?></td>
+                                 <td><?php  echo $row[2];?></td>
+                                 <td><?php  echo $row[3];?></td>
+                                 <td><?php  echo $row[4];?></td>
+                                 <td><?php  echo $row[5];?></td>
+                                 <td><?php  echo $row[6];?></td>
+                                 <td><?php  echo $row[7];?></td>
+                                 <td><?php  echo $row[8];?></td>
+                                 <td><?php  echo $row[9];?></td>
+                                 <td><?php  echo $row[10];?></td>
+                                 </tr>
+                    <?php 
+                    
+                    } break;
+                                                         
                                                          case 7:
                                                             echo"7 connected";
-                                                            //$query=mysqli_query($con1,"select * from second ");  
-                                                             //while($row=mysqli_fetch_array($query))
-                                                             break;
+                                           $query=mysqli_query($con1,"select * from seven ");  
+                                           
+                                             while($row=mysqli_fetch_array($query))
+                                             {
+                                                
+                                                    ?>
+                                <tr>
+                               
+                                
+                                <td><?php  echo $row['REGNO'];?></td>
+                                <td><?php  echo $row['NAME'];?></td>
+                                 <td><?php  echo $row[2];?></td>
+                                 <td><?php  echo $row[3];?></td>
+                                 <td><?php  echo $row[4];?></td>
+                                 <td><?php  echo $row[5];?></td>
+                                 <td><?php  echo $row[6];?></td>
+                                 <td><?php  echo $row[7];?></td>
+                                 <td><?php  echo $row[8];?></td>
+                                 <td><?php  echo $row[9];?></td>
+                                 <td><?php  echo $row[10];?></td>
+                                 </tr>
+                    <?php 
+                    
+                    } break;
                                                              case 8:
                                                                 echo"8 connected";
-                                                                //$query=mysqli_query($con1,"select * from second ");  
-                                                                 //while($row=mysqli_fetch_array($query))
-                                                                 break;
+                                           $query=mysqli_query($con1,"select * from eight ");  
+                                           
+                                             while($row=mysqli_fetch_array($query))
+                                             {
+                                                
+                                                    ?>
+                                <tr>
+                               
+                                
+                                <td><?php  echo $row['REGNO'];?></td>
+                                <td><?php  echo $row['NAME'];?></td>
+                                 <td><?php  echo $row[2];?></td>
+                                 <td><?php  echo $row[3];?></td>
+                                 <td><?php  echo $row[4];?></td>
+                                 <td><?php  echo $row[5];?></td>
+                                 <td><?php  echo $row[6];?></td>
+                                 <td><?php  echo $row[7];?></td>
+                                 <td><?php  echo $row[8];?></td>
+                                 <td><?php  echo $row[9];?></td>
+                                 <td><?php  echo $row[10];?></td>
+                                 </tr>
+                    <?php 
+                    
+                    } break;
                                  default :
                                  echo"try again........";
                                  
