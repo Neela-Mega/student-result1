@@ -269,11 +269,27 @@ $present=mysqli_query($con1,"select * from $sem where NOT $code='UA'");
 $student_present = mysqli_num_rows( $present );
 $pass=mysqli_query($con1,"select * from $sem where NOT $code='UA' AND NOT $code='U'");
 $student_pass = mysqli_num_rows( $pass );
+$o=mysqli_query($con1,"select * from $sem where NOT $code='UA' AND  $code='O'");
+$o_grade = mysqli_num_rows( $o );
+$aplus=mysqli_query($con1,"select * from $sem where NOT $code='UA' AND  $code='A+'");
+$aplus_grade = mysqli_num_rows( $aplus );
+$a=mysqli_query($con1,"select * from $sem where NOT $code='UA' AND  $code='A'");
+$a_grade = mysqli_num_rows( $a );
+$bplus=mysqli_query($con1,"select * from $sem where NOT $code='UA' AND  $code='B+'");
+$bplus_grade = mysqli_num_rows( $bplus );
+$b=mysqli_query($con1,"select * from $sem where NOT $code='UA' AND  $code='B'");
+$b_grade = mysqli_num_rows( $b );
+$c=mysqli_query($con1,"select * from $sem where NOT $code='UA' AND  $code='C'");
+$c_grade = mysqli_num_rows( $c );
 ?>
                             <div class="row">
                                             <div class="col-6">
                                                     <label for="x_card_code" class="control-label mb-1"> NUMBER OF STUDENTS PRESENT</label>
                                                         <input id="" name="present" type="tel" class="form-control cc-cvc" value="<?php echo $student_present;?>" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
+                                                        </div>
+                                                        <div class="col-6">
+                                                    <label for="x_card_code" class="control-label mb-1"> NUMBER OF STUDENTS FAIL</label>
+                                                        <input id="" name="fail" type="tel" class="form-control cc-cvc" value="<?php echo $student_present-$student_pass;?>" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
                                                         </div>
                                                         </div> 
                                                 <BR>
@@ -282,7 +298,10 @@ $student_pass = mysqli_num_rows( $pass );
                                                     <label for="x_card_code" class="control-label mb-1">NUMBER OF STUDENTS ABSENT</label>
                                                         <input id="" name="absent" type="tel" class="form-control cc-cvc" value="<?php echo $student_count-$student_present;?>" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
                                                         </div>
-                                                        
+                                                        <div class="col-6">
+                                                    <label for="x_card_code" class="control-label mb-1">NUMBER OF STUDENTS PASS</label>
+                                                        <input id="" name="pass" type="tel" class="form-control cc-cvc" value="<?php echo $student_pass;?>" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
+                                                        </div>
                                                     </div>   
                                                     <br>  
                                                     <div class="row">
@@ -290,7 +309,45 @@ $student_pass = mysqli_num_rows( $pass );
                                                     <label for="x_card_code" class="control-label mb-1">PERCENTAGE</label>
                                                         <input id="" name="percentage" type="tel" class="form-control cc-cvc" value="<?php echo ($student_pass/$student_present)*100;?>" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
                                                         </div>
+                                                        <div class="col-6">
+                                                    <label for="x_card_code" class="control-label mb-1">STUDENTS HAVE O GRADE</label>
+                                                        <input id="" name="o" type="tel" class="form-control cc-cvc" value="<?php echo $o_grade ;?>" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
+                                                        </div>
+                    </div>
+                    <br>  
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            
+                                                    <label for="x_card_code" class="control-label mb-1">STUDENTS HAVE A+ GRADE</label>
+                                                        <input id="" name="aplus" type="tel" class="form-control cc-cvc" value="<?php echo $aplus_grade;?>" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
+                                                        </div>
                                                         
+                                                        <div class="col-6">
+                                                    <label for="x_card_code" class="control-label mb-1">STUDENTS HAVE A GRADE</label>
+                                                        <input id="" name="a" type="tel" class="form-control cc-cvc" value="<?php echo $a_grade ;?>" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
+                                                        </div>
+                                                        </div>
+                    <br>  
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            
+                                                    <label for="x_card_code" class="control-label mb-1">STUDENTS HAVE B+ GRADE</label>
+                                                        <input id="" name="bplus" type="tel" class="form-control cc-cvc" value="<?php echo $bplus_grade;?>" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
+                                                        </div>
+                                                        
+                                                        <div class="col-6">
+                                                    <label for="x_card_code" class="control-label mb-1">STUDENTS HAVE B GRADE</label>
+                                                        <input id="" name="b" type="tel" class="form-control cc-cvc" value="<?php echo $b_grade ;?>" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
+                                                        </div>
+                                                        </div>
+                    <br>  
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            
+                                                    <label for="x_card_code" class="control-label mb-1">STUDENTS HAVE C GRADE</label>
+                                                        <input id="" name="c" type="tel" class="form-control cc-cvc" value="<?php echo $c_grade;?>" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
+                                                        </div>
+                    </div>
             </div>
         </div><!-- .animated -->
     </div><!-- .content -->

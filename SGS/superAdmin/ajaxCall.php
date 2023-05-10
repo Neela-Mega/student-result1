@@ -1,21 +1,30 @@
+
 <?php
 
-    include('../includes/dbconnection.php');
+    include('../includes/dbconnection1.php');
 
-    $fid = intval($_GET['fid']);//gradeId
+    $fid = ($_GET['fid1']);//gradeId
+   
+    
 
-        $queryss=mysqli_query($con,"select * from tbldepartment where facultyId=".$fid." ORDER BY departmentName ASC");                        
+        $queryss=mysqli_query($con1,"select * from students where regno='".$fid."'");                        
         $countt = mysqli_num_rows($queryss);
 
         if($countt > 0){                       
-        echo '<label for="select" class=" form-control-label">Department</label>
-        <select required name="departmentId" class="custom-select form-control">';
-        echo'<option value="">--Select Department--</option>';
+        echo '<label for="select" class=" form-control-label">Students Name</label>
+        <select required name="studentname"  class="custom-select form-control">';
+        echo'<option value="">--Select studentname--</option>';
         while ($row = mysqli_fetch_array($queryss)) {
-        echo'<option value="'.$row['Id'].'" >'.$row['departmentName'].'</option>';
+        echo'<option value="'.$row['studentname'].'" >'.$row['studentname'].'</option>';
+
+
+
+        
+        
         }
         echo '</select>';
         }
-
+        
+    
 ?>
 

@@ -50,7 +50,7 @@ function showValues(str) {
             }
         };
         
-        xmlhttp.open("GET","ajaxCall2.php?fid="+str,true);
+        xmlhttp.open("GET","ajaxCall.php?fid1="+str,true);
         xmlhttp.send();
     }
 }
