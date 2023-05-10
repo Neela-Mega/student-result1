@@ -155,21 +155,28 @@ function showValues(str) {
                         </div> <!-- .card -->
                     </div><!--/.col-->
                
-
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-header">
-                                <strong class="card-title"><h2 align="center"> Student</h2></strong>
+                    <div class="card-header">
+                                <strong class="card-title"><h2 align="center"> I SEMESTER</h2></strong>
                             </div>
                             <div class="card-body">
                                <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Reg.no</th>
+                                        <th>Register Number</th>
+                                            
                                             <th>Student Name</th>
-                                            <th>Grade </th>
-                                            <th>Actions</th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+
+                                            
                                             
                                             
                                             
@@ -180,72 +187,560 @@ function showValues(str) {
                             <?php
                                                
                              
-                            if(!empty($_POST['subjectcode']))
-                             {
-                                $code=$_POST['subjectcode'];
-                                $semester=$_POST['semester'];
-                                $cnt=1;
+                                               if(isset($_POST['submit']))
+                                               {
+                                                  
+                                                   $reg=$_POST['regno'];
+                                $query=mysqli_query($con1,"select * from second where REGNO=$reg"); 
+                                ?>
+                                <tr>
+                               
+                                <td><?php  echo $row['REGNO'];?></td>
                                 
-                                switch($semester)
-                                {
-                                    
-                                    case 2:
-                                        echo"$code";
-                                        echo"$semester";
-                                        echo" 2 connect";
-                                        $ret=mysqli_query($con1,"SELECT second.REGNO,second.NAME,$code from second");
-                                        while($row=mysqli_fetch_array($ret)){
-                                            
-                                               
-                                       
-        
-                                     
-                                                
-                            
-                           
-                            }
-                            
-                                case 3:
-                                    
-                                    
-                                $ret=mysqli_query($con1,"SELECT third.REGNO,third.NAME,$code from third");
-                                while($row=mysqli_fetch_array($ret))
-                                {
-                                    
-
-                                ?>   
-                                                      
-                                        
-                    <tr>
-                    <td><?php echo $cnt;?></td>
-                    
-                    <td><?php  echo $row['REGNO'];?></td>
-                    <td><?php  echo $row['NAME'];?></td>
-                    <td><?php  echo $row[$code];?></td>
-                    <td><a href="editResult.php?editResultId=<?php echo $row['REGNO'];?>&subcode=<?php echo $code;?>" title="Edit Details"><i class="fa fa-edit fa-1x"></i></a></td>
-                    
-                    
-                   
-                    
-                    </tr>
-                                
+                                <td><?php  echo $row['NAME'];?></td>
+                                 <td><?php  echo $row[2];?></td>
+                                 
+                                 <td><?php  echo $row[3];?></td>
+                                 
+                                 <td><?php  echo $row[4];?></td>
+                                 
+                                 <td><?php  echo $row[5];?></td>
+                                 
+                                 <td><?php  echo $row[6];?></td>
+                                 
+                                 <td><?php  echo $row[7];?></td>
+                                 
+                                 <td><?php  echo $row[8];?></td>
+                                 
+                                 <td><?php  echo $row[9];?></td>
+                                 
+                                 <td><?php  echo $row[10];?></td>
+                                 </tr>
                     <?php 
-                    $cnt=$cnt+1;
-                    
-                        }
-                        
-                    }
+                                
+                                
                     
                              }
                 ?>
                 
                 </tbody>
-                            </table>                                                         
+                            </table>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="col-md-12">
+                        <div class="card">
+                             
+                            <div class="card-header">
+                                <strong class="card-title"><h2 align="center"> II SEMESTER</h2></strong>
+                            </div>
+                            <div class="card-body">
+                               <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th>Register Number</th>
+                                            
+                                            <th>Student Name</th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+
+                                            
+                                            
+                                            
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>  
+                                      
+                            <?php
+                                               
+                             
+                                               if(isset($_POST['submit']))
+                                               {
+                                                  
+                                                   $reg=$_POST['regno'];
+                                $query=mysqli_query($con1,"select * from second where REGNO=$reg"); 
+                                ?>
+                                <tr>
+                               
+                                <td><?php  echo $row['REGNO'];?></td>
+                                
+                                <td><?php  echo $row['NAME'];?></td>
+                                 <td><?php  echo $row[2];?></td>
+                                 
+                                 <td><?php  echo $row[3];?></td>
+                                 
+                                 <td><?php  echo $row[4];?></td>
+                                 
+                                 <td><?php  echo $row[5];?></td>
+                                 
+                                 <td><?php  echo $row[6];?></td>
+                                 
+                                 <td><?php  echo $row[7];?></td>
+                                 
+                                 <td><?php  echo $row[8];?></td>
+                                 
+                                 <td><?php  echo $row[9];?></td>
+                                 
+                                 <td><?php  echo $row[10];?></td>
+                                 </tr>
+                    <?php 
+                                
+                                
+                    
+                             }
+                ?>
+                
+                </tbody>
+                            </table>  
+                            </div>
+                            </div>
+                            </div>  
+                            <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title"><h2 align="center"> III SEMESTER</h2></strong>
+                            </div>
+                            <div class="card-body">
+                               <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th>Register Number</th>
+                                            
+                                            <th>Student Name</th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+
+                                            
+                                            
+                                            
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>  
+                                      
+                            <?php
+                                               
+                             
+                                               if(isset($_POST['submit']))
+                                               {
+                                                  
+                                                   $reg=$_POST['regno'];
+                                $query=mysqli_query($con1,"select * from second where REGNO=$reg"); 
+                                ?>
+                                <tr>
+                               
+                                <td><?php  echo $row['REGNO'];?></td>
+                                
+                                <td><?php  echo $row['NAME'];?></td>
+                                 <td><?php  echo $row[2];?></td>
+                                 
+                                 <td><?php  echo $row[3];?></td>
+                                 
+                                 <td><?php  echo $row[4];?></td>
+                                 
+                                 <td><?php  echo $row[5];?></td>
+                                 
+                                 <td><?php  echo $row[6];?></td>
+                                 
+                                 <td><?php  echo $row[7];?></td>
+                                 
+                                 <td><?php  echo $row[8];?></td>
+                                 
+                                 <td><?php  echo $row[9];?></td>
+                                 
+                                 <td><?php  echo $row[10];?></td>
+                                 </tr>
+                    <?php 
+                                
+                                
+                    
+                             }
+                ?>
+                
+                </tbody>
+                            </table>    
+                            </div>
+                            </div>
+                            </div>
+                            <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title"><h2 align="center"> IV SEMESTER</h2></strong>
+                            </div>
+                            <div class="card-body">
+                               <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th>Register Number</th>
+                                            
+                                            <th>Student Name</th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+
+                                            
+                                            
+                                            
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>  
+                                      
+                            <?php
+                                               
+                             
+                                               if(isset($_POST['submit']))
+                                               {
+                                                  
+                                                   $reg=$_POST['regno'];
+                                $query=mysqli_query($con1,"select * from second where REGNO=$reg"); 
+                                ?>
+                                <tr>
+                               
+                                <td><?php  echo $row['REGNO'];?></td>
+                                
+                                <td><?php  echo $row['NAME'];?></td>
+                                 <td><?php  echo $row[2];?></td>
+                                 
+                                 <td><?php  echo $row[3];?></td>
+                                 
+                                 <td><?php  echo $row[4];?></td>
+                                 
+                                 <td><?php  echo $row[5];?></td>
+                                 
+                                 <td><?php  echo $row[6];?></td>
+                                 
+                                 <td><?php  echo $row[7];?></td>
+                                 
+                                 <td><?php  echo $row[8];?></td>
+                                 
+                                 <td><?php  echo $row[9];?></td>
+                                 
+                                 <td><?php  echo $row[10];?></td>
+                                 </tr>
+                    <?php 
+                                
+                                
+                    
+                             }
+                ?>
+                
+                </tbody>
+                            </table>  
+                            </div>
+                            </div>
+                            </div>  
+                            <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title"><h2 align="center"> V SEMESTER</h2></strong>
+                            </div>
+                            <div class="card-body">
+                               <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th>Register Number</th>
+                                            
+                                            <th>Student Name</th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+
+                                            
+                                            
+                                            
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>  
+                                      
+                            <?php
+                                               
+                             
+                                               if(isset($_POST['submit']))
+                                               {
+                                                  
+                                                   $reg=$_POST['regno'];
+                                $query=mysqli_query($con1,"select * from second where REGNO=$reg"); 
+                                ?>
+                                <tr>
+                               
+                                <td><?php  echo $row['REGNO'];?></td>
+                                
+                                <td><?php  echo $row['NAME'];?></td>
+                                 <td><?php  echo $row[2];?></td>
+                                 
+                                 <td><?php  echo $row[3];?></td>
+                                 
+                                 <td><?php  echo $row[4];?></td>
+                                 
+                                 <td><?php  echo $row[5];?></td>
+                                 
+                                 <td><?php  echo $row[6];?></td>
+                                 
+                                 <td><?php  echo $row[7];?></td>
+                                 
+                                 <td><?php  echo $row[8];?></td>
+                                 
+                                 <td><?php  echo $row[9];?></td>
+                                 
+                                 <td><?php  echo $row[10];?></td>
+                                 </tr>
+                    <?php 
+                                
+                                
+                    
+                             }
+                ?>
+                
+                </tbody>
+                            </table>    
+                            </div>
+                            </div>
+                            </div>
+                            <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title"><h2 align="center"> VI SEMESTER</h2></strong>
+                            </div>
+                            <div class="card-body">
+                               <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th>Register Number</th>
+                                            
+                                            <th>Student Name</th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+
+                                            
+                                            
+                                            
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>  
+                                      
+                            <?php
+                                               
+                             
+                                               if(isset($_POST['submit']))
+                                               {
+                                                  
+                                                   $reg=$_POST['regno'];
+                                $query=mysqli_query($con1,"select * from second where REGNO=$reg"); 
+                                ?>
+                                <tr>
+                               
+                                <td><?php  echo $row['REGNO'];?></td>
+                                
+                                <td><?php  echo $row['NAME'];?></td>
+                                 <td><?php  echo $row[2];?></td>
+                                 
+                                 <td><?php  echo $row[3];?></td>
+                                 
+                                 <td><?php  echo $row[4];?></td>
+                                 
+                                 <td><?php  echo $row[5];?></td>
+                                 
+                                 <td><?php  echo $row[6];?></td>
+                                 
+                                 <td><?php  echo $row[7];?></td>
+                                 
+                                 <td><?php  echo $row[8];?></td>
+                                 
+                                 <td><?php  echo $row[9];?></td>
+                                 
+                                 <td><?php  echo $row[10];?></td>
+                                 </tr>
+                    <?php 
+                                
+                                
+                    
+                             }
+                ?>
+                
+                </tbody>
+                            </table>    
+                            </div>
+                            </div>
+                            </div>
+                            <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title"><h2 align="center"> VII SEMESTER</h2></strong>
+                            </div>
+                            <div class="card-body">
+                               <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th>Register Number</th>
+                                            
+                                            <th>Student Name</th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+
+                                            
+                                            
+                                            
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>  
+                                      
+                            <?php
+                                               
+                             
+                                               if(isset($_POST['submit']))
+                                               {
+                                                  
+                                                   $reg=$_POST['regno'];
+                                $query=mysqli_query($con1,"select * from second where REGNO=$reg"); 
+                                ?>
+                                <tr>
+                               
+                                <td><?php  echo $row['REGNO'];?></td>
+                                
+                                <td><?php  echo $row['NAME'];?></td>
+                                 <td><?php  echo $row[2];?></td>
+                                 
+                                 <td><?php  echo $row[3];?></td>
+                                 
+                                 <td><?php  echo $row[4];?></td>
+                                 
+                                 <td><?php  echo $row[5];?></td>
+                                 
+                                 <td><?php  echo $row[6];?></td>
+                                 
+                                 <td><?php  echo $row[7];?></td>
+                                 
+                                 <td><?php  echo $row[8];?></td>
+                                 
+                                 <td><?php  echo $row[9];?></td>
+                                 
+                                 <td><?php  echo $row[10];?></td>
+                                 </tr>
+                    <?php 
+                                
+                                
+                    
+                             }
+                ?>
+                
+                </tbody>
+                            </table>  
+                            </div>
+                            </div>
+                            </div>  
+                            <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title"><h2 align="center"> VIII SEMESTER</h2></strong>
+                            </div>
+                            <div class="card-body">
+                               <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                        <th>Register Number</th>
+                                            
+                                            <th>Student Name</th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+
+                                            
+                                            
+                                            
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>  
+                                      
+                            <?php
+                                               
+                             
+                                               if(isset($_POST['submit']))
+                                               {
+                                                  
+                                                   $reg=$_POST['regno'];
+                                $query=mysqli_query($con1,"select * from second where REGNO=$reg"); 
+                                ?>
+                                <tr>
+                               
+                                <td><?php  echo $row['REGNO'];?></td>
+                                
+                                <td><?php  echo $row['NAME'];?></td>
+                                 <td><?php  echo $row[2];?></td>
+                                 
+                                 <td><?php  echo $row[3];?></td>
+                                 
+                                 <td><?php  echo $row[4];?></td>
+                                 
+                                 <td><?php  echo $row[5];?></td>
+                                 
+                                 <td><?php  echo $row[6];?></td>
+                                 
+                                 <td><?php  echo $row[7];?></td>
+                                 
+                                 <td><?php  echo $row[8];?></td>
+                                 
+                                 <td><?php  echo $row[9];?></td>
+                                 
+                                 <td><?php  echo $row[10];?></td>
+                                 </tr>
+                    <?php 
+                                
+                                
+                    
+                             }
+                ?>
+                
+                </tbody>
+                            </table>                                                    
                                 
                             </div>
                         </div>
                     </div>
-<!-- end of datatable -->
 
             </div>
         </div><!-- .animated -->

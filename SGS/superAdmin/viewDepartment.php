@@ -96,6 +96,7 @@
                                             
                                             <th>Department Id</th>
                                             <th>Department Name</th>
+                                            <th>Actions</th>
                                             
                                                                                
                                             </tr>

@@ -215,13 +215,21 @@ function showValues(str) {
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
                                  <td><?php  echo $row[2];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[3];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[4];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[5];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[6];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[7];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[8];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[9];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[10];?></td>
                                  </tr>
                     <?php 
@@ -242,13 +250,21 @@ function showValues(str) {
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
                                  <td><?php  echo $row[2];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[3];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[4];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[5];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[6];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[7];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[8];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[9];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[10];?></td>
                                  </tr>
                     <?php 
@@ -270,13 +286,21 @@ function showValues(str) {
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
                                  <td><?php  echo $row[2];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[3];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[4];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[5];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[6];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[7];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[8];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[9];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[10];?></td>
                                  </tr>
                     <?php 
@@ -297,13 +321,21 @@ function showValues(str) {
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
                                  <td><?php  echo $row[2];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[3];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[4];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[5];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[6];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[7];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[8];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[9];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[10];?></td>
                                  </tr>
                     <?php 
@@ -324,13 +356,21 @@ function showValues(str) {
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
                                  <td><?php  echo $row[2];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[3];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[4];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[5];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[6];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[7];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[8];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[9];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[10];?></td>
                                  </tr>
                     <?php 
@@ -350,15 +390,24 @@ function showValues(str) {
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
                                  <td><?php  echo $row[2];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[3];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[4];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[5];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[6];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[7];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[8];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[9];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[10];?></td>
                                  </tr>
+                                 
                     <?php 
                     
                     } break;
@@ -377,13 +426,21 @@ function showValues(str) {
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
                                  <td><?php  echo $row[2];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[3];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[4];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[5];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[6];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[7];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[8];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[9];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[10];?></td>
                                  </tr>
                     <?php 
@@ -403,13 +460,21 @@ function showValues(str) {
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
                                  <td><?php  echo $row[2];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[3];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[4];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[5];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[6];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[7];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[8];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[9];?></td>
+                                 <td>  </td>
                                  <td><?php  echo $row[10];?></td>
                                  </tr>
                     <?php 
