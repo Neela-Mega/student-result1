@@ -137,7 +137,12 @@ function showValues(str) {
                                              </div>
                                                 <div>
 												<!-- Log on to codeastro.com for more projects! -->
-                                                <button type="submit" name="submit" class="btn btn-success">Calculate CGPA</button>
+                                                <button type="submit" name="submit" class="btn btn-success">Calculate CGPA&ARREARS</button>
+                                            </div>
+                                            <br>
+                                            <div>
+												<!-- Log on to codeastro.com for more projects! -->
+                                                <button type="submit" name="submit1" class="btn btn-success">Upadte CGPA&ARREARS</button>
                                             </div>
                                         </form>
                                     </div>
@@ -178,10 +183,6 @@ function showValues(str) {
                                             <th> </th>
                                             <th> </th>
                                             <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            
                                             
                                             
                                             
@@ -228,9 +229,7 @@ function showValues(str) {
                                  <td>  </td>
                                  <td><?php  echo $row[8];?></td>
                                  <td>  </td>
-                                 <td><?php  echo $row[9];?></td>
-                                 <td>  </td>
-                                 <td><?php  echo $row[10];?></td>
+                                 
                                  </tr>
                     <?php 
                     
@@ -265,7 +264,7 @@ function showValues(str) {
                                  <td>  </td>
                                  <td><?php  echo $row[9];?></td>
                                  <td>  </td>
-                                 <td><?php  echo $row[10];?></td>
+                                 
                                  </tr>
                     <?php 
                     
