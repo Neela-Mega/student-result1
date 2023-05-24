@@ -161,7 +161,7 @@ function showValues(str) {
                                 <strong class="card-title"><h2 align="center"> I SEMESTER</h2></strong>
                             </div>
                             <div class="card-body">
-                               <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
+                               <table id="" class="table table-hover table-striped table-bordered">
                                     <thead>
                                         <tr>
                                         <th>Register Number</th>
@@ -175,8 +175,10 @@ function showValues(str) {
                                             <th> </th>
                                             <th> </th>
                                             <th> </th>
-
-                                            
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
                                             
                                             
                                             
@@ -191,8 +193,14 @@ function showValues(str) {
                                                {
                                                   
                                                    $reg=$_POST['regno'];
-                                $query=mysqli_query($con1,"select * from second where REGNO=$reg"); 
-                                ?>
+                                                   
+                                                   $query=mysqli_query($con1,"select * from first where REGNO=$reg");  
+                                                   
+                                                     while($row=mysqli_fetch_array($query))
+                                                     {
+                                                        
+                                                            ?>
+                                        <tr>
                                 <tr>
                                
                                 <td><?php  echo $row['REGNO'];?></td>
@@ -215,11 +223,14 @@ function showValues(str) {
                                  <td><?php  echo $row[9];?></td>
                                  
                                  <td><?php  echo $row[10];?></td>
+                                 <td><?php  echo $row[11];?></td>
+                                 
+                                 <td><?php  echo $row[12];?></td>
                                  </tr>
                     <?php 
                                 
                                 
-                    
+                                                     }
                              }
                 ?>
                 
@@ -235,12 +246,16 @@ function showValues(str) {
                                 <strong class="card-title"><h2 align="center"> II SEMESTER</h2></strong>
                             </div>
                             <div class="card-body">
-                               <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
+                               <table id="" class="table table-hover table-striped table-bordered">
                                     <thead>
                                         <tr>
                                         <th>Register Number</th>
                                             
                                             <th>Student Name</th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
                                             <th> </th>
                                             <th> </th>
                                             <th> </th>
@@ -265,8 +280,12 @@ function showValues(str) {
                                                {
                                                   
                                                    $reg=$_POST['regno'];
-                                $query=mysqli_query($con1,"select * from second where REGNO=$reg"); 
-                                ?>
+                                                   $query=mysqli_query($con1,"select * from second where REGNO=$reg");  
+                                                   
+                                                   while($row=mysqli_fetch_array($query))
+                                                   {
+                                                      
+                                                          ?>
                                 <tr>
                                
                                 <td><?php  echo $row['REGNO'];?></td>
@@ -289,12 +308,16 @@ function showValues(str) {
                                  <td><?php  echo $row[9];?></td>
                                  
                                  <td><?php  echo $row[10];?></td>
+                                 <td><?php  echo $row[11];?></td>
+                                 
+                                 <td><?php  echo $row[12];?></td>
                                  </tr>
                     <?php 
                                 
                                 
                     
                              }
+                            }
                 ?>
                 
                 </tbody>
@@ -308,12 +331,16 @@ function showValues(str) {
                                 <strong class="card-title"><h2 align="center"> III SEMESTER</h2></strong>
                             </div>
                             <div class="card-body">
-                               <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
+                               <table id="" class="table table-hover table-striped table-bordered">
                                     <thead>
                                         <tr>
                                         <th>Register Number</th>
                                             
                                             <th>Student Name</th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
                                             <th> </th>
                                             <th> </th>
                                             <th> </th>
@@ -338,8 +365,12 @@ function showValues(str) {
                                                {
                                                   
                                                    $reg=$_POST['regno'];
-                                $query=mysqli_query($con1,"select * from second where REGNO=$reg"); 
-                                ?>
+                                                   $query=mysqli_query($con1,"select * from third where REGNO=$reg");  
+                                                   
+                                                   while($row=mysqli_fetch_array($query))
+                                                   {
+                                                      
+                                                          ?>
                                 <tr>
                                
                                 <td><?php  echo $row['REGNO'];?></td>
@@ -362,12 +393,16 @@ function showValues(str) {
                                  <td><?php  echo $row[9];?></td>
                                  
                                  <td><?php  echo $row[10];?></td>
+                                 <td><?php  echo $row[11];?></td>
+                                 
+                                 <td><?php  echo $row[12];?></td>
                                  </tr>
                     <?php 
                                 
                                 
                     
                              }
+                            }
                 ?>
                 
                 </tbody>
@@ -381,12 +416,16 @@ function showValues(str) {
                                 <strong class="card-title"><h2 align="center"> IV SEMESTER</h2></strong>
                             </div>
                             <div class="card-body">
-                               <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
+                               <table id="" class="table table-hover table-striped table-bordered">
                                     <thead>
                                         <tr>
                                         <th>Register Number</th>
                                             
                                             <th>Student Name</th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
                                             <th> </th>
                                             <th> </th>
                                             <th> </th>
@@ -411,8 +450,12 @@ function showValues(str) {
                                                {
                                                   
                                                    $reg=$_POST['regno'];
-                                $query=mysqli_query($con1,"select * from second where REGNO=$reg"); 
-                                ?>
+                                                   $query=mysqli_query($con1,"select * from four where REGNO=$reg");  
+                                                   
+                                                   while($row=mysqli_fetch_array($query))
+                                                   {
+                                                      
+                                                          ?>
                                 <tr>
                                
                                 <td><?php  echo $row['REGNO'];?></td>
@@ -435,12 +478,16 @@ function showValues(str) {
                                  <td><?php  echo $row[9];?></td>
                                  
                                  <td><?php  echo $row[10];?></td>
+                                 <td><?php  echo $row[11];?></td>
+                                 
+                                 <td><?php  echo $row[12];?></td>
                                  </tr>
                     <?php 
                                 
                                 
                     
                              }
+                            }
                 ?>
                 
                 </tbody>
@@ -454,12 +501,16 @@ function showValues(str) {
                                 <strong class="card-title"><h2 align="center"> V SEMESTER</h2></strong>
                             </div>
                             <div class="card-body">
-                               <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
+                               <table id="" class="table table-hover table-striped table-bordered">
                                     <thead>
                                         <tr>
                                         <th>Register Number</th>
                                             
                                             <th>Student Name</th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
                                             <th> </th>
                                             <th> </th>
                                             <th> </th>
@@ -484,8 +535,12 @@ function showValues(str) {
                                                {
                                                   
                                                    $reg=$_POST['regno'];
-                                $query=mysqli_query($con1,"select * from second where REGNO=$reg"); 
-                                ?>
+                                                   $query=mysqli_query($con1,"select * from five where REGNO=$reg");  
+                                                   
+                                                   while($row=mysqli_fetch_array($query))
+                                                   {
+                                                      
+                                                          ?>
                                 <tr>
                                
                                 <td><?php  echo $row['REGNO'];?></td>
@@ -508,12 +563,16 @@ function showValues(str) {
                                  <td><?php  echo $row[9];?></td>
                                  
                                  <td><?php  echo $row[10];?></td>
+                                 <td><?php  echo $row[11];?></td>
+                                 
+                                 <td><?php  echo $row[12];?></td>
                                  </tr>
                     <?php 
                                 
                                 
                     
                              }
+                            }
                 ?>
                 
                 </tbody>
@@ -527,12 +586,16 @@ function showValues(str) {
                                 <strong class="card-title"><h2 align="center"> VI SEMESTER</h2></strong>
                             </div>
                             <div class="card-body">
-                               <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
+                               <table id="" class="table table-hover table-striped table-bordered">
                                     <thead>
                                         <tr>
                                         <th>Register Number</th>
                                             
                                             <th>Student Name</th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
                                             <th> </th>
                                             <th> </th>
                                             <th> </th>
@@ -557,8 +620,12 @@ function showValues(str) {
                                                {
                                                   
                                                    $reg=$_POST['regno'];
-                                $query=mysqli_query($con1,"select * from second where REGNO=$reg"); 
-                                ?>
+                                                   $query=mysqli_query($con1,"select * from six where REGNO=$reg");  
+                                                   
+                                                   while($row=mysqli_fetch_array($query))
+                                                   {
+                                                      
+                                                          ?>
                                 <tr>
                                
                                 <td><?php  echo $row['REGNO'];?></td>
@@ -581,12 +648,16 @@ function showValues(str) {
                                  <td><?php  echo $row[9];?></td>
                                  
                                  <td><?php  echo $row[10];?></td>
+                                 <td><?php  echo $row[11];?></td>
+                                 
+                                 <td><?php  echo $row[12];?></td>
                                  </tr>
                     <?php 
                                 
                                 
                     
                              }
+                            }
                 ?>
                 
                 </tbody>
@@ -600,7 +671,7 @@ function showValues(str) {
                                 <strong class="card-title"><h2 align="center"> VII SEMESTER</h2></strong>
                             </div>
                             <div class="card-body">
-                               <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
+                               <table id="" class="table table-hover table-striped table-bordered">
                                     <thead>
                                         <tr>
                                         <th>Register Number</th>
@@ -614,7 +685,10 @@ function showValues(str) {
                                             <th> </th>
                                             <th> </th>
                                             <th> </th>
-
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
                                             
                                             
                                             
@@ -630,8 +704,12 @@ function showValues(str) {
                                                {
                                                   
                                                    $reg=$_POST['regno'];
-                                $query=mysqli_query($con1,"select * from second where REGNO=$reg"); 
-                                ?>
+                                                   $query=mysqli_query($con1,"select * from seven where REGNO=$reg");  
+                                                   
+                                                   while($row=mysqli_fetch_array($query))
+                                                   {
+                                                      
+                                                          ?>
                                 <tr>
                                
                                 <td><?php  echo $row['REGNO'];?></td>
@@ -654,12 +732,16 @@ function showValues(str) {
                                  <td><?php  echo $row[9];?></td>
                                  
                                  <td><?php  echo $row[10];?></td>
+                                 <td><?php  echo $row[11];?></td>
+                                 
+                                 <td><?php  echo $row[12];?></td>
                                  </tr>
                     <?php 
                                 
                                 
                     
                              }
+                            }
                 ?>
                 
                 </tbody>
@@ -673,12 +755,16 @@ function showValues(str) {
                                 <strong class="card-title"><h2 align="center"> VIII SEMESTER</h2></strong>
                             </div>
                             <div class="card-body">
-                               <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
+                               <table id="" class="table table-hover table-striped table-bordered">
                                     <thead>
                                         <tr>
                                         <th>Register Number</th>
                                             
                                             <th>Student Name</th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
+                                            <th> </th>
                                             <th> </th>
                                             <th> </th>
                                             <th> </th>
@@ -703,8 +789,12 @@ function showValues(str) {
                                                {
                                                   
                                                    $reg=$_POST['regno'];
-                                $query=mysqli_query($con1,"select * from second where REGNO=$reg"); 
-                                ?>
+                                                   $query=mysqli_query($con1,"select * from eight where REGNO=$reg");  
+                                                   
+                                                   while($row=mysqli_fetch_array($query))
+                                                   {
+                                                      
+                                                          ?>
                                 <tr>
                                
                                 <td><?php  echo $row['REGNO'];?></td>
@@ -727,12 +817,16 @@ function showValues(str) {
                                  <td><?php  echo $row[9];?></td>
                                  
                                  <td><?php  echo $row[10];?></td>
+                                 <td><?php  echo $row[11];?></td>
+                                 
+                                 <td><?php  echo $row[12];?></td>
                                  </tr>
                     <?php 
                                 
                                 
                     
                              }
+                            }
                 ?>
                 
                 </tbody>

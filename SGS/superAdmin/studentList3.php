@@ -203,7 +203,7 @@ function showValues(str) {
 
                                 {
                                     case 1:
-                                        echo"1 connected";
+                                        
                                            $query=mysqli_query($con1,"select * from first ");  
                                            
                                              while($row=mysqli_fetch_array($query))
@@ -236,7 +236,7 @@ function showValues(str) {
                     } break;
                                   
                                     case 2:
-                                        echo"2 connected";
+                                       
                                            $query=mysqli_query($con1,"select * from second ");  
                                            
                                              while($row=mysqli_fetch_array($query))
@@ -272,7 +272,7 @@ function showValues(str) {
                                          break;
 
                                          case 3:
-                                            echo"3 connected";
+                                            
                                            $query=mysqli_query($con1,"select * from third ");  
                                            
                                              while($row=mysqli_fetch_array($query))
@@ -307,7 +307,7 @@ function showValues(str) {
                     }
                                                                                           break;
                                              case 4:
-                                                echo"4 connected";
+                                                
                                            $query=mysqli_query($con1,"select * from four ");  
                                            
                                              while($row=mysqli_fetch_array($query))
@@ -342,7 +342,7 @@ function showValues(str) {
                     }
                                                  break;
                                                  case 5:
-                                                   echo"5 connected";
+                                                   
                                            $query=mysqli_query($con1,"select * from five ");  
                                            
                                              while($row=mysqli_fetch_array($query))
@@ -376,7 +376,7 @@ function showValues(str) {
                     
                     } break;
                                                      case 6:
-                                                        echo"6 connected";
+                                                        
                                            $query=mysqli_query($con1,"select * from six ");  
                                            
                                              while($row=mysqli_fetch_array($query))
@@ -412,7 +412,7 @@ function showValues(str) {
                     } break;
                                                          
                                                          case 7:
-                                                            echo"7 connected";
+                                                            
                                            $query=mysqli_query($con1,"select * from seven ");  
                                            
                                              while($row=mysqli_fetch_array($query))
@@ -446,7 +446,7 @@ function showValues(str) {
                     
                     } break;
                                                              case 8:
-                                                                echo"8 connected";
+                                                                
                                            $query=mysqli_query($con1,"select * from eight ");  
                                            
                                              while($row=mysqli_fetch_array($query))
