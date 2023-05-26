@@ -153,12 +153,13 @@ function showValues(str) {
                                       
                             <?php
                            
-                            
-                                        
-                           $ret=mysqli_query($con1,"SELECT students.regno, students.studentname
-                           from students");
                            
+                           $ret=mysqli_query($con1,"SELECT students.regno,students.studentname from students");
+                           
+                           
+                                        
                            while ($row=mysqli_fetch_array($ret)) {
+                            
                                                ?>
                            <tr>
                            

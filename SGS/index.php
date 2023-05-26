@@ -71,9 +71,9 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex justify-content-center align-items-center" style="background-image: url('assets/img/phb.jpg');">
+  <section id="hero" class="d-flex justify-content-center align-items-center" style="background-image: url('assets/img/phb1.jpg');">
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
-      <h1>Student Grading System<br>PHP MySQL</h1>
+      <h1>MOOKAMBIGAI COLLEGE OF ENGINEERING<br>Student Grading System</h1>
       <!-- <h2>Learning Today, Leading Tomorrow.</h2> -->
       <a href="#" class="btn-get-started">Read More</a>
     </div>

@@ -360,7 +360,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h3 align="center"><marquee direction="left">Current Session: <?php 
+                                <h3 align="center"><marquee direction="left">Student Gradiing System <?php 
                                 $result = mysqli_query($con, 'SELECT (sessionName) AS sessname FROM tblsession WHERE isActive = 1'); 
                                 $row = mysqli_fetch_assoc($result); 
                                 $sum = $row['sessname'];

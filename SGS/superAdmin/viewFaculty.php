@@ -96,8 +96,8 @@
                                             <th>#</th>
                                             <th>Faculty</th>
                                             <th>Date Created</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>                                          
+                                            <th>Actions</th>
+                                                                                 
                                             </tr>
                                     </thead>
                                     <tbody>
@@ -111,8 +111,8 @@
                 <td><?php echo $cnt;?></td>
                 <td><?php  echo $row['facultyName'];?></td>
                 <td><?php  echo $row['dateCreated'];?></td>
-                <td><a href="editFaculty.php?editid=<?php echo $row['Id'];?>" title="Edit Faculty Details"><i class="fa fa-edit fa-1x"></i></a></td>
-                <td><a onclick="return confirm('Are you sure you want to delete?')" href="deleteFaculty.php?delid=<?php echo $row['Id'];?>" title="Delete Faculty Details"><i class="fa fa-trash fa-1x"></i></a></td>
+                <td><a href="editFaculty.php?editid=<?php echo $row['Id'];?>" title="Edit Faculty Details"><i class="fa fa-edit fa-1x"></i></a>
+                <a onclick="return confirm('Are you sure you want to delete?')" href="deleteFaculty.php?delid=<?php echo $row['Id'];?>" title="Delete Faculty Details"><i class="fa fa-trash fa-1x"></i></a></td>
                 </tr>
                 <?php 
                 $cnt=$cnt+1;
