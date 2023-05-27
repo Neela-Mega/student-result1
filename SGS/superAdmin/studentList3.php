@@ -156,39 +156,32 @@ function showValues(str) {
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title"><h2 align="center">Result</h2></strong>
-                            </div>
+                            </div>                            
                             <div class="card-body">
                                <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            
-                                            <th>Reg.no</th>
-                                            <th>Student Name</th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            
-                                            
-                                            
-                                            
-                                            
-                                        </tr>
+                                        <th>REG NO</th>
+                                        <th>STUDENT NAME</th>
+                                            <?php 
+                            if(isset($_POST['submit'])){
+                                $sem=$_POST['semester'];
+                                $query=mysqli_query($con1,"show columns from second");
+                                while($row=mysqli_fetch_array($query))
+                                             {
+                                                $sub=$row[0];
+                                                if($sub!=="REGNO" && $sub!=="NAME" && $sub!=="ARREARS" && $sub!=="CGPA"){                                               
+                                                ?>
+                                                <th><?php echo $sub; ?></th>
+                                                <th>VALUE</th>
+                                                <?php
+                                             }
+                                            }
+                            }
+                            ?>
+                            <th>CGPA</th>
+                            <th>ARREARS</th>
+                            </tr>
                                     </thead>
                                     <tbody>
                                       
@@ -249,21 +242,21 @@ function showValues(str) {
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
                                  <td><?php  echo $row[2];?></td>
-                                 <td>  </td>
+                                 <td><?php echo GradeValue($row[2]); ?></td>
                                  <td><?php  echo $row[3];?></td>
-                                 <td>  </td>
+                                 <td> <?php echo GradeValue($row[3]); ?> </td>
                                  <td><?php  echo $row[4];?></td>
-                                 <td>  </td>
+                                 <td> <?php echo GradeValue($row[4]); ?> </td>
                                  <td><?php  echo $row[5];?></td>
-                                 <td>  </td>
+                                 <td> <?php echo GradeValue($row[5]); ?> </td>
                                  <td><?php  echo $row[6];?></td>
-                                 <td>  </td>
+                                 <td> <?php echo GradeValue($row[6]); ?> </td>
                                  <td><?php  echo $row[7];?></td>
-                                 <td>  </td>
+                                 <td> <?php echo GradeValue($row[7]); ?> </td>
                                  <td><?php  echo $row[8];?></td>
-                                 <td>  </td>
+                                 <td> <?php echo GradeValue($row[8]); ?> </td>
                                  <td><?php  echo $row[9];?></td>
-                                 <td>  </td>
+                                 <td> <?php echo GradeValue($row[9]); ?> </td>
                                  
                                  </tr>
                     <?php 
@@ -485,7 +478,41 @@ function showValues(str) {
                 
             
                                           }
-                                         } ?>
+                                         } 
+                                         function GradeValue($subgrade){
+                                            switch($subgrade)
+                                            {
+                                                case 'O':
+                                                    $value=10;
+                                                    echo $value;
+                                                    break;
+                                                    case 'A+':
+                                                        $value=9;
+                                                        echo $value;
+                                                        break;
+                                                        case 'A':
+                                                            $value=8;
+                                                            echo $value;
+                                                            break;
+                                                            case 'B+':
+                                                                $value=7;
+                                                                echo $value;
+                                                                break;
+                                                                case 'B':
+                                                                    $value=6;
+                                                                    echo $value;
+                                                                    break;
+                                                                    case 'C':
+                                                                        $value=5;
+                                                                        echo $value;
+                                                                        break;
+                                                                        case 'U':
+                                                                            $value=0;
+                                                                            echo $value;
+                                                                            break;
+                                            }
+                                            
+                                         }?>
 
             
             
