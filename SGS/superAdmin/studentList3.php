@@ -556,15 +556,16 @@ function showValues(str) {
                                         function cgpa($value,$creadit,$cgpa){
                                             if($value!=0){
                                             $cgpa+=$value*$creadit;
-                                            return $cgpa;
+                                            echo $cgpa;
                                             }                                        
                                             else{
                                                 $arrear_flag=1;
                                             }
                                             if($arrear_flag==1){
-                                                $cgpa="-";
+                                                $cgpa=0;
                                             }
                                         
+                                            return $cgpa;
                                          }
                                          ?>
 
