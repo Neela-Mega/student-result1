@@ -224,6 +224,14 @@ function showValues(str) {
                                  <td>  </td>
                                  <td><?php  echo $row[8];?></td>
                                  <td>  </td>
+                                 <td><?php  echo $row[9];?></td>
+                                 <td>  </td>
+                                 <td><?php  echo $row[10];?></td>
+                                 <td>  </td>
+                                 <td><?php  echo $row[11];?></td>
+                                 <td>  </td>
+                                 <td><?php  echo $row[12];?></td>
+                                 <td>  </td>
                                  
                                  </tr>
                     <?php 
@@ -296,6 +304,11 @@ function showValues(str) {
                                  <td><?php  echo $row[9];?></td>
                                  <td>  </td>
                                  <td><?php  echo $row[10];?></td>
+                                 <td>  </td>
+                                 <td><?php  echo $row[11];?></td>
+                                 <td>  </td>
+                                 <td><?php  echo $row[12];?></td>
+                                 <td>  </td>
                                  </tr>
                     <?php 
                     
@@ -331,6 +344,11 @@ function showValues(str) {
                                  <td><?php  echo $row[9];?></td>
                                  <td>  </td>
                                  <td><?php  echo $row[10];?></td>
+                                 <td>  </td>
+                                 <td><?php  echo $row[11];?></td>
+                                 <td>  </td>
+                                 <td><?php  echo $row[12];?></td>
+                                 <td>  </td>
                                  </tr>
                     <?php 
                     
@@ -366,6 +384,11 @@ function showValues(str) {
                                  <td><?php  echo $row[9];?></td>
                                  <td>  </td>
                                  <td><?php  echo $row[10];?></td>
+                                 <td>  </td>
+                                 <td><?php  echo $row[11];?></td>
+                                 <td>  </td>
+                                 <td><?php  echo $row[12];?></td>
+                                 <td>  </td>
                                  </tr>
                     <?php 
                     
@@ -400,6 +423,11 @@ function showValues(str) {
                                  <td><?php  echo $row[9];?></td>
                                  <td>  </td>
                                  <td><?php  echo $row[10];?></td>
+                                 <td>  </td>
+                                 <td><?php  echo $row[11];?></td>
+                                 <td>  </td>
+                                 <td><?php  echo $row[12];?></td>
+                                 <td>  </td>
                                  </tr>
                                  
                     <?php 
@@ -429,13 +457,16 @@ function showValues(str) {
                                  <td>  </td>
                                  <td><?php  echo $row[6];?></td>
                                  <td>  </td>
-                                 <td><?php  echo $row[7];?></td>
-                                 <td>  </td>
                                  <td><?php  echo $row[8];?></td>
                                  <td>  </td>
                                  <td><?php  echo $row[9];?></td>
                                  <td>  </td>
                                  <td><?php  echo $row[10];?></td>
+                                 <td>  </td>
+                                 <td><?php  echo $row[11];?></td>
+                                 <td>  </td>
+                                 <td><?php  echo $row[12];?></td>
+                                 <td>  </td>
                                  </tr>
                     <?php 
                     
@@ -470,6 +501,11 @@ function showValues(str) {
                                  <td><?php  echo $row[9];?></td>
                                  <td>  </td>
                                  <td><?php  echo $row[10];?></td>
+                                 <td>  </td>
+                                 <td><?php  echo $row[11];?></td>
+                                 <td>  </td>
+                                 <td><?php  echo $row[12];?></td>
+                                 <td>  </td>
                                  </tr>
                     <?php 
                     
