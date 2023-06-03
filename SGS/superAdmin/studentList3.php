@@ -167,12 +167,14 @@ function showValues(str) {
                             if(isset($_POST['submit'])){
                                 $sem=$_POST['semester'];
                                 $query=mysqli_query($con1,"show columns from second");
+                                $creadit=array("");
                                 while($row=mysqli_fetch_array($query))
                                              {
                                                 $sub=$row[0];
                                                 if($sub!=="REGNO" && $sub!=="NAME" && $sub!=="ARREARS" && $sub!=="CGPA"){                                               
+                                                $get_creadit=mysqli_query($con1,"SELECT credits FROM subjects WHERE subjectcode=$sub");
                                                 ?>
-                                                <th><?php echo $sub; ?></th>
+                                                <th><?php echo $get_creadit; ?></th>
                                                 <th>VALUE</th>
                                                 <?php
                                              }
