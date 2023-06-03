@@ -557,7 +557,7 @@ function showValues(str) {
                                             if($value!=0){
                                             $cgpa+=$value*$creadit;
                                             return $cgpa;
-                                            }                                           }
+                                            }                                        
                                             else{
                                                 $arrear_flag=1;
                                             }
