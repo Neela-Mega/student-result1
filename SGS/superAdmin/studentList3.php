@@ -1,4 +1,5 @@
 
+
 <?php
 
     include('../includes/dbconnection1.php');
@@ -522,7 +523,7 @@ function showValues(str) {
                                          function GradeValue($subgrade){
                                             switch($subgrade)
                                             {
-                                                case 'O':
+                                                case '0':
                                                     $value=10;
                                                     echo $value;
                                                     break;
