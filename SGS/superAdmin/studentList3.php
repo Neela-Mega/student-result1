@@ -156,42 +156,36 @@ function showValues(str) {
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title"><h2 align="center">Result</h2></strong>
-                            </div>
+                            </div>                            
                             <div class="card-body">
                                <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            
-                                            <th>Reg.no</th>
-                                            <th>Student Name</th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            <th> </th>
-                                            
-                                            
-                                            
-                                            
-                                            
-                                        </tr>
+                                        <th>REG NO</th>
+                                        <th>STUDENT NAME</th>
+                                            <?php 
+                            if(isset($_POST['submit'])){
+                                $sem=$_POST['semester'];
+                                $query=mysqli_query($con1,"show columns from second");
+                                $creadit=array(0);
+                                while($row=mysqli_fetch_array($query))
+                                             {
+                                                $sub=$row[0];
+                                                if($sub!=="REGNO" && $sub!=="NAME" && $sub!=="ARREARS" && $sub!=="CGPA"){                                               
+                                                $creadit_query=mysqli_query($con1,"SELECT credits FROM subjects WHERE subjectcode='$sub'");
+                                                $fetch=mysqli_fetch_array($creadit_query);
+                                                array_push($creadit,$fetch[0]);
+                                                ?>
+                                                <th><?php echo $sub; ?></th>
+                                                <th>VALUE</th>
+                                                <?php
+                                             }
+                                            }
+                            }
+                            ?>
+                            <th>CGPA</th>
+                            <th>ARREARS</th>
+                            </tr>
                                     </thead>
                                     <tbody>
                                       
@@ -259,29 +253,23 @@ function showValues(str) {
                                 
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
-                                 <td><?php  echo $row[2];?></td>
-                                 <td>  </td>
+                                 <td><?php  $cgpa=$sub_count=0; echo $row[2];?></td>
+                                 <td><?php echo $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa); $sub_count++;?></td>
                                  <td><?php  echo $row[3];?></td>
-                                 <td>  </td>
+                                 <td> <?php echo $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa); $sub_count++;?> </td>
                                  <td><?php  echo $row[4];?></td>
-                                 <td>  </td>
+                                 <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); $sub_count++;?> </td>
                                  <td><?php  echo $row[5];?></td>
-                                 <td>  </td>
+                                 <td> <?php echo $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa); $sub_count++; ?> </td>
                                  <td><?php  echo $row[6];?></td>
-                                 <td>  </td>
+                                 <td> <?php echo $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); $sub_count++;?> </td>
                                  <td><?php  echo $row[7];?></td>
-                                 <td>  </td>
+                                 <td> <?php echo $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa); $sub_count++;?> </td>
                                  <td><?php  echo $row[8];?></td>
-                                 <td>  </td>
+                                 <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); $sub_count++;?> </td>
                                  <td><?php  echo $row[9];?></td>
-                                 <td>  </td>
-                                 <td><?php  echo $row[10];?></td>
-                                 <td>  </td>
-                                 <td><?php  echo $row[11];?></td>
-                                 <td>  </td>
-                                 <td><?php  echo $row[12];?></td>
-                                 <td>  </td>
-                                 
+                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); $sub_count++;?> </td>
+                                 <td><?php echo $cgpa;?></td>
                                  </tr>
                     <?php 
                     
@@ -530,7 +518,56 @@ function showValues(str) {
                 
             
                                           }
-                                         } ?>
+                                         } 
+                                         function GradeValue($subgrade){
+                                            switch($subgrade)
+                                            {
+                                                case 'O':
+                                                    $value=10;
+                                                    echo $value;
+                                                    break;
+                                                    case 'A+':
+                                                        $value=9;
+                                                        echo $value;
+                                                        break;
+                                                        case 'A':
+                                                            $value=8;
+                                                            echo $value;
+                                                            break;
+                                                            case 'B+':
+                                                                $value=7;
+                                                                echo $value;
+                                                                break;
+                                                                case 'B':
+                                                                    $value=6;
+                                                                    echo $value;
+                                                                    break;
+                                                                    case 'C':
+                                                                        $value=5;
+                                                                        echo $value;
+                                                                        break;
+                                                                        case 'U':
+                                                                            $value=0;
+                                                                            echo $value;
+                                                                            break;
+                                            }
+                                            
+                                         }
+                                        function cgpa($value,$creadit,$cgpa){
+                                            if($value!=0){
+                                            $cgpa+=$value*$creadit;
+                                            echo $cgpa;
+                                            }                                        
+                                            else{
+                                                $arrear_flag=1;
+                                            }
+                                            if($arrear_flag==1){
+                                                $cgpa=0;
+                                            }
+                                        
+                                            return $cgpa;
+                                         }
+                                         ?>
 
             
             
