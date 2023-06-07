@@ -92,6 +92,8 @@ $staffFullName = $row['firstName'].' '.$row['lastName'];
                             <li><i class="fa fa-plus"></i> <a href="studentList4.php">List Of Arrears</a></li> 
                             <li><i class="fa fa-plus"></i> <a href="studentList.php">View/Update Result</a></li> 
                             <li><i class="fa fa-plus"></i> <a href="studentList2.php">Student Result</a></li>
+                            <li><i class="fa fa-plus"></i> <a href="studentList1.php">Analysis Result</a></li>
+
 
                         </ul>
                     </li>
