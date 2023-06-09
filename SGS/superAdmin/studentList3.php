@@ -167,7 +167,7 @@ function showValues(str) {
                                         <?php 
                             if(isset($_POST['submit'])){
                                 $sem=$_POST['semester'];
-                                $creadit=array(0);            
+                                $creadit=array(0);      
                                 switch($sem)
                                 {
                                     case 1:                    
@@ -176,9 +176,11 @@ function showValues(str) {
                                 
                                 while($row=mysqli_fetch_array($query1))
                                              {
+                                                   
                                                 $sub=$row[0];
                                                 if($sub!=="REGNO" && $sub!=="NAME" && $sub!=="ARREARS" && $sub!=="CGPA"){                                               
                                                 $creadit_query=mysqli_query($con1,"SELECT credits FROM subjects WHERE subjectcode='$sub'");
+                                               
                                                 $fetch=mysqli_fetch_array($creadit_query);
                                                 array_push($creadit,$fetch[0]);
                                                 ?>
@@ -364,8 +366,7 @@ function showValues(str) {
                                  <td><?php  echo $row[9];?></td>
                                  <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); $sub_count++;?> </td>
                                  <td><?php echo $cgpa;?></td>
-                                 
-                                 </tr>
+                                
                     <?php 
                     
                     } break;

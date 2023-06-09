@@ -116,7 +116,10 @@ function showValues(str) {
                                     <div class="card-body">
                                        <div class="<?php echo $alertStyle;?>" role="alert"><?php echo $statusMsg;?></div>
                                         <form method="Post" action="">
-                                            
+                                        <label for="x_card_code" class="control-label mb-1">Section</label>
+                                                    
+                                                    <input type="checkbox" name="section" value="A">A</input>
+                                                    <input type="checkbox" name="section" value="B">B</input>
                                             
                                          <div class="row">
                                                 <div class="col-6">
