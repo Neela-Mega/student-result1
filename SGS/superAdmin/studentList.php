@@ -120,6 +120,7 @@ function showValues(str) {
                                                     
                                                     <input type="checkbox" name="section" value="A">A</input>
                                                     <input type="checkbox" name="section" value="B">B</input>
+                                                    <input type="checkbox" name="section" value="ALL">ALL</input>
                                             
                                          <div class="row">
                                                 <div class="col-6">
