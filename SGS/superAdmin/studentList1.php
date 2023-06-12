@@ -124,6 +124,7 @@ function showValues(str) {
                                                     
                                                     <input type="checkbox" name="section" value="A">A</input>
                                                     <input type="checkbox" name="section" value="B">B</input>
+                                                    <input type="checkbox" name="section" value="ALL">ALL</input>
                                                         <br><label for="x_card_code" class="control-label mb-1">Semester</label>
                                                         <input id="" name="semester" type="number" min=1 max=8 class="form-control cc-exp" value=""  placeholder="semester">
                                                     </div>
@@ -187,14 +188,31 @@ function showValues(str) {
                             <?php
                            
                             if(isset($_POST['submit']))
+                           
                             {
-                               
                                 $semester=$_POST['semester'];
-                                
-                                
-                
+                               
+
+                                $ret=mysqli_query($con1,"SELECT  SUBJECTNAME,SUBJECTCODE,STAFFANAME,STUDENTAPPEAR,
+                                STUDENTPASS,STUDENTFAIL,PERCENTAGE from section where SEMESTER='$semester'");  
+                                while($row=mysqli_fetch_array($ret))
+                                             {
+                                                
+                                                    ?>
+
+                                <tr>
+                                <td><?php  echo $row['SUBJECTNAME'];?></td>
+                                <td><?php  echo $row['SUBJECTCODE'];?></td>
+                                <td><?php  echo $row['STAFFANAME'];?></td>
+                                <td><?php  echo $row['STUDENTAPPEAR'];?></td>
+                                <td><?php  echo $row['STUDENTPASS'];?></td>
+                                <td><?php  echo $row['STUDENTFAIL'];?></td>
+                                <td><?php  echo $row['PERCENTAGE'];?></td>
+                                             </tr>
+                                             <?php
             
                                           }
+                                        }
                                           ?>
 
               

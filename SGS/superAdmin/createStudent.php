@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
     }
     else{
 
-    $query=mysqli_query($con1,"insert into students(regno,studentname,batch) value('$regno','$studentname','$batch')");
+    $query=mysqli_query($con1,"insert into students(regno,studentname,section,batch) value('$regno','$studentname','$section','$batch')");
 
     if ($query) {
 
@@ -154,7 +154,7 @@ function showValues(str) {
                                                 <div class="col-6">
                                                     <div class="form-group">
 													<!-- Log on to codeastro.com for more projects! -->
-                                                        <label for="cc-exp" class="control-label mb-1">Regiter Number</label>
+                                                        <label for="cc-exp" class="control-label mb-1">Register Number</label>
                                                         <input id="" name="regno" type="text" class="form-control cc-exp" value="" Required data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="Enter student register Number">
                                                     </div>
                                                 </div>
@@ -166,12 +166,20 @@ function showValues(str) {
                                                     </div>
                                                     <div>
 
+
                                             <div class="row">
+                                            <div class="col-6">
+                                                    <div class="form-group">
+													<!-- Log on to codeastro.com for more projects! -->
+                                                        <label for="cc-exp" class="control-label mb-1">Section</label>
+                                                        <input id="" name="section" type="text" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="Enter Student Section">
+                                                    </div>
+                                                </div>
                                                 <div class="col-6">
                                                     <div class="form-group">
 													<!-- Log on to codeastro.com for more projects! -->
                                                         <label for="cc-exp" class="control-label mb-1">Batch</label>
-                                                        <input id="" name="batch" type="number" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="Enter Student Joining Year">
+                                                        <input id="" name="batch" type="text" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="Enter Student Joining Year">
                                                     </div>
                                                 </div>
                                             

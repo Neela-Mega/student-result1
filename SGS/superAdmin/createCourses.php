@@ -29,6 +29,9 @@ if(isset($_POST['submit'])){
     else{
 
         $query=mysqli_query($con1,"insert into subjects(subjectcode,subjectname,semester,credits,year) value('$subjectcode','$subjectname','$semester','$credits','$year')");
+        $query1=mysqli_query($con1,"insert into section(SUBJECTCODE,SUBJECTNAME,SEMESTER,BATCH) value('$subjectcode','$subjectname','$semester','$year')");
+        $query2=mysqli_query($con1,"insert into sectionA(SUBJECTCODE,SUBJECTNAME,SEMESTER,BATCH) value('$subjectcode','$subjectname','$semester','$year')");
+        $query3=mysqli_query($con1,"insert into sectionB(SUBJECTCODE,SUBJECTNAME,SEMESTER,BATCH) value('$subjectcode','$subjectname','$semester','$year')");
 
     if ($query) {
         

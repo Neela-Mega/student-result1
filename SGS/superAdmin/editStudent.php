@@ -30,6 +30,7 @@ if(isset($_POST['submit'])){
 
   $regno=$_POST['regno'];
   $studentname=$_POST['studentname'];
+  $section=$_POST['section'];
   $batch=$_POST['batch'];
   
     // $query=mysqli_query($con,"select * from tblstudent where matricno !='$matricNo'");
@@ -42,7 +43,7 @@ if(isset($_POST['submit'])){
     // }
     // else{
 
-    $ret=mysqli_query($con1,"update students set regno='$regno', studentname='$studentname', batch='$batch'
+    $ret=mysqli_query($con1,"update students set regno='$regno', studentname='$studentname',section='$section', batch='$batch'
     where regno='$_SESSION[editStudentId]'");
 
     if ($ret) {
@@ -181,10 +182,16 @@ function showValues(str) {
                                                     <div>
 
                                             <div class="row">
+                                            <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="cc-exp" class="control-label mb-1">Section</label>
+                                                        <input id="" name="section" type="text"  class="form-control cc-exp" value="<?php echo $rowi['section'];?>" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="Enter Joining Year">
+                                                    </div>
+                                                </div>
                                                 <div class="col-6">
                                                     <div class="form-group">
                                                         <label for="cc-exp" class="control-label mb-1">Batch</label>
-                                                        <input id="" name="batch" type="number" min=2021 max =2022 class="form-control cc-exp" value="<?php echo $rowi['batch'];?>" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="Enter Joining Year">
+                                                        <input id="" name="batch" type="text" min=2021 max =2022 class="form-control cc-exp" value="<?php echo $rowi['batch'];?>" data-val="true" data-val-required="Please enter the card expiration" data-val-cc-exp="Please enter a valid month and year" placeholder="Enter Joining Year">
                                                     </div>
                                                 </div>
                                             

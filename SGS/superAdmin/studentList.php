@@ -151,6 +151,7 @@ function showValues(str) {
                                                 <div>
 												
                                                 <button type="submit" name="submit" class="btn btn-success">View Result</button>
+                                                
                                             </div>
                                         </form>
                                     </div>
@@ -194,7 +195,7 @@ function showValues(str) {
                                 switch($semester)
                                 {
                                     case 1:                                        
-                                        $ret=mysqli_query($con1,"SELECT first.REGNO,first.NAME,$code from first");
+                                        $ret=mysqli_query($con1,"SELECT first.REGNO,first.NAME,$code from first ");
                                         $sem="first";
                                         break;
                                     case 2:
@@ -351,6 +352,7 @@ $c_grade = mysqli_num_rows( $c );
                                                     <label for="x_card_code" class="control-label mb-1">STUDENTS HAVE C GRADE</label>
                                                         <input id="" name="c" type="tel" class="form-control cc-cvc" value="<?php echo $c_grade;?>" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
                                                         </div>
+                                                        <button type="submit1" name="submit1" class="btn btn-success">Save Result</button>
                     </div>
             </div>
         </div><!-- .animated -->

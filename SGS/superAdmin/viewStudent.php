@@ -96,7 +96,8 @@
                                             <th>#</th>
                                             <th>Reg.no</th>
                                             <th>Student Name</th>
-                                            <th>batch</th>
+                                            <th>Section</th>
+                                            <th>Batch</th>
                                             <th>Actions</th>
                                             
                                         </tr>
@@ -105,7 +106,7 @@
                                       
                             <?php
                             
-                    $ret=mysqli_query($con1,"SELECT students.regno, students.studentname, students.batch
+                    $ret=mysqli_query($con1,"SELECT students.regno, students.studentname,students.section, students.batch
                     from students");
                     $cnt=1;
                     while ($row=mysqli_fetch_array($ret)) {
@@ -115,6 +116,7 @@
                     
                     <td><?php  echo $row['regno'];?></td>
                     <td><?php  echo $row['studentname'];?></td>
+                    <td><?php  echo $row['section'];?></td>
                      <td><?php  echo $row['batch'];?></td>
                    
                     <td><a href="editStudent.php?editStudentId=<?php echo $row['regno'];?>" title="Edit Details"><i class="fa fa-edit fa-1x"></i></a>

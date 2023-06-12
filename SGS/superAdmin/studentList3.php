@@ -627,10 +627,7 @@ function showValues(str) {
                                          function GradeValue($subgrade){
                                             switch($subgrade)
                                             {
-                                                case '0':
-                                                    $value=10;
-                                                    echo $value;
-                                                    break;
+                                               
                                                     case 'O':
                                                         $value=10;
                                                         echo $value;

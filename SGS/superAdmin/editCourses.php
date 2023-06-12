@@ -38,6 +38,13 @@ if(isset($_POST['submit'])){
 
     $query=mysqli_query($con1,"update subjects set subjectcode='$subjectcode',subjectname='$subjectname',semester='$semester',credits='$credits',year='$year'
     where subjectcode='$_SESSION[editCourseId]'");
+    $query1=mysqli_query($con1,"update SECTION set SUBJECTCODE='$subjectcode',SUBJECTNAME='$subjectname',SEMESTER='$semester',BATCH='$year'
+    where SUBJECTCODE='$_SESSION[editCourseId]'");
+    $query2=mysqli_query($con1,"update SECTIONA set SUBJECTCODE='$subjectcode',SUBJECTNAME='$subjectname',SEMESTER='$semester',BATCH='$year'
+    where SUBJECTCODE='$_SESSION[editCourseId]'");
+    $query3=mysqli_query($con1,"update SECTIONB set SUBJECTCODE='$subjectcode',SUBJECTNAME='$subjectname',SEMESTER='$semester',BATCH='$year'
+    where SUBJECTCODE='$_SESSION[editCourseId]'");
+
 
     if ($query) {
         
