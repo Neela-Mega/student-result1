@@ -625,9 +625,6 @@ function showValues(str) {
                     } break;
                                  default :
                                  echo"try again........";
-                                 
-                
-            
                                           }
                                          } 
                                         
