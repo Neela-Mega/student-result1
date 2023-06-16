@@ -332,7 +332,7 @@ function showValues(str) {
                             {
                                
                                 $semester=$_POST['semester'];
-                                
+                                $total_creadit=array_sum($creadit);
                                 switch($semester)
 
                                 {
@@ -349,23 +349,23 @@ function showValues(str) {
                                 
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
-                                 <td><?php  $cgpa=$sub_count=0; echo $row[2];?></td>
-                                 <td><?php echo $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa); $sub_count++;?></td>
+                                 <td><?php  $cgpa=0; echo $row[2];?></td>
+                                 <td><?php echo $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa); ?></td>
                                  <td><?php  echo $row[3];?></td>
-                                 <td> <?php echo $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa); ?> </td>
                                  <td><?php  echo $row[4];?></td>
-                                 <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); ?> </td>
                                  <td><?php  echo $row[5];?></td>
-                                 <td> <?php echo $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa); $sub_count++; ?> </td>
+                                 <td> <?php echo $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa);  ?> </td>
                                  <td><?php  echo $row[6];?></td>
-                                 <td> <?php echo $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); ?> </td>
                                  <td><?php  echo $row[7];?></td>
-                                 <td> <?php echo $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa); ?> </td>
                                  <td><?php  echo $row[8];?></td>
-                                 <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); ?> </td>
                                  <td><?php  echo $row[9];?></td>
-                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); $sub_count++;?> </td>
-                                 <td><?php echo $cgpa;?></td>
+                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); ?> </td>
+                                 <td><?php echo number_format((float)$cgpa/$total_creadit,2,'.');?></td>
                                 
                     <?php 
                     
@@ -384,23 +384,23 @@ function showValues(str) {
                                 
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
-                                 <td><?php  $cgpa=$sub_count=0; echo $row[2];?></td>
-                                 <td><?php echo $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa); $sub_count++;?></td>
+                                 <td><?php  $cgpa=0; $arrear_flag=0; echo $row[2];?></td>
+                                 <td><?php $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa); ?></td>
                                  <td><?php  echo $row[3];?></td>
-                                 <td> <?php echo $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa); ?> </td>
                                  <td><?php  echo $row[4];?></td>
-                                 <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); ?> </td>
                                  <td><?php  echo $row[5];?></td>
-                                 <td> <?php echo $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa); $sub_count++; ?> </td>
+                                 <td> <?php $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa);  ?> </td>
                                  <td><?php  echo $row[6];?></td>
-                                 <td> <?php echo $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); ?> </td>
                                  <td><?php  echo $row[7];?></td>
-                                 <td> <?php echo $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa); ?> </td>
                                  <td><?php  echo $row[8];?></td>
-                                 <td> <?php echo $value= GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php $value= GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); ?> </td>
                                  <td><?php  echo $row[9];?></td>
-                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); $sub_count++;?> </td>
-                                 <td><?php echo $cgpa;?></td>
+                                 <td> <?php $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); ?> </td>
+                                 <td><?php if($arrear_flag!=1) echo number_format((float)$cgpa/$total_creadit,2,'.'); else echo "-";?></td>
                                  </tr>
                     <?php 
                     
@@ -421,29 +421,29 @@ function showValues(str) {
                                 
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
-                                 <td><?php  $cgpa=$sub_count=0; echo $row[2];?></td>
-                                 <td><?php echo $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa); $sub_count++;?></td>
+                                 <td><?php  $cgpa=0; echo $row[2];?></td>
+                                 <td><?php echo $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa); ?></td>
                                  <td><?php  echo $row[3];?></td>
-                                 <td> <?php echo $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa); ?> </td>
                                  <td><?php  echo $row[4];?></td>
-                                 <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); ?> </td>
                                  <td><?php  echo $row[5];?></td>
-                                 <td> <?php echo $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa); $sub_count++; ?> </td>
+                                 <td> <?php echo $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa);  ?> </td>
                                  <td><?php  echo $row[6];?></td>
-                                 <td> <?php echo $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); ?> </td>
                                  <td><?php  echo $row[7];?></td>
-                                 <td> <?php echo $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa); ?> </td>
                                  <td><?php  echo $row[8];?></td>
-                                 <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); ?> </td>
                                  <td><?php  echo $row[9];?></td>
-                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); ?> </td>
                                  <td><?php  echo $row[10];?></td>
-                                 <td> <?php echo $value=GradeValue($row[10]); $cgpa=cgpa($value,$creadit[8],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[10]); $cgpa=cgpa($value,$creadit[8],$cgpa); ?> </td>
                                  <td><?php  echo $row[11];?></td>
                                  
                                  
                                  
-                                 <td><?php echo $cgpa;?></td>
+                                 <td><?php echo number_format((float)$cgpa/$total_creadit,2,'.');?></td>
                     <?php 
                     
                     }
@@ -461,23 +461,23 @@ function showValues(str) {
                                 
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
-                                 <td><?php  $cgpa=$sub_count=0; echo $row[2];?></td>
-                                 <td><?php echo $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa); $sub_count++;?></td>
+                                 <td><?php  $cgpa=0; echo $row[2];?></td>
+                                 <td><?php echo $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa); ?></td>
                                  <td><?php  echo $row[3];?></td>
-                                 <td> <?php echo $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa); ?> </td>
                                  <td><?php  echo $row[4];?></td>
-                                 <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); ?> </td>
                                  <td><?php  echo $row[5];?></td>
-                                 <td> <?php echo $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa); $sub_count++; ?> </td>
+                                 <td> <?php echo $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa);  ?> </td>
                                  <td><?php  echo $row[6];?></td>
-                                 <td> <?php echo $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); ?> </td>
                                  <td><?php  echo $row[7];?></td>
-                                 <td> <?php echo $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa); ?> </td>
                                  <td><?php  echo $row[8];?></td>
-                                 <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); ?> </td>
                                  <td><?php  echo $row[9];?></td>
-                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); $sub_count++;?> </td>
-                                 <td><?php echo $cgpa;?></td>
+                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); ?> </td>
+                                 <td><?php echo number_format((float)$cgpa/$total_creadit,2,'.');?></td>
                     <?php 
                     
                     }
@@ -495,23 +495,23 @@ function showValues(str) {
                                 
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
-                                 <td><?php  $cgpa=$sub_count=0; echo $row[2];?></td>
-                                 <td><?php echo $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa); $sub_count++;?></td>
+                                 <td><?php  $cgpa=0; echo $row[2];?></td>
+                                 <td><?php echo $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa); ?></td>
                                  <td><?php  echo $row[3];?></td>
-                                 <td> <?php echo $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa); ?> </td>
                                  <td><?php  echo $row[4];?></td>
-                                 <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); ?> </td>
                                  <td><?php  echo $row[5];?></td>
-                                 <td> <?php echo $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa); $sub_count++; ?> </td>
+                                 <td> <?php echo $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa);  ?> </td>
                                  <td><?php  echo $row[6];?></td>
-                                 <td> <?php echo $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); ?> </td>
                                  <td><?php  echo $row[7];?></td>
-                                 <td> <?php echo $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa); ?> </td>
                                  <td><?php  echo $row[8];?></td>
-                                 <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); ?> </td>
                                  <td><?php  echo $row[9];?></td>
-                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); $sub_count++;?> </td>
-                                 <td><?php echo $cgpa;?></td>
+                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); ?> </td>
+                                 <td><?php echo number_format((float)$cgpa/$total_creadit,2,'.');?></td>
                     <?php 
                     
                     } break;
@@ -528,23 +528,23 @@ function showValues(str) {
                                 
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
-                                 <td><?php  $cgpa=$sub_count=0; echo $row[2];?></td>
-                                 <td><?php echo $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa); $sub_count++;?></td>
+                                 <td><?php  $cgpa=0; echo $row[2];?></td>
+                                 <td><?php echo $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa); ?></td>
                                  <td><?php  echo $row[3];?></td>
-                                 <td> <?php echo $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa); ?> </td>
                                  <td><?php  echo $row[4];?></td>
-                                 <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); ?> </td>
                                  <td><?php  echo $row[5];?></td>
-                                 <td> <?php echo $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa); $sub_count++; ?> </td>
+                                 <td> <?php echo $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa);  ?> </td>
                                  <td><?php  echo $row[6];?></td>
-                                 <td> <?php echo $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); ?> </td>
                                  <td><?php  echo $row[7];?></td>
-                                 <td> <?php echo $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa); ?> </td>
                                  <td><?php  echo $row[8];?></td>
-                                 <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); ?> </td>
                                  <td><?php  echo $row[9];?></td>
-                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); $sub_count++;?> </td>
-                                 <td><?php echo $cgpa;?></td>
+                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); ?> </td>
+                                 <td><?php echo number_format((float)$cgpa/$total_creadit,2,'.');?></td>
                                  
                     <?php 
                     
@@ -563,23 +563,23 @@ function showValues(str) {
                                 
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
-                                 <td><?php  $cgpa=$sub_count=0; echo $row[2];?></td>
-                                 <td><?php echo $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa); $sub_count++;?></td>
+                                 <td><?php  $cgpa=0; echo $row[2];?></td>
+                                 <td><?php echo $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa); ?></td>
                                  <td><?php  echo $row[3];?></td>
-                                 <td> <?php echo $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa); ?> </td>
                                  <td><?php  echo $row[4];?></td>
-                                 <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); ?> </td>
                                  <td><?php  echo $row[5];?></td>
-                                 <td> <?php echo $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa); $sub_count++; ?> </td>
+                                 <td> <?php echo $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa);  ?> </td>
                                  <td><?php  echo $row[6];?></td>
-                                 <td> <?php echo $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); ?> </td>
                                  <td><?php  echo $row[7];?></td>
-                                 <td> <?php echo $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa); ?> </td>
                                  <td><?php  echo $row[8];?></td>
-                                 <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); ?> </td>
                                  <td><?php  echo $row[9];?></td>
-                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); $sub_count++;?> </td>
-                                 <td><?php echo $cgpa;?></td>
+                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); ?> </td>
+                                 <td><?php echo number_format((float)$cgpa/$total_creadit,2,'.');?></td>
                     <?php 
                     
                     } break;
@@ -596,23 +596,23 @@ function showValues(str) {
                                 
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
-                                 <td><?php  $cgpa=$sub_count=0; echo $row[2];?></td>
-                                 <td><?php echo $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa); $sub_count++;?></td>
+                                 <td><?php  $cgpa=0; echo $row[2];?></td>
+                                 <td><?php echo $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa); ?></td>
                                  <td><?php  echo $row[3];?></td>
-                                 <td> <?php echo $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa); ?> </td>
                                  <td><?php  echo $row[4];?></td>
-                                 <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); ?> </td>
                                  <td><?php  echo $row[5];?></td>
-                                 <td> <?php echo $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa); $sub_count++; ?> </td>
+                                 <td> <?php echo $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa);  ?> </td>
                                  <td><?php  echo $row[6];?></td>
-                                 <td> <?php echo $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); ?> </td>
                                  <td><?php  echo $row[7];?></td>
-                                 <td> <?php echo $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa); ?> </td>
                                  <td><?php  echo $row[8];?></td>
-                                 <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); $sub_count++;?> </td>
+                                 <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); ?> </td>
                                  <td><?php  echo $row[9];?></td>
-                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); $sub_count++;?> </td>
-                                 <td><?php echo $cgpa;?></td>
+                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); ?> </td>
+                                 <td><?php echo number_format((float)$cgpa/$total_creadit,2,'.');?></td>
                     <?php 
                     
                     } break;
@@ -628,41 +628,47 @@ function showValues(str) {
                                             switch($subgrade)
                                             {
                                                
-                                                    case 'O':
+                                                    case '0':
                                                         $value=10;
                                                         echo $value;
+                                                        return 10;
                                                         break;
                                                     case 'A+':
                                                         $value=9;
                                                         echo $value;
+                                                        return 9;
                                                         break;
                                                         case 'A':
                                                             $value=8;
                                                             echo $value;
+                                                            return 8;
                                                             break;
                                                             case 'B+':
                                                                 $value=7;
                                                                 echo $value;
+                                                                return 7;
                                                                 break;
                                                                 case 'B':
                                                                     $value=6;
                                                                     echo $value;
+                                                                    return 6;
                                                                     break;
                                                                     case 'C':
                                                                         $value=5;
                                                                         echo $value;
+                                                                        return 5;
                                                                         break;
                                                                         case 'U':
-                                                                            $value=0;
+                                                                            $value='-';
                                                                             echo $value;
+                                                                            return 0;
                                                                             break;
-                                            }
+                                                                        }
                                             
                                          }
                                         function cgpa($value,$creadit,$cgpa){
                                             if($value!=0){
                                             $cgpa+=$value*$creadit;
-                                            echo $cgpa;
                                             }                                        
                                             else{
                                                 $arrear_flag=1;
