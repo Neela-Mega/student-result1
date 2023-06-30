@@ -632,40 +632,40 @@ function showValues(str) {
                                             switch($subgrade)
                                             {
                                                
-                                                    case '0':
+                                                    case 'O':
                                                         $value=10;
-                                                        echo $value;
+                                                        //echo $value;
                                                         return 10;
                                                         break;
                                                     case 'A+':
                                                         $value=9;
-                                                        echo $value;
+                                                        //echo $value;
                                                         return 9;
                                                         break;
                                                         case 'A':
                                                             $value=8;
-                                                            echo $value;
+                                                            //echo $value;
                                                             return 8;
                                                             break;
                                                             case 'B+':
                                                                 $value=7;
-                                                                echo $value;
+                                                                //echo $value;
                                                                 return 7;
                                                                 break;
                                                                 case 'B':
                                                                     $value=6;
-                                                                    echo $value;
+                                                                    //echo $value;
                                                                     return 6;
                                                                     break;
                                                                     case 'C':
                                                                         $value=5;
-                                                                        echo $value;
+                                                                       //echo $value;
                                                                         return 5;
                                                                         break;
                                                                         case 'U':
                                                                             $value='-';
-                                                                            echo $value;
-                                                                            return 0;
+                                                                           //echo $value;
+                                                                            return '-';
                                                                             break;
                                                                         }
                                             
