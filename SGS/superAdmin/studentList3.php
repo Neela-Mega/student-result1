@@ -636,51 +636,37 @@ function showValues(str) {
                                             switch($subgrade)
                                             {
                                                
-                                                    case 'O':
-                                                        $value=10;
-                                                        //echo $value;
+                                                    case '0':
                                                         return 10;
                                                         break;
                                                     case 'A+':
-                                                        $value=9;
-                                                        //echo $value;
                                                         return 9;
                                                         break;
                                                         case 'A':
-                                                            $value=8;
-                                                            //echo $value;
                                                             return 8;
                                                             break;
                                                             case 'B+':
-                                                                $value=7;
-                                                                //echo $value;
                                                                 return 7;
                                                                 break;
                                                                 case 'B':
-                                                                    $value=6;
-                                                                    //echo $value;
                                                                     return 6;
                                                                     break;
                                                                     case 'C':
-                                                                        $value=5;
-                                                                       //echo $value;
                                                                         return 5;
                                                                         break;
                                                                         case 'U':
                                                                             $value='-';
                                                                            //echo $value;
-                                                                            return '-';
+                                                                            return $value;
                                                                             break;
                                                                             case 'UA':
-                                                                                $value='AB';
-                                                                               //echo $value;
                                                                                 return 'AB';
                                                                                 break;
                                                                         }
                                             
                                          }
                                         function cgpa($value,$creadit,$cgpa){
-                                            if($value!=0){
+                                            if($value!='-'){
                                             $cgpa+=$value*$creadit;
                                             }                                        
                                             else{
