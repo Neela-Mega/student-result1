@@ -756,4 +756,3 @@ function showValues(str) {
 
 </body>
 </html>
-mani
