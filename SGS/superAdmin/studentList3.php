@@ -662,7 +662,7 @@ function showValues(str) {
                                             
                                          }
                                         function cgpa($value,$creadit,$cgpa){
-                                            if($value!='-'){
+                                            if($value!='-' && $value!='AB'){
                                             $cgpa+=$value*$creadit;
                                             }                                        
                                             else{
