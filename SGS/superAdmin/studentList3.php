@@ -399,12 +399,13 @@ function showValues(str) {
                                  <td><?php  echo $row[8];?></td>
                                  <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa);  ?> </td>
                                  <td><?php  echo $row[9];?></td>
-                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa);  ?> </td>
-                                                           
+                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); ?> </td>
+                                 
+                                 
                                                              
-                               
-                                  <td><?php if($arrear_flag!=1) echo number_format($cgpa/$total_creadit,2,'.',''); else echo "-";?></td>
-                                 <td><?php echo $no_of_arrears; ?></td></tr>
+                                 
+                                 <td><?php if($arrear_flag!=1) echo number_format((float)$cgpa/$total_creadit,2,'.'); else echo "-";?></td>
+                                 <td><?php echo $no_of_arrears; ?></td>
                     <?php 
                    
                     
@@ -447,7 +448,7 @@ function showValues(str) {
                                  
                                  
                                  
-                                 <td><?php if($arrear_flag!=1) echo number_format($cgpa/$total_creadit,2,'.',''); else echo "-";?></td>
+                                 <td><?php if($arrear_flag!=1) echo number_format((float)$cgpa/$total_creadit,2,'.'); else echo "-";?></td>
                                  <td><?php echo $no_of_arrears; ?></td>
                     <?php 
                     
