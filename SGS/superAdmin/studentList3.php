@@ -356,7 +356,7 @@ function showValues(str) {
                                  <td><?php  echo $row[4];?></td>
                                  <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); ?> </td>
                                  <td><?php  echo $row[5];?></td>
-                                 <td> <?php echo $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa);  ?> </td>
+                                 <td> <?php echo $value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa);  ?> </td>
                                  <td><?php  echo $row[6];?></td>
                                  <td> <?php echo $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); ?> </td>
                                  <td><?php  echo $row[7];?></td>
@@ -365,7 +365,7 @@ function showValues(str) {
                                  <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); ?> </td>
                                  <td><?php  echo $row[9];?></td>
                                  <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); ?> </td>
-                                 <td><?php if($arrear_flag!=1) echo number_format((float)$cgpa/$total_creadit,2,'.'); else echo "-";?></td>
+                                 <td><?php if($arrear_flag!=1) echo number_format($cgpa/$total_creadit,2,'.',''); else echo "-";?></td>
                                  <td><?php echo $no_of_arrears; ?></td>
                     <?php 
                     
@@ -385,27 +385,26 @@ function showValues(str) {
                                 <td><?php  echo $row['REGNO'];?></td>
                                 <td><?php  echo $row['NAME'];?></td>
                                  <td><?php  $cgpa=$arrear_flag=$no_of_arrears=0; echo $row[2];?></td>
-                                 <td><?php echo $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa); ?></td>
+                                 <td><?php echo $value=GradeValue($row[2]); $cgpa=cgpa($value,$creadit[1],$cgpa);   ?></td>
                                  <td><?php  echo $row[3];?></td>
-                                 <td> <?php echo $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa); ?> </td>
+                                 <td> <?php echo $value=GradeValue($row[3]); $cgpa=cgpa($value,$creadit[2],$cgpa);   ?> </td>
                                  <td><?php  echo $row[4];?></td>
-                                 <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa); ?> </td>
+                                 <td> <?php echo $value=GradeValue($row[4]); $cgpa=cgpa($value,$creadit[3],$cgpa);   ?> </td>
                                  <td><?php  echo $row[5];?></td>
-                                 <td> <?php echo $$value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa);  ?> </td>
+                                 <td> <?php echo $value=GradeValue($row[5]); $cgpa=cgpa($value,$creadit[4],$cgpa);   ?> </td>
                                  <td><?php  echo $row[6];?></td>
                                  <td> <?php echo $value=GradeValue($row[6]); $cgpa=cgpa($value,$creadit[5],$cgpa); ?> </td>
                                  <td><?php  echo $row[7];?></td>
-                                 <td> <?php echo $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa); ?> </td>
+                                 <td> <?php echo $value=GradeValue($row[7]); $cgpa=cgpa($value,$creadit[6],$cgpa);  ?> </td>
                                  <td><?php  echo $row[8];?></td>
-                                 <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); ?> </td>
+                                 <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa);  ?> </td>
                                  <td><?php  echo $row[9];?></td>
-                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); ?> </td>
-                                 
-                                 
+                                 <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa);  ?> </td>
+                                                           
                                                              
-                                 
-                                 <td><?php if($arrear_flag!=1) echo number_format((float)$cgpa/$total_creadit,2,'.'); else echo "-";?></td>
-                                 <td><?php echo $no_of_arrears; ?></td>
+                               
+                                  <td><?php if($arrear_flag!=1) echo number_format($cgpa/$total_creadit,2,'.',''); else echo "-";?></td>
+                                 <td><?php echo $no_of_arrears; ?></td></tr>
                     <?php 
                    
                     
@@ -448,7 +447,7 @@ function showValues(str) {
                                  
                                  
                                  
-                                 <td><?php if($arrear_flag!=1) echo number_format((float)$cgpa/$total_creadit,2,'.'); else echo "-";?></td>
+                                 <td><?php if($arrear_flag!=1) echo number_format($cgpa/$total_creadit,2,'.',''); else echo "-";?></td>
                                  <td><?php echo $no_of_arrears; ?></td>
                     <?php 
                     
@@ -483,7 +482,7 @@ function showValues(str) {
                                  <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); ?> </td>
                                  <td><?php  echo $row[9];?></td>
                                  <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); ?> </td>
-                                 <td><?php if($arrear_flag!=1) echo number_format((float)$cgpa/$total_creadit,2,'.'); else echo "-";?></td>
+                                 <td><?php if($arrear_flag!=1) echo number_format($cgpa/$total_creadit,2,'.',''); else echo "-";?></td>
                                  <td><?php echo $no_of_arrears; ?></td>
                     <?php 
                     
@@ -518,7 +517,7 @@ function showValues(str) {
                                  <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); ?> </td>
                                  <td><?php  echo $row[9];?></td>
                                  <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); ?> </td>
-                                 <td><?php if($arrear_flag!=1) echo number_format((float)$cgpa/$total_creadit,2,'.'); else echo "-";?></td>
+                                 <td><?php if($arrear_flag!=1) echo number_format($cgpa/$total_creadit,2,'.',''); else echo "-";?></td>
                                  <td><?php echo $no_of_arrears; ?></td>
                     <?php 
                     
@@ -552,7 +551,7 @@ function showValues(str) {
                                  <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); ?> </td>
                                  <td><?php  echo $row[9];?></td>
                                  <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); ?> </td>
-                                 <td><?php if($arrear_flag!=1) echo number_format((float)$cgpa/$total_creadit,2,'.'); else echo "-";?></td>
+                                 <td><?php if($arrear_flag!=1) echo number_format($cgpa/$total_creadit,2,'.',''); else echo "-";?></td>
                                  <td><?php echo $no_of_arrears; ?></td>
                                  
                     <?php 
@@ -588,7 +587,7 @@ function showValues(str) {
                                  <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); ?> </td>
                                  <td><?php  echo $row[9];?></td>
                                  <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); ?> </td>
-                                 <td><?php if($arrear_flag!=1) echo number_format((float)$cgpa/$total_creadit,2,'.'); else echo "-";?></td>
+                                 <td><?php if($arrear_flag!=1) echo number_format($cgpa/$total_creadit,2,'.',''); else echo "-";?></td>
                                  <td><?php echo $no_of_arrears; ?></td>
                     <?php 
                     
@@ -622,7 +621,7 @@ function showValues(str) {
                                  <td> <?php echo $value=GradeValue($row[8]); $cgpa=cgpa($value,$creadit[7],$cgpa); ?> </td>
                                  <td><?php  echo $row[9];?></td>
                                  <td> <?php echo $value=GradeValue($row[9]); $cgpa=cgpa($value,$creadit[8],$cgpa); ?> </td>
-                                 <td><?php if($arrear_flag!=1) echo number_format((float)$cgpa/$total_creadit,2,'.'); else echo "-";?>
+                                 <td><?php if($arrear_flag!=1) echo number_format($cgpa/$total_creadit,2,'.',''); else echo "-";?>
                                  <?php echo $no_of_arrears; ?></td>
                     <?php 
                     
@@ -756,4 +755,3 @@ function showValues(str) {
 
 </body>
 </html>
-mani
