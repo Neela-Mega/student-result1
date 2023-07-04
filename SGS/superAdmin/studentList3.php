@@ -632,7 +632,7 @@ function showValues(str) {
                                             switch($subgrade)
                                             {
                                                
-                                                    case '0':
+                                                    case 'O':
                                                         return 10;
                                                         break;
                                                     case 'A+':
