@@ -38,7 +38,10 @@ error_reporting(0);
                                                 $query4=mysqli_query($con1,"UPDATE print t1 JOIN $sems[$i] t2 ON t1.REGNO=t2.REGNO SET t1.$print_sem=$no_of_arrears,t2.ARREARS=$no_of_arrears WHERE t1.REGNO=$REG");
                                             }
                                         }
-
+                                        //CALCULATE TOTAL NO OF ARRAY
+                                        mysqli_query($con1,"UPDATE print t1 SET TOTAL=(SELECT SUM(SEM1)+SUM(SEM2)+SUM(SEM3)+SUM(SEM4)+SUM(SEM5)+SUM(SEM6)+SUM(SEM7)+SUM(SEM8) FROM print WHERE REGNO=t1.REGNO);");
+                                        //CALCULATE CULATIVE CGPA
+                                        
 
                                         function GradeValue($subgrade){
                                             switch($subgrade)
