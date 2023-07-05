@@ -130,16 +130,16 @@ function showValues(str) {
                                             <th> SA6</th>
                                             <th> SA7</th>
                                             <th> SA8</th>
-                                            <th> SARREARS(ALL)</th>
-                                            <th> SC1</th>
-                                            <th> SC2</th>
-                                            <th> SC3</th>
-                                            <th> SC4</th>
-                                            <th> SC5</th>
-                                            <th> SC6</th>
-                                            <th> SC7</th>
-                                            <th> SC8</th>
-                                            <th> SCGPA(ALL)</th>
+                                            <th> ARREARS(ALL)</th>
+                                            <th> GPA1</th>
+                                            <th> GPA2</th>
+                                            <th> GPA3</th>
+                                            <th> GPA4</th>
+                                            <th> GPA5</th>
+                                            <th> GPA6</th>
+                                            <th> GPA7</th>
+                                            <th> GPA8</th>
+                                            <th> CGPA</th>
                                             
                                             
                                             

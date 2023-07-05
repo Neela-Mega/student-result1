@@ -92,7 +92,7 @@ error_reporting(0);
                                             return $cgpa;
                                          }
                                                 
-                                         echo "<script type = \"text/javascript\">
+                                         /*echo "<script type = \"text/javascript\">
                                          window.location = (\"studentList.php\")
-                                         </script>"; 
+                                         </script>"; */
                                          ?>
