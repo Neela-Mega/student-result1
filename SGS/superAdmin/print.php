@@ -41,7 +41,7 @@ error_reporting(0);
                                         //CALCULATE TOTAL NO OF ARRAY
                                         mysqli_query($con1,"UPDATE print t1 SET TOTAL=(SELECT SUM(SEM1)+SUM(SEM2)+SUM(SEM3)+SUM(SEM4)+SUM(SEM5)+SUM(SEM6)+SUM(SEM7)+SUM(SEM8) FROM print WHERE REGNO=t1.REGNO);");
                                         //CALCULATE CULATIVE CGPA
-                                        
+
 
                                         function GradeValue($subgrade){
                                             switch($subgrade)
@@ -91,4 +91,8 @@ error_reporting(0);
                                         
                                             return $cgpa;
                                          }
-                                                ?>
+                                                
+                                         echo "<script type = \"text/javascript\">
+                                         window.location = (\"studentList.php\")
+                                         </script>"; 
+                                         ?>
