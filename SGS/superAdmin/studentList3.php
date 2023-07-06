@@ -5,7 +5,7 @@
     include('../includes/dbconnection1.php');
     include('../includes/session.php');
     error_reporting(0);
-
+    
   ?>
   
 
@@ -676,6 +676,21 @@ function showValues(str) {
                                         
                                             return $cgpa;
                                          }
+                                         if(isset($_POST['submit1'])){
+
+        
+   
+                                            echo "<script type = \"text/javascript\">
+                                            window.location = (\"print.php\")
+                                            </script>"; 
+                                      }
+                                      
+                                      else
+                                        {
+                                          $alertStyle ="alert alert-danger";
+                                          $statusMsg="An error Occurred!";
+                                        }
+                                    
                                          ?>
 
             

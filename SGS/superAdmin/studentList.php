@@ -4,6 +4,8 @@
     include('../includes/dbconnection1.php');
     include('../includes/session.php');
     error_reporting(0);
+    
+     
 
   ?>
 

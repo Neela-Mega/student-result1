@@ -1,16 +1,19 @@
 <?php
 include('../includes/dbconnection1.php');
 error_reporting(0);
+
                     $sems=array("first","second","third");                     
                         for($i=0;$i<3;$i++){
-                                $print_sem="SEM".$i+1;
-                                $print_CGPA="CGPA".$i+1;
+                            
+                               $print_sem="SEM".$i+1;
+                        $print_CGPA="CGPA".$i+1;
                                 $sub_count=0;
                                 $creadit=array(0); 
                                 $query1=mysqli_query($con1,"show columns from $sems[$i]");                          
                                 //$query1=mysqli_query($con1,"show columns from first");
                                 while($row=mysqli_fetch_array($query1))
-                                             {                                                   
+                                             {  
+                                                                                               
                                                 $sub=$row[0];
                                                 if($sub!=="REGNO" && $sub!=="NAME" && $sub!=="ARREARS" && $sub!=="CGPA"){                                               
                                                 $creadit_query=mysqli_query($con1,"SELECT credits FROM subjects WHERE subjectcode='$sub'");                                               
@@ -24,6 +27,7 @@ error_reporting(0);
                                             $total_creadit=array_sum($creadit); 
                                             while($row=mysqli_fetch_array($query3))
                                              {
+                                                
                                                 $REG=$row['REGNO'];
                                                 $cgpa=$arrear_flag=$no_of_arrears=0;
                                                 for($j=2;$j<$sub_count+2;$j++){
@@ -41,7 +45,7 @@ error_reporting(0);
                                         //CALCULATE TOTAL NO OF ARRAY
                                         mysqli_query($con1,"UPDATE print t1 SET TOTAL=(SELECT SUM(SEM1)+SUM(SEM2)+SUM(SEM3)+SUM(SEM4)+SUM(SEM5)+SUM(SEM6)+SUM(SEM7)+SUM(SEM8) FROM print WHERE REGNO=t1.REGNO);");
                                         //CALCULATE CULATIVE CGPA
-
+                                       
 
                                         function GradeValue($subgrade){
                                             switch($subgrade)
@@ -74,11 +78,13 @@ error_reporting(0);
                                                                                 return 'AB';
                                                                                 break;
                                                                         }
+                                                                       
                                             
                                          }
                                         function cgpa($value,$creadit,$cgpa){
                                             if($value!='-' && $value!='AB'){
                                             $cgpa+=$value*$creadit;
+                                           
                                             }                                        
                                             else{
                                                global $arrear_flag,$no_of_arrears;
@@ -87,9 +93,13 @@ error_reporting(0);
                                             }
                                             if($arrear_flag==1){
                                                 $cgpa=0;
+                                                
                                             }
+                                            
                                         
                                             return $cgpa;
+                                            echo"hi";
+                                            
                                          }
                                                 
                                          /*echo "<script type = \"text/javascript\">
