@@ -37,9 +37,10 @@ if(isset($_POST['submit'])){
        $statusMsg="Subject Edited Successfully!";
 
         echo "<script type = \"text/javascript\">
-        window.location = (\"print.php\")
+        window.location = (\"studentList.php\")
         </script>"; 
   }
+  
   else
     {
       $alertStyle ="alert alert-danger";
