@@ -120,9 +120,9 @@ function showValues(str) {
                                         <form method="Post" action="">
                                         <label for="x_card_code" class="control-label mb-1">Section</label>
                                                     
-                                                    <input type="checkbox" name="section" value="A">A</input>
-                                                    <input type="checkbox" name="section" value="B">B</input>
-                                                    <input type="checkbox" name="section" value="ALL">ALL</input>
+                                                    <input type="radio" name="section" value="A" required>A</input>
+                                                    <input type="radio" name="section" value="B">B</input>
+                                                    <input type="radio" name="section" value="ALL">ALL</input>
                                             
                                          <div class="row">
                                                 <div class="col-6">
@@ -193,39 +193,50 @@ function showValues(str) {
                                 $code=$_POST['subjectcode'];
                                 $semester=$_POST['semester'];
                                 $cnt=0;
-                                
+                                $sec=$_POST['section'];
+                                switch($sec){
+                                    case 'A':
+                                        $sec="'A'";
+                                        break;
+                                    case 'B':
+                                        $sec="'B'";
+                                        break;
+                                    case 'ALL':
+                                        $sec="'A','B'";
+                                        break;
+                                }
                                 switch($semester)
                                 {
                                     case 1:                                        
-                                        $ret=mysqli_query($con1,"SELECT first.REGNO,first.NAME,$code from first ");
+                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from first t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ('$sec')");
                                         $sem="first";
                                         break;
                                     case 2:
-                                        $ret=mysqli_query($con1,"SELECT second.REGNO,second.NAME,$code from second");     
+                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from second t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ('$sec')");     
                                         $sem="second";
                                         break;
                                     case 3:   
-                                        $ret=mysqli_query($con1,"SELECT third.REGNO,third.NAME,$code from third");
+                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from third t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ($sec)");
                                         $sem="third";
                                         break;
                                     case 4:   
-                                        $ret=mysqli_query($con1,"SELECT four.REGNO,four.NAME,$code from four");
+                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from four t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ('$sec')");
                                         $sem="four";
                                         break;
                                     case 5:   
-                                        $ret=mysqli_query($con1,"SELECT five.REGNO,five.NAME,$code from five");
+                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from five t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ('$sec')");
                                         $sem="five";
                                         break;
                                     case 6:   
-                                        $ret=mysqli_query($con1,"SELECT six.REGNO,six.NAME,$code from six");
+                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from six t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ('$sec')");
                                         $sem="six";
                                         break;
                                     case 7:   
-                                        $ret=mysqli_query($con1,"SELECT seven.REGNO,seven.NAME,$code from seven");
+                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from seven t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ('$sec')");
                                         $sem="seven";
                                         break;
                                     case 8:   
-                                        $ret=mysqli_query($con1,"SELECT eight.REGNO,eight.NAME,$code from eight");
+                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from eight t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ('$sec')");
                                         $sem="eight";
                                         break;
                                  }//switch kku ullaye while ah run panna venam mam.. switch ulla query ah mattum select pannittu velila
