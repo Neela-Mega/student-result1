@@ -3,11 +3,7 @@
 
     include('../includes/dbconnection.php');
     include('../includes/session.php');
-<<<<<<< HEAD
-    //include('../includes/dataValues.php');
-=======
-  //  include('../includes/dataValues.php');
->>>>>>> 8b35b9f92cc6a90abfd225daf97797d3df70f615
+    include('../includes/dataValues.php');
 
 ?>
 <!doctype html>
