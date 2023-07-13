@@ -6,11 +6,11 @@ error_reporting(0);
                         for($i=0;$i<3;$i++){
                             
                                $print_sem="SEM".$i+1;
-                        $print_CGPA="CGPA".$i+1;
+                               $print_CGPA="CGPA".$i+1;
                                 $sub_count=0;
                                 $creadit=array(0); 
-                                $query1=mysqli_query($con1,"show columns from $sems[$i]");                          
-                                //$query1=mysqli_query($con1,"show columns from first");
+                               $query1=mysqli_query($con1,"show columns from $sems[$i]");                          
+                               // $query1=mysqli_query($con1,"show columns from first");
                                 while($row=mysqli_fetch_array($query1))
                                              {  
                                                                                                
@@ -23,7 +23,7 @@ error_reporting(0);
                                                 }
                                             }
                                             $query3=mysqli_query($con1,"select * from  $sems[$i]");
-                                            //$query3=mysqli_query($con1,"select * from  first");
+                                           // $query3=mysqli_query($con1,"select * from  first");
                                             $total_creadit=array_sum($creadit); 
                                             while($row=mysqli_fetch_array($query3))
                                              {
@@ -31,21 +31,27 @@ error_reporting(0);
                                                 $REG=$row['REGNO'];
                                                 $cgpa=$arrear_flag=$no_of_arrears=0;
                                                 for($j=2;$j<$sub_count+2;$j++){
-                                                    $value=GradeValue($row[$j]); 
+                                                    $value=GradeValue($row[$j]);                                                    
                                                     $cgpa=cgpa($value,$creadit[$j-1],$cgpa);
+                                                   
                                                 }
                                                 if($arrear_flag!=1) 
                                                     $final_cgpa= number_format($cgpa/$total_creadit,2,'.',''); 
                                                 else 
                                                 $final_cgpa= 0;
-                                                $query4=mysqli_query($con1,"UPDATE print t1 JOIN $sems[$i] t2 ON t1.REGNO=t2.REGNO SET t1.$print_CGPA=$final_cgpa,t2.CGPA=$final_cgpa WHERE t1.REGNO=$REG");
-                                                $query4=mysqli_query($con1,"UPDATE print t1 JOIN $sems[$i] t2 ON t1.REGNO=t2.REGNO SET t1.$print_sem=$no_of_arrears,t2.ARREARS=$no_of_arrears WHERE t1.REGNO=$REG");
+                                              
+                                               //$ret=mysqli_query($con1,"update print SET $print_CGPA=$final_cgpa WHERE REGNO=$REG");
+                                               
+                                                $ret=mysqli_query($con1,"update print t1 JOIN $sems[$i] t2 ON t1.REGNO=t2.REGNO SET t1.$print_CGPA=$final_cgpa,t2.CGPA=$final_cgpa WHERE t1.REGNO=$REG");
+                                               $ret=mysqli_query($con1,"update print t1 JOIN $sems[$i] t2 ON t1.REGNO=t2.REGNO SET t1.$print_sem=$no_of_arrears,t2.ARREARS=$no_of_arrears WHERE t1.REGNO=$REG");
+                                               
                                             }
-                                        }
+
+                                       }
                                         //CALCULATE TOTAL NO OF ARRAY
-                                        mysqli_query($con1,"UPDATE print t1 SET TOTAL=(SELECT SUM(SEM1)+SUM(SEM2)+SUM(SEM3)+SUM(SEM4)+SUM(SEM5)+SUM(SEM6)+SUM(SEM7)+SUM(SEM8) FROM print WHERE REGNO=t1.REGNO);");
+                                        $ret2=mysqli_query($con1,"update print t1 SET TOTAL=(SELECT SUM(SEM1)+SUM(SEM2)+SUM(SEM3)+SUM(SEM4)+SUM(SEM5)+SUM(SEM6)+SUM(SEM7)+SUM(SEM8) from print WHERE REGNO=t1.REGNO);");
                                         //CALCULATE CULATIVE CGPA
-                                       
+                                        echo "hi";
 
                                         function GradeValue($subgrade){
                                             switch($subgrade)
@@ -84,25 +90,31 @@ error_reporting(0);
                                         function cgpa($value,$creadit,$cgpa){
                                             if($value!='-' && $value!='AB'){
                                             $cgpa+=$value*$creadit;
+                                            
                                            
                                             }                                        
                                             else{
                                                global $arrear_flag,$no_of_arrears;
                                                $arrear_flag=1;
                                                $no_of_arrears+=1;
+                                               
                                             }
                                             if($arrear_flag==1){
+                                               
                                                 $cgpa=0;
                                                 
                                             }
                                             
-                                        
+                                            
                                             return $cgpa;
-                                            echo"hi";
+
+                                           
+                                            
                                             
                                          }
                                                 
                                          /*echo "<script type = \"text/javascript\">
-                                         window.location = (\"studentList.php\")
+                                         window.location = (\"studentList4.php\")
                                          </script>"; */
+                                         echo "hi";
                                          ?>
