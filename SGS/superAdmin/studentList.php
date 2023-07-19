@@ -192,7 +192,7 @@ function showValues(str) {
                              {
                                 $code=$_POST['subjectcode'];
                                 $semester=$_POST['semester'];
-                                $cnt=0;
+                                $cnt=$student_present=$student_count=$student_pass=$o_grade=$aplus_grade=$a_grade=$bplus_grade=$b_grade=$c_grade=0;
                                 $sec=$_POST['section'];
                                 switch($sec){
                                     case 'A':
@@ -262,7 +262,25 @@ function showValues(str) {
                     </tr>
                                 
                     <?php
-                    
+                    $student_count++;
+                    if($row[$code] !='UA'){
+                        $student_present++;
+                        if($row[$code] !='U'){
+                            $student_pass++;
+                            if($row[$code] =='O'){
+                            $o_grade++;}
+                            if($row[$code] =='A'){
+                            $a_grade++;}
+                            if($row[$code] =='A+'){
+                            $aplus_grade++;}
+                            if($row[$code] =='B'){
+                            $b_grade++;}
+                            if($row[$code] =='B+'){
+                            $bplus_grade++;}
+                            if($row[$code] =='C'){
+                            $c_grade++;}
+                        }
+                    }
                         }
                             
                 ?>
@@ -280,26 +298,6 @@ function showValues(str) {
 <!-- end of datatable -->
 
 <BR>
-<?php
-$count=mysqli_query($con1,"select * from $sem");
-$student_count = mysqli_num_rows( $count );
-$present=mysqli_query($con1,"select * from $sem where NOT $code='UA'");
-$student_present = mysqli_num_rows( $present );
-$pass=mysqli_query($con1,"select * from $sem where NOT $code='UA' AND NOT $code='U'");
-$student_pass = mysqli_num_rows( $pass );
-$o=mysqli_query($con1,"select * from $sem where NOT $code='UA' AND  $code='O'");
-$o_grade = mysqli_num_rows( $o );
-$aplus=mysqli_query($con1,"select * from $sem where NOT $code='UA' AND  $code='A+'");
-$aplus_grade = mysqli_num_rows( $aplus );
-$a=mysqli_query($con1,"select * from $sem where NOT $code='UA' AND  $code='A'");
-$a_grade = mysqli_num_rows( $a );
-$bplus=mysqli_query($con1,"select * from $sem where NOT $code='UA' AND  $code='B+'");
-$bplus_grade = mysqli_num_rows( $bplus );
-$b=mysqli_query($con1,"select * from $sem where NOT $code='UA' AND  $code='B'");
-$b_grade = mysqli_num_rows( $b );
-$c=mysqli_query($con1,"select * from $sem where NOT $code='UA' AND  $code='C'");
-$c_grade = mysqli_num_rows( $c );
-?>
                             <div class="row">
                                             <div class="col-6">
                                                     <label for="x_card_code" class="control-label mb-1"> NUMBER OF STUDENTS PRESENT</label>
