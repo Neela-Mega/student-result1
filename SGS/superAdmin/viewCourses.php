@@ -99,7 +99,7 @@
                                             <th>Semester</th>
                                             <th>Credits</th>
 
-                                            <th>Year</th>
+                                            <th>year</th>
                                             
                                             <th>Actions</th>
                                             
