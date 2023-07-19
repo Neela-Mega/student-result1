@@ -3,7 +3,7 @@
 
     include('../includes/dbconnection.php');
     include('../includes/session.php');
-    include('../includes/dataValues.php');
+   
 
 ?>
 <!doctype html>

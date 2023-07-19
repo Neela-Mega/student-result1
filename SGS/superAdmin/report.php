@@ -78,22 +78,13 @@ function showValues(str) {
         <div class="breadcrumbs">
             <div class="breadcrumbs-inner">
                 <div class="row m-0">
-                    <div class="col-sm-4">
-                        <div class="page-header float-left">
-                            <div class="page-title">
-                                <h1>Dashboard</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-8">
-                        <div class="page-header float-right">
-                            <div class="page-title">
-							<!-- Log on to codeastro.com for more projects! -->
-                                <ol class="breadcrumb text-right">
-                                    <li><a href="#">Dashboard</a></li>
-                                    <li><a href="#">Result</a></li>
-                                    <li class="active">View/Update Result</li>
-                                </ol>
+                    
+                <div class="col-lg-12">
+                    <div class="card">
+                            <div class="card-header">
+							<strong class="card-title"><h3 align="center">MOOKABIGAI COLLEGE OF ENGINEERING </h3></strong>
+                            <strong class="card-title"><h4 align="center">Srinivasa Nagar,Keeranur-622502 </h4></strong>
+                                
                             </div>
                         </div>
                     </div>
@@ -108,47 +99,35 @@ function showValues(str) {
                         <div class="card">
                             <div class="card-header">
 							<!-- Log on to codeastro.com for more projects! -->
-                            <strong class="card-title"><h3 align="center">View/Print Result </h3></strong>
+                            <strong class="card-title"><h3 align="center"> UNIVERSITY EXAMINATION RESULT ANALYSIS</h3></strong>
                             </div>
                             <div class="card-body">
                                 <!-- Credit Card -->
                                 <div id="pay-invoice">
                                     <div class="card-body">
-                                       <div class="<?php echo $alertStyle;?>" role="alert"><?php echo $statusMsg;?></div>
+                                       
                                         <form method="Post" action="">
                                         <div class="row">
                                         <div class="col-6">
                                          <div class="form-group">
-                                                   
-                                         <label for="x_card_code" class="control-label mb-1">Section</label>
-                                                    
-                                                    <input type="checkbox" name="section" value="A">A</input>
-                                                    <input type="checkbox" name="section" value="B">B</input>
-                                                    <input type="checkbox" name="section" value="ALL">ALL</input>
-                                                        <br><label for="x_card_code" class="control-label mb-1">Semester</label>
-                                                        <input id="" name="semester" type="number" min=1 max=8 class="form-control cc-exp" value=""  placeholder="semester">
+                                         
+                                         
+  <label for="">Department:</label>  <input type="text" id="" name="dept">
+  <label for="">Date:</label>  <input type="date" id="" name="date"><br><br>
+  <label for="">Course:</label>  <input type="text" id="course" name="course"><br><br>
+  <label for="">Academic Year:</label>  <input type="text" id="year" name="year"><br><br>
+  <label for="">Total Students:</label>  <input type="text" id="total" name="total"><br><br>
+  
+
+                                                                                          
+                                                        
                                                     </div>
                                                 </div>
                                          
                                                 
-                                                 <div class="col-6">
-                                                    <div class="form-group">
-                                                    
-                                                   <?php
-                                                        echo"<div id='txtHint'></div>";
-                                                    ?>                                    
-                                                 </div>
-                                                </div>
+                                                 
                                              </div>
-                                                <div>
-												<!-- Log on to codeastro.com for more projects! -->
-                                                <button type="submit" name="submit" class="btn btn-success">Analysis Result</button>
-                                           
-                                         
-                                            
-												
-                                                <button type="submit" name="submit1" class="btn btn-success">Print</button>
-                                            </div>
+                                               
                                         </form>
                                     </div>
                                 </div>
