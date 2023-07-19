@@ -122,9 +122,9 @@ function showValues(str) {
                                                    
                                          <label for="x_card_code" class="control-label mb-1">Section</label>
                                                     
-                                                    <input type="checkbox" name="section" value="A">A</input>
-                                                    <input type="checkbox" name="section" value="B">B</input>
-                                                    <input type="checkbox" name="section" value="ALL">ALL</input>
+                                                    <input type="radio" name="section" value="A" required>A</input>
+                                                    <input type="radio" name="section" value="B">B</input>
+                                                    <input type="radio" name="section" value="ALL">ALL</input>
                                                         <br><label for="x_card_code" class="control-label mb-1">Semester</label>
                                                         <input id="" name="semester" type="number" min=1 max=8 class="form-control cc-exp" value=""  placeholder="semester">
                                                     </div>
@@ -191,10 +191,19 @@ function showValues(str) {
                            
                             {
                                 $semester=$_POST['semester'];
-                               
-
-                                $ret=mysqli_query($con1,"SELECT  SUBJECTNAME,SUBJECTCODE,STAFFANAME,STUDENTAPPEAR,
-                                STUDENTPASS,STUDENTFAIL,PERCENTAGE from section where SEMESTER='$semester'");  
+                                $sec=$_POST['section'];
+                                switch($sec){
+                                    case 'A':
+                                        $sec="'A'";
+                                        break;
+                                    case 'B':
+                                        $sec="'B'";
+                                        break;
+                                    case 'ALL':
+                                        $sec="'A','B'";
+                                        break;
+                                }
+                                $ret=mysqli_query($con1,"SELECT  SUBJECTNAME,SUBJECTCODE from section where SEMESTER='$semester'");  
                                 while($row=mysqli_fetch_array($ret))
                                              {
                                                 

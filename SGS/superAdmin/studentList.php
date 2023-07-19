@@ -208,11 +208,11 @@ function showValues(str) {
                                 switch($semester)
                                 {
                                     case 1:                                        
-                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from first t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ('$sec')");
+                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from first t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ($sec)");
                                         $sem="first";
                                         break;
                                     case 2:
-                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from second t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ('$sec')");     
+                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from second t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ($sec)");     
                                         $sem="second";
                                         break;
                                     case 3:   
@@ -220,37 +220,33 @@ function showValues(str) {
                                         $sem="third";
                                         break;
                                     case 4:   
-                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from four t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ('$sec')");
+                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from four t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ($sec)");
                                         $sem="four";
                                         break;
                                     case 5:   
-                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from five t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ('$sec')");
+                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from five t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ($sec)");
                                         $sem="five";
                                         break;
                                     case 6:   
-                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from six t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ('$sec')");
+                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from six t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ($sec)");
                                         $sem="six";
                                         break;
                                     case 7:   
-                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from seven t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ('$sec')");
+                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from seven t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ($sec)");
                                         $sem="seven";
                                         break;
                                     case 8:   
-                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from eight t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ('$sec')");
+                                        $ret=mysqli_query($con1,"SELECT t1.REGNO,t1.NAME,t1.$code from eight t1 JOIN students t2 ON t1.REGNO=t2.regno WHERE t2.section IN ($sec)");
                                         $sem="eight";
                                         break;
-                                 }//switch kku ullaye while ah run panna venam mam.. switch ulla query ah mattum select pannittu velila
-                                 //comman ah oru while run panna pothum mam.
+                                 }
                                 while($row=mysqli_fetch_array($ret))
-                                {
-                                    
-
-                                ?>   
+                                {      
+                                    ?>   
                                                       
                                         
                     <tr>
-                    <td><?php echo ++$cnt;?></td>
-                    
+                    <td><?php echo ++$cnt;?></td>                    
                     <td><?php  echo $row['REGNO'];?></td>
                     <td><?php  echo $row['NAME'];?></td>
                     <td><?php  echo $row[$code];?></td>
