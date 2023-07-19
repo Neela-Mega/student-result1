@@ -113,8 +113,8 @@ error_reporting(0);
                                             
                                          }
                                                 
-                                         /*echo "<script type = \"text/javascript\">
+                                         echo "<script type = \"text/javascript\">
                                          window.location = (\"studentList4.php\")
-                                         </script>"; */
-                                         echo "hi";
+                                         </script>"; 
+                                         
                                          ?>
