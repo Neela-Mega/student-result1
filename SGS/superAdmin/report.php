@@ -98,7 +98,7 @@ function showValues(str) {
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-							<!-- Log on to codeastro.com for more projects! -->
+							
                             <strong class="card-title"><h3 align="center"> UNIVERSITY EXAMINATION RESULT ANALYSIS</h3></strong>
                             </div>
                             <div class="card-body">
@@ -108,15 +108,18 @@ function showValues(str) {
                                        
                                         <form method="Post" action="">
                                         <div class="row">
-                                        <div class="col-6">
+                                        
                                          <div class="form-group">
                                          
                                          
   <label for="">Department:</label>  <input type="text" id="" name="dept">
   <label for="">Date:</label>  <input type="date" id="" name="date"><br><br>
-  <label for="">Course:</label>  <input type="text" id="course" name="course"><br><br>
+  <label for="">Course:</label>  <input type="text" id="course" name="course">
+  <label for="">Batch:</label>  <input type="text" id="year" name="batch"><br><br>
+  <label for="">Semester:</label>  <input type="text" id="year" name="sem">
   <label for="">Academic Year:</label>  <input type="text" id="year" name="year"><br><br>
-  <label for="">Total Students:</label>  <input type="text" id="total" name="total"><br><br>
+  <label for="">Total Students:</label>  <input type="text" id="total" name="total">
+  <label for="">Section:</label>  <input type="text" id="year" name="sec"><br><br>
   
 
                                                                                           
@@ -139,10 +142,10 @@ function showValues(str) {
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title"><h2 align="center">Result</h2></strong>
+                                <strong class="card-title"><h2 align="center">Report</h2></strong>
                             </div>
                             <div class="card-body">
-                               <table id="bootstrap-data-table" class="table table-hover table-striped table-bordered">
+                               <table id="" class="table table-hover table-striped table-bordered">
                                     <thead>
                                         <tr>
                                             
@@ -154,59 +157,86 @@ function showValues(str) {
                                             <th>NO.OF STUDENTS FAILED </th>
                                             <th>PASS PERCENTAGE </th>
                                             
+                                            </tr>
+                                    </thead>
+                                    <tbody>                                       
+                                    </tbody>
+                            </table>
+                            </div>
+                        </div>
+                    </div>
+                                                                          
+                                            
+                             <div class="col-md-12">
+                            <div class="card">
+                            <div class="card-header">
+                             <strong class="card-title"><h2 align="center">Analysis -This Semester</h2></strong>
+                            </div>
+                            <div class="card-body">
+                               <table id="" class="table table-hover table-striped table-bordered">
+                                    <thead>
+                                        <tr>
                                             
                                             
+                                            <th>NO.OF STUDENTS APPEARED </th>
+                                            <th>All Pass</th>
+                                            <th>One Arrear </th>
+                                            <th>Two Arrears </th>
+                                            <th>Three Arrears </th>
+                                            <th>More than three Arrears </th>
+                                            <th>PASS PERCENTAGE </th>   
+</tr>
+                                    </thead>
+                                    <tbody>                                  
+                                                                                       
+                                    </tbody>
+                            </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title"><h2 align="center">Analysis -Cumulative</h2></strong>
+                            </div>
+                            <div class="card-body">
+                               <table id="" class="table table-hover table-striped table-bordered">
+                                    <thead>
+                                        <tr>
                                             
                                             
-                                            
-                                            
-                                        </tr>
+                                            <th>NO.OF STUDENTS APPEARED </th>
+                                            <th>All Pass</th>
+                                            <th>One Arrear </th>
+                                            <th>Two Arrears </th>
+                                            <th>Three Arrears </th>
+                                            <th>More than three Arrears </th>
+                                            <th>PASS PERCENTAGE </th>
+                                            </tr>
                                     </thead>
                                     <tbody>
+                                    </tbody>
+                            </table>
+                            </div>
+                        </div>
+                    </div>
+                                        
+                                        
+                                                  
+
+              
+                                         
+                    
+                   
+                    
+                    
+                                
+                                        
                                       
-                            <?php
                            
-                            if(isset($_POST['submit']))
                            
-                            {
-                                $semester=$_POST['semester'];
-                               
-
-                                $ret=mysqli_query($con1,"SELECT  SUBJECTNAME,SUBJECTCODE,STAFFANAME,STUDENTAPPEAR,
-                                STUDENTPASS,STUDENTFAIL,PERCENTAGE from section where SEMESTER='$semester'");  
-                                while($row=mysqli_fetch_array($ret))
-                                             {
-                                                
-                                                    ?>
-
-                                <tr>
-                                <td><?php  echo $row['SUBJECTNAME'];?></td>
-                                <td><?php  echo $row['SUBJECTCODE'];?></td>
-                                <td><?php  echo $row['STAFFANAME'];?></td>
-                                <td><?php  echo $row['STUDENTAPPEAR'];?></td>
-                                <td><?php  echo $row['STUDENTPASS'];?></td>
-                                <td><?php  echo $row['STUDENTFAIL'];?></td>
-                                <td><?php  echo $row['PERCENTAGE'];?></td>
-                                             </tr>
-                                             <?php
-            
-                                          }
-                                        }
-                                        if(isset($_POST['submit1'])){
-
-        
-   
-                                            echo "<script type = \"text/javascript\">
-                                            window.location = (\"report.php\")
-                                            </script>"; 
-                                      }
-                                      
-                                      else
-                                        {
-                                          $alertStyle ="alert alert-danger";
-                                          $statusMsg="An error Occurred!";
-                                        }
-                                          ?>
+                           
 
               
                                          
@@ -215,13 +245,37 @@ function showValues(str) {
                     
                     
                                                                                             
-                                </tbody>
-                            </table>
-                            </div>
-                        </div>
-                    </div>
-                                        </div>
+                               
+                                                                           
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        
 
+
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        
+                           
+                           
+                           
+
+              
+                                         
+                    
+                   
+                    
+                    
+                                                                                            
+                               
 <!-- end of datatable -->
         </div><!-- .animated -->
     </div><!-- .content -->
