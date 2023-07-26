@@ -193,8 +193,8 @@ function showValues(str) {
                                 $code=$_POST['subjectcode'];
                                 $semester=$_POST['semester'];
                                 $cnt=$student_present=$student_count=$student_pass=$o_grade=$aplus_grade=$a_grade=$bplus_grade=$b_grade=$c_grade=0;
-                                $sec=$_POST['section'];
-                                switch($sec){
+                                $section=$_POST['section'];
+                                switch($section){
                                     case 'A':
                                         $sec="'A'";
                                         break;
@@ -294,6 +294,7 @@ function showValues(str) {
 <!-- end of datatable -->
 
 <BR>
+                                                        <form action="#" method="post">
                             <div class="row">
                                             <div class="col-6">
                                                     <label for="x_card_code" class="control-label mb-1"> NUMBER OF STUDENTS PRESENT</label>
@@ -359,7 +360,12 @@ function showValues(str) {
                                                     <label for="x_card_code" class="control-label mb-1">STUDENTS HAVE C GRADE</label>
                                                         <input id="" name="c" type="tel" class="form-control cc-cvc" value="<?php echo $c_grade;?>" data-val="true" data-val-required="Please enter the security code" data-val-cc-cvc="Please enter a valid security code" placeholder=" ">
                                                         </div>
-                                                        <button type="submit1" name="submit1" class="btn btn-success">Save Result</button>
+                                                        <input type="hidden" name="staff" value="<?php echo $_POST['facultyName']?>">
+                                                        <input type="hidden" name="code" value="<?php echo $code;?>">
+                                                        <input type="hidden" name="sec" value="<?php echo $section;?>">
+                                                        <input type="hidden" name="student_count" value="<?php echo $student_count;?>">
+                                                        <button type="submit" name="submit1" class="btn btn-success" >Save Result</button>
+                                                        </form>
                     </div>
             </div>
         </div><!-- .animated -->
@@ -367,6 +373,28 @@ function showValues(str) {
     
     <?php 
                              }
+                             if(isset($_POST['submit1'])){
+                                $sec=$_POST['sec'];
+                                $code=$_POST['code'];
+                                $total_student=$_POST['student_count'];
+                                $student_appear=$_POST['present'];
+                                $pass=$_POST['pass'];
+                                $fail=$_POST['fail'];
+                                $percentage=$_POST['percentage'];
+                                $staff=$_POST['staff'];
+                                switch($sec){
+                                case 'A':
+                                    mysqli_query($con1,"UPDATE sectiona SET TOTALSTUDENT=$total_student, STUDENTAPPEAR=$student_appear, STUDENTPASS=$pass, STUDENTFAIL=$fail, PERCENTAGE=$percentage, STAFFANAME='$staff' WHERE SUBJECTCODE='$code'");
+                                    break;
+                                case 'B';
+                                    mysqli_query($con1,"UPDATE sectionb SET TOTALSTUDENT=$total_student, STUDENTAPPEAR=$student_appear, STUDENTPASS=$pass, STUDENTFAIL=$fail, PERCENTAGE=$percentage, STAFFNAME='$staff' WHERE SUBJECTCODE='$code'");
+                                    break;
+                                case 'ALL':
+                                    mysqli_query($con1,"UPDATE section SET TOTALSTUDENT=$total_student, STUDENTAPPEAR=$student_appear, STUDENTPASS=$pass, STUDENTFAIL=$fail, PERCENTAGE=$percentage, STAFFANAME='$staff' WHERE SUBJECTCODE='$code'");
+                                    break;
+                             }
+                            }
+                            
     ?>
 
     <div class="clearfix"></div>

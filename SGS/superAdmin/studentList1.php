@@ -143,12 +143,7 @@ function showValues(str) {
                                                 <div>
 												<!-- Log on to codeastro.com for more projects! -->
                                                 <button type="submit" name="submit" class="btn btn-success">Analysis Result</button>
-                                           
-                                         
-                                            
-												
-                                                <button type="submit" name="submit1" class="btn btn-success">Print</button>
-                                            </div>
+                                                 </div>
                                         </form>
                                     </div>
                                 </div>
@@ -194,16 +189,16 @@ function showValues(str) {
                                 $sec=$_POST['section'];
                                 switch($sec){
                                     case 'A':
-                                        $sec="'A'";
+                                        $ret=mysqli_query($con1,"SELECT  SUBJECTNAME,SUBJECTCODE,STAFFANAME as STAFF,STUDENTAPPEAR,STUDENTPASS,STUDENTFAIL,PERCENTAGE from sectiona where SEMESTER='$semester'");  
                                         break;
                                     case 'B':
-                                        $sec="'B'";
+                                        $ret=mysqli_query($con1,"SELECT  SUBJECTNAME,SUBJECTCODE,STAFFNAME as STAFF,STUDENTAPPEAR,STUDENTPASS,STUDENTFAIL,PERCENTAGE from sectionb where SEMESTER='$semester'");  
                                         break;
                                     case 'ALL':
-                                        $sec="'A','B'";
+                                        $ret=mysqli_query($con1,"SELECT  SUBJECTNAME,SUBJECTCODE,STAFFANAME as STAFF,STUDENTAPPEAR,STUDENTPASS,STUDENTFAIL,PERCENTAGE from section where SEMESTER='$semester'");  
                                         break;
                                 }
-                                $ret=mysqli_query($con1,"SELECT  SUBJECTNAME,SUBJECTCODE from section where SEMESTER='$semester'");  
+                                
                                 while($row=mysqli_fetch_array($ret))
                                              {
                                                 
@@ -212,7 +207,7 @@ function showValues(str) {
                                 <tr>
                                 <td><?php  echo $row['SUBJECTNAME'];?></td>
                                 <td><?php  echo $row['SUBJECTCODE'];?></td>
-                                <td><?php  echo $row['STAFFANAME'];?></td>
+                                <td><?php  echo $row['STAFF'];?></td>
                                 <td><?php  echo $row['STUDENTAPPEAR'];?></td>
                                 <td><?php  echo $row['STUDENTPASS'];?></td>
                                 <td><?php  echo $row['STUDENTFAIL'];?></td>
@@ -223,9 +218,6 @@ function showValues(str) {
                                           }
                                         }
                                         if(isset($_POST['submit1'])){
-
-        
-   
                                             echo "<script type = \"text/javascript\">
                                             window.location = (\"report.php\")
                                             </script>"; 
@@ -237,20 +229,15 @@ function showValues(str) {
                                           $statusMsg="An error Occurred!";
                                         }
                                           ?>
-
-              
-                                         
-                    
-                   
-                    
-                    
-                                                                                            
-                                </tbody>
+                                          </tbody>
                             </table>
                             </div>
+                            </div>
+                            <CENTER><a href="report.php?sem=<?php echo $semester ?>&sec=<?php echo $sec?>">
+                            <button type="submit" name="submit1" class="btn btn-success" style="width:16%">Generate Report</button>
+                            </a></CENTER>
+                            </div>
                         </div>
-                    </div>
-                                        </div>
 
 <!-- end of datatable -->
         </div><!-- .animated -->
