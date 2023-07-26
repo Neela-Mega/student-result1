@@ -1,4 +1,3 @@
-
 <?php
 $staffId = $_SESSION['staffId'];
 $query = mysqli_query($con,"select * from tbladmin where staffId='$staffId'");

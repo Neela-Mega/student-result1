@@ -9,7 +9,12 @@
 
 <!doctype html>
 <!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-<head>
+<head><style>
+        label,input[type=text]{
+            border:none;
+            font-size: 150%;
+        }
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <?php include '../includes/title.php';?>
@@ -58,10 +63,9 @@ function showValues(str) {
     
 </script>
 </head>
-<body>
+<body id="div">
     <!-- Left Panel -->
     <?php $page="result"; include 'includes/leftMenu.php';?>
-
    <!-- /#left-panel -->
 
     <!-- Left Panel -->
@@ -69,12 +73,38 @@ function showValues(str) {
     <!-- Right Panel -->
 
     <div id="right-panel" class="right-panel">
-
+    
         <!-- Header-->
             <?php include 'includes/header.php';?>
         <!-- /header -->
         <!-- Header-->
-
+                    <?php
+                             if(isset($_GET['sem']))                           
+                            {
+                                $semester=$_GET['sem'];
+                                $sec=$_GET['sec'];
+                                switch($sec){
+                                    case 'A':
+                                        $ret=mysqli_query($con1,"SELECT  STAFFANAME as STAFF,SUBJECTNAME,SUBJECTCODE,STUDENTAPPEAR,STUDENTPASS,STUDENTFAIL,PERCENTAGE from sectiona where SEMESTER='$semester'");  
+                                        $dsec='sectiona';
+                                        $sec="'A'";
+                                        $s_count=mysqli_query($con1,"SELECT MAX(STUDENTAPPEAR) as max from sectiona where SEMESTER='$semester'");  
+                                        break;
+                                    case 'B':
+                                        $ret=mysqli_query($con1,"SELECT  STAFFANAME as STAFF,SUBJECTNAME,SUBJECTCODE,STUDENTAPPEAR,STUDENTPASS,STUDENTFAIL,PERCENTAGE from sectionb where SEMESTER='$semester'");  
+                                        $dsec='sectionb';
+                                        $sec="'B'";
+                                        $s_count=mysqli_query($con1,"SELECT MAX(STUDENTAPPEAR) as max from sectionb where SEMESTER='$semester'");  
+                                        break;
+                                    case 'ALL':
+                                        $ret=mysqli_query($con1,"SELECT  STAFFANAME as STAFF,SUBJECTNAME,SUBJECTCODE,STUDENTAPPEAR,STUDENTPASS,STUDENTFAIL,PERCENTAGE from section where SEMESTER='$semester'");  
+                                        $dsec='section';
+                                        $sec="'A','B'";
+                                        $s_count=mysqli_query($con1,"SELECT MAX(STUDENTAPPEAR) as max from section where SEMESTER='$semester'");  
+                                        break;
+                                }
+                            }
+                    ?>
         <div class="breadcrumbs">
             <div class="breadcrumbs-inner">
                 <div class="row m-0">
@@ -100,7 +130,7 @@ function showValues(str) {
                             <div class="card-header">
 							
                             <strong class="card-title"><h3 align="center"> UNIVERSITY EXAMINATION RESULT ANALYSIS</h3></strong>
-                            </div>
+                            </div><br>
                             <div class="card-body">
                                 <!-- Credit Card -->
                                 <div id="pay-invoice">
@@ -110,16 +140,15 @@ function showValues(str) {
                                         <div class="row">
                                         
                                          <div class="form-group">
-                                         
-                                         
-  <label for="">Department:</label>  <input type="text" id="" name="dept">
-  <label for="">Date:</label>  <input type="date" id="" name="date"><br><br>
-  <label for="">Course:</label>  <input type="text" id="course" name="course">
-  <label for="">Batch:</label>  <input type="text" id="year" name="batch"><br><br>
-  <label for="">Semester:</label>  <input type="text" id="year" name="sem">
-  <label for="">Academic Year:</label>  <input type="text" id="year" name="year"><br><br>
-  <label for="">Total Students:</label>  <input type="text" id="total" name="total">
-  <label for="">Section:</label>  <input type="text" id="year" name="sec"><br><br>
+
+  <label for="">Department:</label>  <input type="text" id="" name="dept" value="CSE">
+  <label for="">Date:</label>  <input type="text" id="" name="date" value="<?php echo date("m/d/y"); ?>"><br><br>
+  <label for="">Course:</label>  <input type="text" id="course" name="course" value="BE">
+  <label for="">Batch:</label>  <input type="text" id="year" name="batch" value="<?php $q1=mysqli_query($con1,"SELECT DATABASE()"); $q1=mysqli_fetch_row($q1); echo $q1[0];?>"><br><br>
+  <label for="">Semester:</label>  <input type="text" id="year" name="sem" value="<?php echo $semester;?>">
+  <label for="">Academic Year:</label>  <input type="text" id="year" name="year" value="<?php $yr=explode("-",$q1[0]); echo (int)((int)$yr[0]+($semester/2)); ?>"><br><br>
+  <label for="">Total Students:</label>  <input type="text" id="total" name="total" value="<?php $retrive=mysqli_fetch_array(mysqli_query($con1,"SELECT  MAX(TOTALSTUDENT) AS count from $dsec where SEMESTER='$semester'")); echo $retrive['count']; ?>">
+  <label for="">Section:</label>  <input type="text" id="year" name="sec" value="<?php echo $sec;?>"><br><br>
   
 
                                                                                           
@@ -145,7 +174,7 @@ function showValues(str) {
                                 <strong class="card-title"><h2 align="center">Report</h2></strong>
                             </div>
                             <div class="card-body">
-                               <table id="" class="table table-hover table-striped table-bordered">
+                               <table class="table table-hover table-striped table-bordered">
                                     <thead>
                                         <tr>
                                             
@@ -158,6 +187,24 @@ function showValues(str) {
                                             <th>PASS PERCENTAGE </th>
                                             
                                             </tr>
+                                            <?php
+                                            while($row=mysqli_fetch_array($ret))
+                                             {
+                                                
+                                                    ?>
+
+                                <tr>
+                                <td><?php  echo $row['SUBJECTNAME'];?></td>
+                                <td><?php  echo $row['SUBJECTCODE'];?></td>
+                                <td><?php  echo $row['STAFF'];?></td>
+                                <td><?php  echo $row['STUDENTAPPEAR'];?></td>
+                                <td><?php  echo $row['STUDENTPASS'];?></td>
+                                <td><?php  echo $row['STUDENTFAIL'];?></td>
+                                <td><?php  echo $row['PERCENTAGE'];?></td>
+                                             </tr>
+                                             <?php
+            
+                                          } ?>
                                     </thead>
                                     <tbody>                                       
                                     </tbody>
@@ -165,8 +212,22 @@ function showValues(str) {
                             </div>
                         </div>
                     </div>
-                                                                          
-                                            
+                            <br>                                              
+                              <br> 
+                              <?php 
+                                $print_sem="SEM".$semester;
+                                $pass_Sem=mysqli_query($con1,"SELECT COUNT('$print_sem') from print as t1 JOIN students as t2 ON t1.REGNO=t2.regno WHERE t1.$print_sem=0 AND t2.section IN($sec)");
+                                $one_Sem=mysqli_query($con1,"SELECT COUNT('$print_sem') from print as t1 JOIN students as t2 ON t1.REGNO=t2.regno WHERE t1.$print_sem=1 AND t2.section IN($sec)");
+                                $two_Sem=mysqli_query($con1,"SELECT COUNT('$print_sem') from print as t1 JOIN students as t2 ON t1.REGNO=t2.regno WHERE t1.$print_sem=2 AND t2.section IN($sec)");
+                                $three_Sem=mysqli_query($con1,"SELECT COUNT('$print_sem') from print as t1 JOIN students as t2 ON t1.REGNO=t2.regno WHERE t1.$print_sem=3 AND t2.section IN($sec)");
+                                $more_Sem=mysqli_query($con1,"SELECT COUNT('$print_sem') from print as t1 JOIN students as t2 ON t1.REGNO=t2.regno WHERE t1.$print_sem>3 AND t2.section IN($sec)");
+                                $pass_cum=mysqli_query($con1,"SELECT COUNT(TOTAL) from print as t1 JOIN students as t2 ON t1.REGNO=t2.regno WHERE t1.TOTAL=0 AND t2.section IN($sec)");
+                                $one_cum=mysqli_query($con1,"SELECT COUNT(TOTAL) from print as t1 JOIN students as t2 ON t1.REGNO=t2.regno WHERE t1.TOTAL=1 AND t2.section IN($sec)");
+                                $two_cum=mysqli_query($con1,"SELECT COUNT(TOTAL) from print as t1 JOIN students as t2 ON t1.REGNO=t2.regno WHERE t1.TOTAL=2 AND t2.section IN($sec)");
+                                $three_cum=mysqli_query($con1,"SELECT COUNT(TOTAL) from print as t1 JOIN students as t2 ON t1.REGNO=t2.regno WHERE t1.TOTAL=3 AND t2.section IN($sec)");
+                                $more_cum=mysqli_query($con1,"SELECT COUNT(TOTAL) from print as t1 JOIN students as t2 ON t1.REGNO=t2.regno WHERE t1.TOTAL>3 AND t2.section IN($sec)");
+                                
+                              ?>
                              <div class="col-md-12">
                             <div class="card">
                             <div class="card-header">
@@ -185,7 +246,16 @@ function showValues(str) {
                                             <th>Three Arrears </th>
                                             <th>More than three Arrears </th>
                                             <th>PASS PERCENTAGE </th>   
-</tr>
+                                        </tr>
+                                        <tr>
+                                            <th><?php $s_count=mysqli_fetch_row($s_count); echo $s_count[0]; ?></th>
+                                            <th><?php $pass_Sem=mysqli_fetch_row($pass_Sem); echo $pass_Sem[0]; ?></th>
+                                            <th><?php $one_Sem=mysqli_fetch_row($one_Sem); echo $one_Sem[0]; ?></th>
+                                            <th><?php $two_Sem=mysqli_fetch_row($two_Sem); echo $two_Sem[0]; ?></th>
+                                            <th><?php $three_Sem=mysqli_fetch_row($three_Sem); echo $three_Sem[0]; ?></th>
+                                            <th><?php $more_Sem=mysqli_fetch_row($more_Sem); echo $more_Sem[0]; ?></th>
+                                            <th><?php echo ($pass_Sem[0]/$s_count[0])*100;?></th>
+                                        </tr>
                                     </thead>
                                     <tbody>                                  
                                                                                        
@@ -194,7 +264,7 @@ function showValues(str) {
                             </div>
                         </div>
                     </div>
-                    
+                    <br><br>
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
@@ -214,74 +284,32 @@ function showValues(str) {
                                             <th>More than three Arrears </th>
                                             <th>PASS PERCENTAGE </th>
                                             </tr>
+                                            <tr>
+                                            <th></th>
+                                            <th><?php $pass_cum=mysqli_fetch_row($pass_cum); echo $pass_cum[0]; ?></th>
+                                            <th><?php $one_cum=mysqli_fetch_row($one_cum); echo $one_cum[0]; ?></th>
+                                            <th><?php $two_cum=mysqli_fetch_row($two_cum); echo $two_cum[0]; ?></th>
+                                            <th><?php $three_cum=mysqli_fetch_row($three_cum); echo $three_cum[0]; ?></th>
+                                            <th><?php $more_cum=mysqli_fetch_row($more_cum); echo $more_cum[0]; ?></th>
+                                        </tr>
                                     </thead>
                                     <tbody>
                                     </tbody>
                             </table>
                             </div>
-                        </div>
-                    </div>
-                                        
-                                        
-                                                  
-
-              
-                                         
-                    
-                   
-                    
-                    
-                                
-                                        
-                                      
-                           
-                           
-                           
-
-              
-                                         
-                    
-                   
-                    
-                    
-                                                                                            
-                               
-                                                                           
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                        
-
-
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                        
-                           
-                           
-                           
-
-              
-                                         
-                    
-                   
-                    
-                    
-                                                                                            
+                            
+                        </div>                        
+                        <CENTER>
+                            <button type="submit" name="submit1" class="btn btn-success" style="width:13%" onclick="my()">Print</button>
+                        </CENTER>
+                    </div>                                        
                                
 <!-- end of datatable -->
         </div><!-- .animated -->
     </div><!-- .content -->
     
-    
-    <div class="clearfix"></div>
+            </div>
+                <div class="clearfix"></div>
 
         <?php include 'includes/footer.php';?>
 
@@ -291,6 +319,24 @@ function showValues(str) {
 <!-- Right Panel -->
 
 <!-- Scripts -->
+
+<script>
+                    function my(){
+                        document.getElementById("left-panel").style.display="none";
+                        document.getElementById("header").style.display="none";
+                        var obj='<html><head>\n';
+                        obj+='<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">\n';
+                        obj+='</head>\n<body>\n';
+                        obj+=document.getElementById("div").innerHTML;
+                        obj+='</body>\n';
+                        w=window.open();
+                        w.document.write(obj);
+                        w.print();
+                        w.close();
+                        document.getElementById("header").style.display="block";
+                        document.getElementById("left-panel").style.display="block";
+                    }
+                    </script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
