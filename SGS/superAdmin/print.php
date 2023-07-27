@@ -4,15 +4,17 @@ error_reporting(0);
 
                     $sems=array("first","second","third"); 
                                        $ret3=mysqli_query($con1,"select regno from students");
+                                      
                                        while($row1=mysqli_fetch_array($ret3)){
                                         $REG=$row1['regno'];
+                                        $c_cgpa=array(0);
                                         $cum_cgpa=$final_arrear_flag=0;
                                         for($i=0;$i<3;$i++){
                                             $print_sem="SEM".$i+1;
                                $print_CGPA="CGPA".$i+1;
                                 $sub_count=$cons_arr=0;
                                 $creadit=array(0); 
-                                $c_cgpa=array(0);
+                                
                                $query1=mysqli_query($con1,"show columns from $sems[$i]");   
                                 while($row2=mysqli_fetch_array($query1))
                                              {  
@@ -30,6 +32,7 @@ error_reporting(0);
                                         $query3=mysqli_query($con1,"select * from  $sems[$i] WHERE REGNO=$REG");
                                         $row3=mysqli_fetch_row($query3);
                                             $total_creadit=array_sum($creadit);
+                                            
                                                 $cgpa=$arrear_flag=$no_of_arrears=0;
                                                 for($j=2;$j<$sub_count+2;$j++){
                                                     $value=GradeValue($row3[$j]);                                              
@@ -39,13 +42,15 @@ error_reporting(0);
                                                     $final_cgpa= number_format($cgpa/$total_creadit,2,'.',''); 
                                                 else 
                                                 $final_cgpa= 0;
+                                                $f_creadit=0;
                                                 $ret=mysqli_query($con1,"update print t1 JOIN $sems[$i] t2 ON t1.REGNO=t2.REGNO SET t1.$print_CGPA=$final_cgpa,t2.CGPA=$final_cgpa WHERE t1.REGNO=$REG");
                                                $ret=mysqli_query($con1,"update print t1 JOIN $sems[$i] t2 ON t1.REGNO=t2.REGNO SET t1.$print_sem=$no_of_arrears,t2.ARREARS=$no_of_arrears WHERE t1.REGNO=$REG");
                                                $cum_cgpa+=$cgpa;
-                                            }
+                                             }
                                             if($final_arrear_flag!=1)  {                                       
-                                            $final_cgpa=$cum_cgpa/array_sum($c_cgpa); 
-                                            echo $cum_cgpa."/".array_sum($c_cgpa)."=".$final_cgpa."</br>";}
+                                            $final_cgpa=$cum_cgpa/array_sum($c_cgpa);
+                                            echo $cum_cgpa."/".array_sum($c_cgpa)."=".$final_cgpa."</br>";
+                                            }
                                             else 
                                                 $final_cgpa= 0;
                                             mysqli_query($con1,"update print SET FINAL=$final_cgpa WHERE REGNO=$REG");
@@ -111,9 +116,9 @@ error_reporting(0);
                                             
                                             
                                          }
-                                         /*       
+                                               
                                          echo "<script type = \"text/javascript\">
                                          window.location = (\"studentList4.php\")
-                                         </script>"; */
+                                         </script>"; 
                                          
                                          ?>
