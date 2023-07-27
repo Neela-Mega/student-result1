@@ -47,12 +47,11 @@ error_reporting(0);
                                                $ret=mysqli_query($con1,"update print t1 JOIN $sems[$i] t2 ON t1.REGNO=t2.REGNO SET t1.$print_sem=$no_of_arrears,t2.ARREARS=$no_of_arrears WHERE t1.REGNO=$REG");
                                                $cum_cgpa+=$cgpa;
                                              }
-                                            if($final_arrear_flag!=1)  {                                       
+                                            if($final_arrear_flag!=1)                                   
                                             $final_cgpa=$cum_cgpa/array_sum($c_cgpa);
-                                            echo $cum_cgpa."/".array_sum($c_cgpa)."=".$final_cgpa."</br>";
-                                            }
                                             else 
                                                 $final_cgpa= 0;
+                                                $final_cgpa=number_format($final_cgpa,2,'.','');
                                             mysqli_query($con1,"update print SET FINAL=$final_cgpa WHERE REGNO=$REG");
                                         }
                                        
