@@ -91,7 +91,7 @@ function showValues(str) {
                                         $s_count=mysqli_query($con1,"SELECT MAX(STUDENTAPPEAR) as max from sectiona where SEMESTER='$semester'");  
                                         break;
                                     case 'B':
-                                        $ret=mysqli_query($con1,"SELECT  STAFFANAME as STAFF,SUBJECTNAME,SUBJECTCODE,STUDENTAPPEAR,STUDENTPASS,STUDENTFAIL,PERCENTAGE from sectionb where SEMESTER='$semester'");  
+                                        $ret=mysqli_query($con1,"SELECT STAFFNAME as STAFF,SUBJECTNAME,SUBJECTCODE,STUDENTAPPEAR,STUDENTPASS,STUDENTFAIL,PERCENTAGE from sectionb where SEMESTER='$semester'");  
                                         $dsec='sectionb';
                                         $sec="'B'";
                                         $s_count=mysqli_query($con1,"SELECT MAX(STUDENTAPPEAR) as max from sectionb where SEMESTER='$semester'");  
@@ -226,7 +226,7 @@ function showValues(str) {
                                 $two_cum=mysqli_query($con1,"SELECT COUNT(TOTAL) from print as t1 JOIN students as t2 ON t1.REGNO=t2.regno WHERE t1.TOTAL=2 AND t2.section IN($sec)");
                                 $three_cum=mysqli_query($con1,"SELECT COUNT(TOTAL) from print as t1 JOIN students as t2 ON t1.REGNO=t2.regno WHERE t1.TOTAL=3 AND t2.section IN($sec)");
                                 $more_cum=mysqli_query($con1,"SELECT COUNT(TOTAL) from print as t1 JOIN students as t2 ON t1.REGNO=t2.regno WHERE t1.TOTAL>3 AND t2.section IN($sec)");
-                                
+                                $yr_cum=((int)date("Y")-$yr[0])*2;
                               ?>
                              <div class="col-md-12">
                             <div class="card">
@@ -285,24 +285,25 @@ function showValues(str) {
                                             <th>PASS PERCENTAGE </th>
                                             </tr>
                                             <tr>
-                                            <th></th>
+                                            <th><?php if(((int)date("m"))>=8) $c_sem= $yr_cum; else $c_sem= $yr_cum-1; 
+                                            $cum_count=mysqli_query($con1,"SELECT MAX(STUDENTAPPEAR) as max from $dsec where SEMESTER='$c_sem'");
+                                            $cum_count=mysqli_fetch_row($cum_count);
+                                            echo $cum_count[0];?></th>
                                             <th><?php $pass_cum=mysqli_fetch_row($pass_cum); echo $pass_cum[0]; ?></th>
                                             <th><?php $one_cum=mysqli_fetch_row($one_cum); echo $one_cum[0]; ?></th>
                                             <th><?php $two_cum=mysqli_fetch_row($two_cum); echo $two_cum[0]; ?></th>
                                             <th><?php $three_cum=mysqli_fetch_row($three_cum); echo $three_cum[0]; ?></th>
                                             <th><?php $more_cum=mysqli_fetch_row($more_cum); echo $more_cum[0]; ?></th>
+                                            <th><?php echo ($pass_cum[0]/$cum_count[0])*100; ?></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     </tbody>
                             </table>
-                            </div>
-                            
-                        </div>                        
+                            </div>                      
                         <CENTER>
                             <button type="submit" name="submit1" class="btn btn-success" style="width:13%" onclick="my()">Print</button>
-                        </CENTER>
-                    </div>                                        
+                        </CENTER>                                    
                                
 <!-- end of datatable -->
         </div><!-- .animated -->

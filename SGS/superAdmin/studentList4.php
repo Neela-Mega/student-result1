@@ -140,37 +140,16 @@ function showValues(str) {
                                             <th> GPA7</th>
                                             <th> GPA8</th>
                                             <th> CGPA</th>
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                      
+                                    <tbody>      
                             <?php
-                           
-                           
                            $ret=mysqli_query($con1,"SELECT * from print");
-                           
-                           
-                                        
                            while ($row=mysqli_fetch_array($ret)) {
-                            
                                                ?>
                            <tr>
-                           
-                           
                            <td><?php  echo $row['REGNO'];?></td>
                            <td><?php  echo $row['NAME'];?></td>
-                                                
-                                               
-                               
-                                
-                                
                                  <td><?php  echo $row[2];?></td>
                                  <td><?php  echo $row[3];?></td>
                                  <td><?php  echo $row[4];?></td>
@@ -189,29 +168,18 @@ function showValues(str) {
                                  <td><?php  echo $row[17];?></td>
                                  <td><?php  echo $row[18];?></td>
                                  <td><?php  echo $row[19];?></td>
-
                     <?php 
-                    
                     } 
-                                  
-                                    
                                           ?>
-
-            
-            
-                                         
-                    
-                   
-                    
-                    
-                                                                                            
                                 </tbody>
                             </table>
                             </div>
                         </div>
                     </div>
 <!-- end of datatable -->
-
+                        <CENTER>
+                            <button type="submit" name="submit1" class="btn btn-success" style="width:9%" onclick="my()">Print</button>
+                        </CENTER> 
             </div>
         </div><!-- .animated -->
     </div><!-- .content -->
@@ -224,7 +192,39 @@ function showValues(str) {
 </div><!-- /#right-panel -->
 
 <!-- Right Panel -->
-
+<script>
+                    function my(){
+                        document.getElementById("left-panel").style.display="none";
+                        document.getElementById("header").style.display="none";
+                        var obj='<html><head>\n';
+                        obj+='<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">\n';
+                        obj+='<style>table,td,th{ border: 1px solid; text-align:center;} table{ border-collapse:collapse;}label,input[type=text]{border:none;font-size: 100%;}</style>';
+                        obj+='</head>\n<body>\n';
+                        obj+='<div class="breadcrumbs"><div class="breadcrumbs-inner"><div class="row m-0"><div class="col-lg-12"><div class="card">';
+                        obj+='<div class="card-header"><strong class="card-title"><h3 align="center">MOOKABIGAI COLLEGE OF ENGINEERING </h3></strong><strong class="card-title"><h4 align="center">Srinivasa Nagar,Keeranur-622502 </h4></strong>';
+                        obj+='</div></div></div></div></div></div>';
+                        obj+="<label>Batch:</label>  <input type='text' id='year' name='batch' value='<?php $q1=mysqli_query($con1,"SELECT DATABASE()"); $q1=mysqli_fetch_row($q1); echo $q1[0];?>'><div  style='float:right;'><label>Date:</label><input type='text' name='date' value='<?php echo date("m/d/y"); ?>'></div><br><br>";
+                        obj+='<table><thead><tr>';
+                        obj+="<th>Reg.no</th><th>Student Name</th><th> SA1</th><th> SA2</th><th> SA3</th><th> SA4</th><th> SA5</th><th> SA6</th><th> SA7</th>";
+                        obj+="<th> SA8</th><th> ARREARS(ALL)</th><th> GPA1</th><th> GPA2</th><th> GPA3</th><th> GPA4</th><th> GPA5</th><th> GPA6</th><th> GPA7</th>";
+                        obj+="<th> GPA8</th><th> CGPA</th></tr></thead><tbody>\n";
+                        obj+="<?php $ret=mysqli_query($con1,"SELECT * from print"); while ($row=mysqli_fetch_array($ret)) { ?>";
+                        obj+="<tr><td><?php  echo $row['REGNO'];?></td><td><?php  echo $row['NAME'];?></td>";
+                        obj+="<td><?php  echo $row[2];?></td><td><?php  echo $row[3];?></td><td><?php  echo $row[4];?></td><td><?php  echo $row[5];?></td>";
+                        obj+="<td><?php  echo $row[6];?></td><td><?php  echo $row[7];?></td><td><?php  echo $row[8]?></td><td><?php  echo $row[9];?></td><td><?php  echo $row[10];?></td>";
+                        obj+="<td><?php  echo $row[11];?></td><td><?php  echo $row[12];?></td><td><?php  echo $row[13];?></td><td><?php  echo $row[14];?></td><td><?php  echo $row[15];?></td><td><?php  echo $row[16];?></td>";
+                        obj+="<td><?php  echo $row[17];?></td><td><?php  echo $row[18];?></td><td><?php  echo $row[19];?></td>";
+                        obj+="<?php  }  ?>";     
+                        obj+="</tbody></table>";
+                        obj+='</body>\n';
+                        w=window.open();
+                        w.document.write(obj);
+                        w.print();
+                        w.close();
+                        document.getElementById("header").style.display="block";
+                        document.getElementById("left-panel").style.display="block";
+                    }
+                    </script>
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
