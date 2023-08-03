@@ -142,13 +142,13 @@ function showValues(str) {
                                          <div class="form-group">
 
   <label for="">Department:</label>  <input type="text" id="" name="dept" value="CSE">
-  <label for="">Date:</label>  <input type="text" id="" name="date" value="<?php echo date("m/d/y"); ?>"><br><br>
+  <label  for="">Date:</label>  <input type="text" id="" name="date" value="<?php echo date("m/d/y"); ?>"><br>
   <label for="">Course:</label>  <input type="text" id="course" name="course" value="BE">
-  <label for="">Batch:</label>  <input type="text" id="year" name="batch" value="<?php $q1=mysqli_query($con1,"SELECT DATABASE()"); $q1=mysqli_fetch_row($q1); echo $q1[0];?>"><br><br>
+  <label for="">Batch:</label>  <input type="text" id="year" name="batch" value="<?php $q1=mysqli_query($con1,"SELECT DATABASE()"); $q1=mysqli_fetch_row($q1); echo $q1[0];?>"><br>
   <label for="">Semester:</label>  <input type="text" id="year" name="sem" value="<?php echo $semester;?>">
-  <label for="">Academic Year:</label>  <input type="text" id="year" name="year" value="<?php $yr=explode("-",$q1[0]); echo (int)((int)$yr[0]+($semester/2)); ?>"><br><br>
+  <label for="">Academic Year:</label>  <input type="text" id="year" name="year" value="<?php $yr=explode("-",$q1[0]); echo (int)((int)$yr[0]+($semester/2)); ?>"><br>
   <label for="">Total Students:</label>  <input type="text" id="total" name="total" value="<?php $retrive=mysqli_fetch_array(mysqli_query($con1,"SELECT  MAX(TOTALSTUDENT) AS count from $dsec where SEMESTER='$semester'")); echo $retrive['count']; ?>">
-  <label for="">Section:</label>  <input type="text" id="year" name="sec" value="<?php echo $sec;?>"><br><br>
+  <label for="">Section:</label>  <input type="text" id="year" name="sec" value="<?php echo $sec;?>"><br>
   
 
                                                                                           
@@ -300,13 +300,16 @@ function showValues(str) {
                                     <tbody>
                                     </tbody>
                             </table>
+                           
                             </div>                      
-                        <CENTER>
+                            <CENTER>
                             <button type="submit" name="submit1" class="btn btn-success" style="width:13%" onclick="my()">Print</button>
-                        </CENTER>                                    
+                        </CENTER>                                  
                                
 <!-- end of datatable -->
+
         </div><!-- .animated -->
+        
     </div><!-- .content -->
     
             </div>
