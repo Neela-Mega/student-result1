@@ -142,7 +142,7 @@ function showValues(str) {
                                          <div class="form-group">
 
   <label for="">Department:</label>  <input type="text" id="" name="dept" value="CSE">
-  <label  for="">Date:</label>  <input type="text" id="" name="date" value="<?php echo date("m/d/y"); ?>"><br>
+  <label  for="" align="right">Date:</label>  <input type="text" id="" name="date" value="<?php echo date("m/d/y"); ?>"><br>
   <label for="">Course:</label>  <input type="text" id="course" name="course" value="BE">
   <label for="">Batch:</label>  <input type="text" id="year" name="batch" value="<?php $q1=mysqli_query($con1,"SELECT DATABASE()"); $q1=mysqli_fetch_row($q1); echo $q1[0];?>"><br>
   <label for="">Semester:</label>  <input type="text" id="year" name="sem" value="<?php echo $semester;?>">
@@ -300,19 +300,20 @@ function showValues(str) {
                                     <tbody>
                                     </tbody>
                             </table>
-                           
-                            </div>                      
+                            </div> 
+                                              
                             <CENTER>
                             <button type="submit" name="submit1" class="btn btn-success" style="width:13%" onclick="my()">Print</button>
-                        </CENTER>                                  
+                        </CENTER>   
+                                                       
                                
 <!-- end of datatable -->
 
         </div><!-- .animated -->
         
     </div><!-- .content -->
-    
-            </div>
+    </div>
+            
                 <div class="clearfix"></div>
 
         <?php include 'includes/footer.php';?>
